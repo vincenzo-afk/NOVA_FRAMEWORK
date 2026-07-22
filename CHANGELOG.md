@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/nova-logo.png" alt="NOVA logo" width="160"/>
+</p>
+
 # Changelog
 
 All notable changes to this documentation repository are recorded here.
@@ -6,6 +10,36 @@ has not yet reached a versioned software release, so entries below track
 documentation milestones, not code releases.
 
 ## [Unreleased]
+
+### Added — Nova Max documentation expansion
+- NOVA logo added to `docs/assets/nova-logo.png` and embedded in README,
+  ROADMAP, FAQ, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, and CHANGELOG.
+- `docs/29-product/` — full product specification layer (22 files).
+- `docs/30-design/` — full design system documentation (26 files).
+- `docs/31-user-flows/` — 14 step-by-step user flows.
+- `docs/40-screens/` — per-screen specs with mandatory state coverage (12 files).
+- `docs/41-components/` — shared component specs (13 files).
+- `docs/42-design-qa/` — design QA checklists (6 files).
+- `docs/35-analytics/` — event/metrics/privacy telemetry docs (6 files).
+- `docs/36-failure-catalog/` — categorized failure quick-reference (21 files).
+- `docs/37-edge-cases/` — 21 concrete, test-required edge cases.
+- `docs/38-disaster-recovery/` — 8 recovery/backup/migration docs.
+- `docs/39-performance-budgets/` — 10 numeric performance budget docs.
+- `docs/46-ai-evaluation/` — 9 AI quality/safety benchmark docs.
+- `docs/47-runbooks/` — 10 on-call runbooks.
+- `docs/48-incident-response/` — incident process docs.
+- `docs/44-product-design-failure-cases/` — product failure scenarios and
+  the full required-UI-state checklist.
+- `docs/43-ai-development/` — implementation order, coding guidelines,
+  architecture index, dependency map, task/context generation,
+  acceptance criteria, definition of done, coding + review checklists,
+  and common AI-agent pitfalls, written specifically to make AI-generated
+  code correct on the first pass.
+- `docs/45-code-perfection-failure-modes/` — 12 subsystem-level
+  code-generation-time failure catalogs (memory/state, planner/executor,
+  model router, async/concurrency, tool execution, workflows, plugins,
+  multi-device sync, UI state, data validation, error handling, testing
+  blind spots) — the deepest failure-mode content in the repository.
 
 No further open-ended gap-analysis passes are queued beyond the v5
 evolution below. See `ROADMAP.md`'s note on further gap-analysis for why:

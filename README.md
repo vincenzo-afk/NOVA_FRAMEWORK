@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/nova-logo.png" alt="NOVA logo" width="160"/>
+</p>
+
 # NOVA — Personal AI Runtime
 
 > Observe → Remember → Reason → Act → Verify
@@ -24,11 +28,24 @@ This repository is documentation-only. It is the single source of truth for
 NOVA's architecture, decisions, and specifications. No source code lives
 here.
 
+## Before writing any code
+
+If you are an AI agent (or a human) about to implement any part of NOVA,
+read these two directories first, in this order:
+
+1. `docs/43-ai-development/implementation-order.md` — what to build, and
+   in what sequence, so nothing is built against an interface that
+   doesn't exist yet.
+2. `docs/45-code-perfection-failure-modes/INDEX.md` — the concrete,
+   subsystem-by-subsystem landmines that make generated code *look*
+   correct while being subtly wrong. Read the file for the subsystem
+   your task touches before writing code, not after something breaks.
+
 ## How this repository is organized
 
 | Path | Contents |
 |---|---|
-| `docs/00-overview/` | Vision, goals, non-goals, design principles, terminology |
+| `docs/00-overview/` | Vision, goals, non-goals, design principles, engineering principles, AI implementation philosophy, success criteria, constraints, terminology |
 | `docs/01-product/` | Product specification, personas, use cases, scope, success metrics |
 | `docs/02-architecture/` | System, runtime, and service architecture |
 | `docs/03-runtime/` | Core services: planner, executor, verifier, observer, world model |
@@ -41,10 +58,10 @@ here.
 | `docs/10-security/` | Security model, permissions, encryption, threat model |
 | `docs/11-performance/` | Performance goals and budgets |
 | `docs/12-testing/` | Testing strategy |
-| `docs/13-devops/` | Deployment, backup, recovery, monitoring |
+| `docs/13-devops/` | Deployment, backup, recovery, monitoring, consolidated persistence spec (storage/caching/sync/conflict resolution/transactions/migration/backup/restore) |
 | `docs/14-development/` | Coding standards, implementation order, milestones |
 | `docs/15-decisions/` | Architecture Decision Records (ADRs) |
-| `docs/16-extensibility/` | Plugin/extension system: lifecycle, permissions, versioning, dependencies, marketplace, sandboxing |
+| `docs/16-extensibility/` | Plugin/extension system: lifecycle, permissions, versioning, dependencies, marketplace, sandboxing, extension points (what's customizable/fixed/forbidden) |
 | `docs/17-workflow/` | The workflow engine: branching, parallel execution, human-approval gates, rollback for tasks too complex for the linear planning loop |
 | `docs/18-providers/` | Provider interface, capability management, routing, hardware detection, local/cloud model & credential management, MCP server management (v5) |
 | `docs/19-setup/` | First-time setup wizard and the persistent configuration system it writes to (v5) |
@@ -53,8 +70,29 @@ here.
 | `docs/22-voice/` | Always-listening voice assistant, wake word, streaming/barge-in, local & cloud speech models (v5) |
 | `docs/23-autonomy/` | Autonomous plugin/MCP discovery, automatic software installation, self-growing capability, strategy evaluation (comparison/promotion/retirement of recurring-task strategies), goal tracking (persistent multi-week objectives), personal analytics, adaptive personalization, background life assistant (v5) |
 | `docs/24-collaboration/` | Multi-agent collaboration and the browser as a first-class reasoning surface (v5) |
+| `docs/25-failure-modes/` | Project-wide failure-mode catalog: every way each subsystem can break, with trigger conditions, detection methods, severity, mitigation, and recovery procedures. Read the relevant `FM-NN-*.md` file before implementing any subsystem — start at `docs/25-failure-modes/INDEX.md` |
+| `docs/26-system-reference/` | Build-order dependency tree, startup/shutdown sequences, state transition tables, data ownership map, error catalog, event catalog, configuration reference, version compatibility matrix, feature maturity table, sequence diagrams, cross-cutting data models catalog, and the documentation-lint/CI process that keeps all of it honest — every file also documents how *it itself* can drift from reality (see `docs/25-failure-modes/FM-24-documentation-and-reference-integrity.md`) |
+| `docs/27-cli/` | The `nova` developer CLI: bootstrap (`init`/`doctor`/`diagnostics`/`upgrade`/`repair`), dev infrastructure (devcontainer/Nix/Docker/one-line installers/`env`/`config`), AI developer tools (`context`/`task`/`impact`/`docs`/`graph`), observability commands, plugin & AI SDKs, and the hidden-gold commands (`sandbox`/`benchmark`/`explain`/`migrate`/`report`/`verify`/`clean`) plus the full CI/CD check pipeline — see `docs/25-failure-modes/FM-25-cli-infrastructure.md` |
+| `docs/28-multi-device-protocol/` | Cross-device sync, device pairing, session continuity/handoff, presence & capability negotiation, networking/discovery, global state & sync timing, cross-device permissions/notifications, file transfer & media streaming, config/secrets/plugin distribution, identity & workspace, recovery & backup, cross-subsystem lifecycle patterns, resource arbitration & offline mode, time & version compatibility, migration, and operational extras — see `docs/25-failure-modes/FM-26-multi-device-protocol.md` |
 | `docs/diagrams/` | Standalone Mermaid diagrams referenced across the repo |
 | `docs/references/` | Research, inspirations, comparisons, bibliography |
+| `docs/29-product/` | Product specification layer: vision, principles, personas, JTBD, feature catalog/priorities/flags, onboarding, accessibility, localization, settings, privacy, licensing, roadmap |
+| `docs/30-design/` | Design system: principles, tokens, typography, spacing, color, motion, dark mode, interaction/feedback patterns, navigation, branding |
+| `docs/31-user-flows/` | Step-by-step flows for chat, voice, memory, plugins, pairing, workflows, tool execution, provider selection, recovery, onboarding, updates, auth, workspaces |
+| `docs/40-screens/` | One spec per screen — layout, components, interactions, and every required state (loading/empty/error/offline/permission/partial) |
+| `docs/41-components/` | Shared UI component specs (button, card, list, modal, prompt box, memory/workflow/plugin/provider cards, etc.) |
+| `docs/42-design-qa/` | Visual regression, accessibility, responsive, spacing, animation, and typography QA checklists |
+| `docs/35-analytics/` | Event taxonomy, funnels, north-star/guardrail metrics, retention definition, privacy-safe telemetry rules |
+| `docs/36-failure-catalog/` | Categorized quick-reference failure lists per subsystem |
+| `docs/37-edge-cases/` | Concrete edge-case scenarios (power loss, disk full, clock skew, sync/file conflicts, corruption), each requiring a test |
+| `docs/38-disaster-recovery/` | Complete/partial recovery, backup, restore, rollback, migration, crash & state recovery |
+| `docs/39-performance-budgets/` | Numeric latency/resource budgets for chat, memory, startup, shutdown, CPU, GPU, memory, battery |
+| `docs/46-ai-evaluation/` | Benchmarks for reasoning, tool use, memory recall, planning, workflows, providers, hallucination, grounding, and safety |
+| `docs/47-runbooks/` | Symptom → detection → logs → root cause → recovery → escalation runbooks for the most likely on-call scenarios |
+| `docs/48-incident-response/` | Incident lifecycle, severity levels, communication style, postmortem template, root-cause-analysis method |
+| `docs/43-ai-development/` | **Start here before generating any code.** Implementation order, coding guidelines, architecture index, dependency map, task/context generation, acceptance criteria, definition of done, coding + review checklists, common AI-agent pitfalls |
+| `docs/44-product-design-failure-cases/` | Product-level failure scenarios and the full required-state checklist every screen must implement |
+| `docs/45-code-perfection-failure-modes/` | **The most important directory for correctness.** Code-generation-time landmines (not runtime failures) per subsystem: memory/state, planner/executor/verifier, model router/providers, async/concurrency, tool execution/permissions, workflow engine, plugins/sandboxing, multi-device/sync, UI/state binding, data validation/schemas, error handling/logging, testing blind spots |
 
 **Status:** Core v1 specification (three gap-analysis passes) plus the
 **v5 architecture evolution** are complete (see `CHANGELOG.md` for the

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/nova-logo.png" alt="NOVA logo" width="160"/>
+</p>
+
 # Contributing to NOVA
 
 ## Before you write code
