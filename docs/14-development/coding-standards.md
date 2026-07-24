@@ -16,8 +16,7 @@ negotiables (deterministic-first, risk-tiering, execution priority) are
 ## Module structure mirrors documentation structure
 
 Each service documented in `docs/03-runtime/` corresponds to one
-top-level module in the codebase, named identically (e.g., the `planner`
-module implements `docs/03-runtime/planner.md`) — a reader jumping from
+top-level module in the codebase, named identically (e.g., the `planner` module implements `docs/03-runtime/planner.md`) — a reader jumping from
 documentation to code should never need to guess which module
 corresponds to which document.
 

@@ -34,7 +34,7 @@ flowchart TD
     L --> M[Ready]
 ```
 
-Services start in dependency order derived from `dependency-map.md` —
+Services start in dependency order derived from `docs/02-architecture/dependency-map.md` —
 Memory and Knowledge Graph must be available before Observer begins
 emitting events that expect to be written somewhere, and before Planner
 can build context. Plugin discovery and capability registration happen
@@ -99,8 +99,7 @@ sequence (power loss, forced termination), the next startup performs:
    `docs/04-memory/memory-storage.md`); a failed check triggers restore
    from the most recent valid snapshot (`docs/13-devops/backup.md`,
    Tier 3).
-2. Recovery of Task Manager state: any task that was in `executing` or
-   `verifying` state at crash time is marked `unverified` on restart,
+2. Recovery of Task Manager state: any task that was in `executing` or `verifying` state at crash time is marked `unverified` on restart,
    never silently assumed complete or silently dropped — this is a direct
    consequence of the Task Success Score definition in
    `docs/01-product/success-metrics.md`, which treats unverifiable outcomes
@@ -123,7 +122,7 @@ one-workspace-per-OS-account boundary in
 
 - `docs/03-runtime/service-lifecycle.md` — per-service startup/shutdown
   detail and state machine
-- `dependency-map.md` — the dependency order referenced above
+- `docs/02-architecture/dependency-map.md` — the dependency order referenced above
 - `docs/13-devops/backup.md` (Tier 3) — snapshot and restore mechanics
 - `docs/16-extensibility/plugin-lifecycle.md` — plugin discovery and
   startup detail

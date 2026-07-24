@@ -57,8 +57,7 @@ Planner emits `not_required` or `pending` only.
 ```
 
 `error` is present only when `status` is `failure` or `partial`, and its
-`category` field uses the failure taxonomy in
-`docs/03-runtime/failure-recovery.md` — this is what allows the Planner's
+`category` field uses the failure taxonomy in `docs/03-runtime/failure-recovery.md` — this is what allows the Planner's
 replan decision to be driven by category, not by parsing a free-text
 error message.
 

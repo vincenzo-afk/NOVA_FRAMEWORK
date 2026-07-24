@@ -14,7 +14,7 @@
    allow/deny rules (e.g. no auto-sending to addresses outside the user's
    contact graph) — coarse-grained checks miss argument-level abuse.
 3. **Destructive tool calls (delete, overwrite, send) missing a
-   dry-run/confirmation path** required by `10-security/permission-escalation.md`
+   dry-run/confirmation path** required by `docs/10-security/permission-escalation.md`
    for actions above a defined risk tier.
 4. **Tool timeout not distinguishing "tool is slow" from "tool
    succeeded but response was lost"** — blindly retrying a timed-out

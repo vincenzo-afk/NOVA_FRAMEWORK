@@ -29,7 +29,7 @@ not just a technical fallback.
   rather than retrying against invalid credentials indefinitely.
 - **User accidentally deletes memories.** A short, clearly-communicated
   undo window exists before permanent deletion (aligned with
-  `10-security/permissions.md`'s data-control commitments).
+  `docs/10-security/permissions.md`'s data-control commitments).
 - **User starts voice while another device is already recording.**
   NOVA disambiguates which device should be authoritative for the
   session rather than both processing the same audio into duplicate

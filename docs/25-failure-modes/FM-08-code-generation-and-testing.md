@@ -8,11 +8,7 @@ Failures specific to NOVA generating and validating software artifacts on the us
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/12-testing/testing-strategy.md`
-- `docs/12-testing/unit-tests.md`
-- `docs/12-testing/integration-tests.md`
-- `docs/12-testing/e2e-tests.md`
-- `docs/12-testing/chaos-tests.md`
+- `docs/12-testing/testing-strategy.md` - `docs/12-testing/unit-tests.md` - `docs/12-testing/integration-tests.md` - `docs/12-testing/e2e-tests.md` - `docs/12-testing/chaos-tests.md`
 
 ## Failure Catalog
 

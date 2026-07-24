@@ -33,13 +33,12 @@ this table gives the summary and the cross-reference.
 - **Fields:** `task_id` (UUID, immutable), `state`, `plan_ref`,
   `parent_task_id` (nullable), `created_at`, `updated_at`,
   `origin` (user / autonomous / scheduled).
-- **Validation:** `state` must be a valid transition per
-  `docs/26-system-reference/04-state-transition-tables.md`.
+- **Validation:** `state` must be a valid transition per `docs/26-system-reference/04-state-transition-tables.md`.
 - **Constraints:** exactly one current state at any moment
   (`system-invariants.md`); `task_id` is never reused.
 - **Defaults:** `state = Pending` on creation.
 - **Lifecycle:** Created → Planned → Executing → (Paused ↔ Executing) →
-  Completed / Failed / Cancelled. See `03-runtime/task-manager.md`.
+  Completed / Failed / Cancelled. See `docs/03-runtime/task-manager.md`.
 - **Serialization:** JSON, versioned envelope (see Event System,
   `07-event-catalog.md`).
 - **Persistence:** durable store keyed by `task_id`; see
@@ -53,8 +52,7 @@ this table gives the summary and the cross-reference.
   `docs/04-memory/knowledge-graph.md`)
 - **Fields:** `node_id` (UUID, immutable), `type`, `content`,
   `confidence`, `source_task_id`, `created_at`, `version`.
-- **Validation:** `type` must be one of the types enumerated in
-  `docs/04-memory/memory-types.md`; graph must remain acyclic
+- **Validation:** `type` must be one of the types enumerated in `docs/04-memory/memory-types.md`; graph must remain acyclic
   (`system-invariants.md`).
 - **Constraints:** never references a deleted node directly — deletion
   produces a tombstone (`docs/04-memory/memory-garbage-collection.md`).

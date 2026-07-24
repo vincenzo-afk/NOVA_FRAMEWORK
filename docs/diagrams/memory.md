@@ -7,8 +7,7 @@ diagrams.
 
 ## Source
 
-Authoritative in `docs/04-memory/memory-architecture.md` and
-`memory-lifecycle.md`.
+Authoritative in `docs/04-memory/memory-architecture.md` and `memory-lifecycle.md`.
 
 ## Tier flow diagram
 

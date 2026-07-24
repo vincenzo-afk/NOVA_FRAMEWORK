@@ -5,17 +5,16 @@
 Documentation in this repository is treated as a build artifact with the
 same CI discipline as code — this document specifies exactly what gets
 checked automatically, why, and what fails the build. Every "Where This
-Breaks" section throughout `docs/25-failure-modes/` and
-`docs/26-system-reference/` references specific checks defined here; this
+Breaks" section throughout `docs/25-failure-modes/` and `docs/26-system-reference/` references specific checks defined here; this
 is where those checks are actually specified as a runnable process.
 
 ## Checks
 
 | Check | What it catches | Fails build on |
 |---|---|---|
-| **Broken internal links** | A `docs/X/Y.md` reference to a file/anchor that doesn't exist | Any dead cross-reference |
+| **Broken internal links** | A cross-reference (e.g. `` `docs/03-runtime/executor.md` `` — a real file, shown only as an illustration of the reference *style* this check applies to) pointing to a file or anchor that doesn't actually exist | Any dead cross-reference — reference implementation: `scripts/check-links.py`, run in CI on every PR touching `docs/` and re-run after any bulk edit; also flags ambiguous same-basename references and line-wrap-broken inline code spans |
 | **Orphaned documents** | A file under `docs/` not linked from any README index or `Related documents` section anywhere | Any doc with zero inbound references |
-| **Dependency-graph consistency** | `01-component-dependency-graph.md`'s tree vs. `dependency-map.md`'s Mermaid graph disagreeing on module list or an edge | Any module present in one but not the other |
+| **Dependency-graph consistency** | `01-component-dependency-graph.md`'s tree vs. `docs/02-architecture/dependency-map.md`'s Mermaid graph disagreeing on module list or an edge | Any module present in one but not the other |
 | **State-machine conformance** | `04-state-transition-tables.md`'s tables vs. the actual states/transitions reachable in code | Any code-reachable transition absent from the documented table, or vice versa |
 | **Config schema/example sync** | `08-configuration-reference.md`'s example `config.yaml` vs. `docs/14-development/configuration-schema.md`'s established keys | Any key present in one but not the other |
 | **Error catalog / FM cross-reference** | Medium+ severity `docs/25-failure-modes/` entries with no `NOVA-` code in `06-error-catalog.md`, and codes with no FM cross-reference | Any orphan in either direction |
@@ -39,8 +38,7 @@ docs-as-an-afterthought.
 ## Why this exists as its own document
 
 Every failure mode across this whole document set that says "the doc
-drifted from reality" (see the `FM-24-*` entries scattered through
-`docs/26-system-reference/`) has the same actual mitigation: an automated
+drifted from reality" (see the `FM-24-*` entries scattered through `docs/26-system-reference/`) has the same actual mitigation: an automated
 check that would have caught the drift before merge. Rather than
 re-describing "add a CI check" in twelve different files, this document
 is the single place that check is actually specified, and every other

@@ -10,8 +10,7 @@ observation and memory architecture rather than a new tracking system.
 
 Analytics views and their data sources. This document does not introduce
 new data collection — it defines aggregation and presentation over data
-already captured under `docs/04-memory/memory-architecture.md` and
-`docs/07-observers/`.
+already captured under `docs/04-memory/memory-architecture.md` and `docs/07-observers/`.
 
 ## Data sources
 
@@ -19,8 +18,7 @@ already captured under `docs/04-memory/memory-architecture.md` and
   browser activity, notifications) per `docs/07-observers/`.
 - Task history from the Task Manager (`docs/03-runtime/task-manager.md`).
 - Provider usage/cost logs from
-  `docs/18-providers/cloud-provider-management.md` and
-  `docs/18-providers/provider-routing.md`'s observability log.
+  `docs/18-providers/cloud-provider-management.md` and `docs/18-providers/provider-routing.md`'s observability log.
 - Calendar and email activity, where those capabilities are connected
   (`docs/21-channels/`).
 

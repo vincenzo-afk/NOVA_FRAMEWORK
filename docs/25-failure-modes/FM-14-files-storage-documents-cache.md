@@ -8,9 +8,7 @@ Everything that can go wrong persisting, reading, and caching data on disk.
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/13-devops/storage-layout.md`
-- `docs/13-devops/backup.md`
-- `docs/11-performance/caching.md`
+- `docs/13-devops/storage-layout.md` - `docs/13-devops/backup.md` - `docs/11-performance/caching.md`
 
 ## Failure Catalog
 

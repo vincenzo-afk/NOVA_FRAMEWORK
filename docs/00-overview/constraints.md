@@ -1,5 +1,14 @@
 # Constraints
 
+## Relationship to the governance folder
+
+`docs/00-implementation-governance/project-constraints.md` is the
+fast-reference summary of this document (plus the build-time
+constraints that document adds on top). This file remains the full,
+rationale-bearing list. If the two disagree, this file is correct; fix
+the summary, per
+`docs/00-implementation-governance/documentation-precedence.md`.
+
 ## Purpose
 
 Lists what NOVA — and any AI agent implementing, extending, or operating
@@ -29,12 +38,10 @@ review.
   `system-invariants.md`.
 - **Never bypass a permission check**, including for "obviously safe"
   internal calls, debug builds, or trusted-looking callers. See
-  `docs/10-security/permissions.md` and
-  `docs/10-security/permission-escalation.md`.
+  `docs/10-security/permissions.md` and `docs/10-security/permission-escalation.md`.
 - **Never access storage directly from a plugin or from outside the
   owning repository layer.** All persistence goes through the owning
-  component's public API. See `docs/16-extensibility/plugin-sandboxing.md`
-  and `docs/13-devops/storage-layout.md`.
+  component's public API. See `docs/16-extensibility/plugin-sandboxing.md` and `docs/13-devops/storage-layout.md`.
 - **Never call an internal API from a plugin.** Plugins interact only
   through the capabilities explicitly granted to them. See
   `docs/16-extensibility/plugin-permissions.md`.
@@ -44,8 +51,7 @@ review.
   processed is retried, dead-lettered, or logged — never discarded
   without a trace. See `docs/02-architecture/event-bus-specification.md`.
 - **Never expose a secret or credential to a plugin, a log line, or a
-  model prompt.** See `docs/10-security/secrets.md` and
-  `docs/18-providers/credential-management.md`.
+  model prompt.** See `docs/10-security/secrets.md` and `docs/18-providers/credential-management.md`.
 - **Never take an autonomous action outside an explicitly approved
   policy.** See `docs/25-failure-modes/FM-18-autonomy-policy-approval.md`.
 - **Never merge two entities in the knowledge graph without preserving a

@@ -12,8 +12,7 @@
 The general rule: a config value syncs if and only if applying the
 synced value on a different device would still make sense — this is a
 semantic judgment made once per config key at the point it's defined
-(part of the schema entry in `docs/14-development/configuration-
-schema.md`), not inferred generically from scope alone.
+(part of the schema entry in `docs/14-development/configuration-schema.md`), not inferred generically from scope alone.
 
 ## Secrets
 

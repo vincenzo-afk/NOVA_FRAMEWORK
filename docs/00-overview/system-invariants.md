@@ -53,8 +53,7 @@ violated, break assumptions other components rely on.
 
 ## Memory and graph invariants
 
-- **The Knowledge Graph is acyclic with respect to `belongs_to` and
-  `produced_by` edges** (`docs/04-memory/ontology.md`) — a File cannot
+- **The Knowledge Graph is acyclic with respect to `belongs_to` and `produced_by` edges** (`docs/04-memory/ontology.md`) — a File cannot
   belong to a Project that (transitively) belongs to that same File, and
   a Decision cannot be produced by a Task that was produced by that same
   Decision. The generic `related_to` edge is explicitly exempt from this

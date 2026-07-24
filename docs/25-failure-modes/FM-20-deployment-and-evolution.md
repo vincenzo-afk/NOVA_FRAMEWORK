@@ -8,10 +8,7 @@ Failures in shipping new versions of NOVA itself, and the longer-arc failures th
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/13-devops/deployment.md`
-- `docs/13-devops/updates.md`
-- `docs/13-devops/installation.md`
-- `docs/14-development/release-checklist.md`
+- `docs/13-devops/deployment.md` - `docs/13-devops/updates.md` - `docs/13-devops/installation.md` - `docs/14-development/release-checklist.md`
 
 ## Failure Catalog
 

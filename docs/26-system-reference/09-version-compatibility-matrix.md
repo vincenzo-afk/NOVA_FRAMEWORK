@@ -40,8 +40,7 @@ discovered by trial and error.
 ## Cross-version data compatibility
 
 Memory/graph data written under an older schema is handled via the
-migration chain described in `docs/25-failure-modes/FM-20-009` through
-`FM-20-013` (old memories incompatible, migration failures, legacy data
+migration chain described in `docs/25-failure-modes/FM-20-009` through `FM-20-013` (old memories incompatible, migration failures, legacy data
 unreadable, backward-compatibility breaks) — this matrix states which
 *code* versions are compatible; that failure-mode file states what
 happens to *data* across a version boundary and how it's kept readable.

@@ -2,7 +2,7 @@
 
 ## Flow
 
-Settings grouped to match `29-product/settings.md` taxonomy; every toggle shows its current enforced effect in-line (not just a label) so the user isn't guessing what a setting does.
+Settings grouped to match `docs/29-product/settings.md` taxonomy; every toggle shows its current enforced effect in-line (not just a label) so the user isn't guessing what a setting does.
 
 ## Reference
 

@@ -4,8 +4,7 @@
 
 A single, clearly-named entry point consolidating the Communication
 Bus/event model already specified across
-`docs/02-architecture/communication-model.md` and
-`docs/02-architecture/event-driven-architecture.md`, plus the one gap
+`docs/02-architecture/communication-model.md` and `docs/02-architecture/event-driven-architecture.md`, plus the one gap
 (TTL) neither previously addressed. This document adds one new concept
 and otherwise indexes rather than restates existing content, consistent
 with this repository's anti-duplication convention.

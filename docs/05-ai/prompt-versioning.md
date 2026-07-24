@@ -67,10 +67,8 @@ the time.
 ## Rollback
 
 A prompt template version found to cause a regression can be rolled back
-independently of a full software version rollback (`docs/13-devops/
-updates.md`) — since prompt templates are versioned and changelogged
-separately from code releases, reverting `template_id` to its prior
-`version` does not require reverting any other component.
+independently of a full software version rollback (`docs/13-devops/updates.md`) — since prompt templates are versioned and changelogged
+separately from code releases, reverting `template_id` to its prior `version` does not require reverting any other component.
 
 ## Related documents
 

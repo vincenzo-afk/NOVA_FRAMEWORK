@@ -7,8 +7,7 @@ execution-priority chain.
 
 ## Source
 
-Authoritative in `docs/02-architecture/execution-pipeline.md` and
-`docs/06-tools/execution-priority.md`.
+Authoritative in `docs/02-architecture/execution-pipeline.md` and `docs/06-tools/execution-priority.md`.
 
 ## Request-to-result sequence
 

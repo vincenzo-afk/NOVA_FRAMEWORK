@@ -41,15 +41,13 @@ ordered criteria, each breaking ties from the previous:
 3. **Historical reliability** — the candidate with a higher recorded
    verification-success rate for this action type, tracked per
    `docs/12-testing/` and operational metrics.
-4. **Estimated latency and cost** — the lower `estimated_latency_ms` and
-   `estimated_cost_class` (`docs/06-tools/tool-interface.md`), combined
+4. **Estimated latency and cost** — the lower `estimated_latency_ms` and `estimated_cost_class` (`docs/06-tools/tool-interface.md`), combined
    per the same weakest-link-averse philosophy as
    `docs/05-ai/confidence-propagation.md` (a fast-but-unreliable
    candidate does not outrank a slightly slower, more reliable one —
    reliability, via criteria 2-3, is evaluated before cost/latency, not
    averaged with it).
-5. **Deterministic preference** — where one candidate is `deterministic:
-   true` and another is not for equivalent output, the deterministic
+5. **Deterministic preference** — where one candidate is `deterministic: true` and another is not for equivalent output, the deterministic
    candidate is preferred, directly reinforcing
    `docs/05-ai/deterministic-first.md` at the tool-selection level.
 

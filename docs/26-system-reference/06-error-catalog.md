@@ -16,7 +16,7 @@ programmatically instead of parsing free-text error messages.
 never reused. See `docs/06-tools/error-codes.md` for the full prefix
 table; the codes below are illustrative of the pattern per prefix, not
 the complete enumeration for every prefix (new codes are appended, never
-renumbered, as failure modes are discovered — see `04-startup-sequence.md`'s
+renumbered, as failure modes are discovered — see `02-startup-sequence.md`'s
 sibling files' "Where This Breaks" sections for the process risk of this
 catalog itself drifting).
 
@@ -69,8 +69,7 @@ catalog itself drifting).
 
 ## How to allocate a new code
 
-1. Find the entry in `docs/25-failure-modes/` that describes the failure.
-2. Pick the prefix matching its subsystem from `docs/06-tools/error-codes.md`.
+1. Find the entry in `docs/25-failure-modes/` that describes the failure.2. Pick the prefix matching its subsystem from `docs/06-tools/error-codes.md`.
 3. Allocate the next unused sequence number for that prefix — never reuse
    a retired number, per that document's stability guarantee.
 4. Add a row here with a cross-reference to the FM ID.

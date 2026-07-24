@@ -11,7 +11,7 @@
 2. **Sync conflict resolution implemented only for the common case**
    (two devices, one field changed) and untested for N-way conflicts or
    simultaneous deletes-vs-edits, which are exactly the cases
-   `04-memory/memory-conflict-resolution.md` exists to define.
+   `docs/04-memory/memory-conflict-resolution.md` exists to define.
 3. **Partial sync failure leaving one device ahead of another with no
    resumability** — a sync that fails halfway through a batch must be
    resumable from a checkpoint, not restart-from-zero (wasteful) or

@@ -12,9 +12,7 @@ schema; concrete storage per entity type is
 ## Source
 
 Synthesized from `docs/04-memory/ontology.md` (Knowledge Graph entities),
-`docs/03-runtime/task-manager.md` (Task), `docs/05-ai/
-capability-registry.md` (Capability), `docs/16-extensibility/
-plugin-architecture.md` (Plugin), and `docs/10-security/authentication.md`
+`docs/03-runtime/task-manager.md` (Task), `docs/05-ai/capability-registry.md` (Capability), `docs/16-extensibility/plugin-architecture.md` (Plugin), and `docs/10-security/authentication.md`
 (User, Session). Each entity's authoritative field-level schema lives in
 its owning document; this diagram shows relationships only.
 
@@ -41,8 +39,7 @@ erDiagram
 ## Reading notes
 
 - **PROJECT to FILE/TASK/DECISION** mirrors the Knowledge Graph's
-  `belongs_to` and `produced_by` edges exactly (`docs/04-memory/
-  ontology.md`) — this diagram is a relationship-level restatement, not
+  `belongs_to` and `produced_by` edges exactly (`docs/04-memory/ontology.md`) — this diagram is a relationship-level restatement, not
   an independent model.
 - **PLAN to CAPABILITY to TOOL** shows the resolution chain from
   `docs/05-ai/capability-registry.md`: a plan references capabilities,
@@ -68,6 +65,5 @@ substitute for the detailed schemas it references.
   diagram complements
 - `docs/04-memory/ontology.md` — the authoritative Knowledge Graph
   node/edge schema
-- `docs/05-ai/capability-registry.md`, `docs/16-extensibility/
-  plugin-architecture.md` — the Capability and Plugin schemas referenced
+- `docs/05-ai/capability-registry.md`, `docs/16-extensibility/plugin-architecture.md` — the Capability and Plugin schemas referenced
   above

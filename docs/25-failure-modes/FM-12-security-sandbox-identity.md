@@ -8,16 +8,7 @@ The highest-severity category in this whole set — failures here tend to be sil
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/10-security/security-model.md`
-- `docs/10-security/threat-model.md`
-- `docs/10-security/sandboxing.md`
-- `docs/10-security/permissions.md`
-- `docs/10-security/authentication.md`
-- `docs/10-security/authorization.md`
-- `docs/10-security/secrets.md`
-- `docs/10-security/encryption.md`
-- `docs/10-security/permission-escalation.md`
-- `docs/10-security/audit.md`
+- `docs/10-security/security-model.md` - `docs/10-security/threat-model.md` - `docs/10-security/sandboxing.md` - `docs/10-security/permissions.md` - `docs/10-security/authentication.md` - `docs/10-security/authorization.md` - `docs/10-security/secrets.md` - `docs/10-security/encryption.md` - `docs/10-security/permission-escalation.md` - `docs/10-security/audit.md`
 
 ## Failure Catalog
 

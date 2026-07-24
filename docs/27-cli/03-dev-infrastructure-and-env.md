@@ -62,19 +62,15 @@ the same hardware must never disagree (see Where This Breaks below).
 View and edit the fully-resolved configuration (after precedence
 resolution across scopes, per `docs/14-development/configuration.md`) —
 not just the raw YAML file, since a raw file alone doesn't show what a
-`Global` default was overridden to at `User` scope. Supports `nova config
-get <key>`, `nova config set <key> <value>` (validated against
-`docs/14-development/configuration-schema.md` before writing), and `nova
-config diff` (resolved vs. file-declared, to surface any runtime
+`Global` default was overridden to at `User` scope. Supports `nova config get <key>`, `nova config set <key> <value>` (validated against
+`docs/14-development/configuration-schema.md` before writing), and `nova config diff` (resolved vs. file-declared, to surface any runtime
 override).
 
 ## Related documents
 
-- `docs/18-providers/hardware-detection.md` — the detection logic `nova
-  env` surfaces
+- `docs/18-providers/hardware-detection.md` — the detection logic `nova env` surfaces
 - `docs/14-development/configuration.md`, `configuration-schema.md` —
-  what `nova config` reads/writes
-- `docs/25-failure-modes/FM-12-016` — supply-chain verification the
+  what `nova config` reads/writes- `docs/25-failure-modes/FM-12-016` — supply-chain verification the
   one-line installers must perform
 
 ## Where This Breaks

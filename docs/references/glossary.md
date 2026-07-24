@@ -43,8 +43,7 @@ content/instruction separation defense
 
 **RPA (Robotic Process Automation)** — a category of software that
 automates repetitive tasks, typically by replaying predefined UI
-interaction scripts, referenced in `comparisons.md` and
-`docs/06-tools/vision.md` for its known reliability lessons.
+interaction scripts, referenced in `comparisons.md` and `docs/06-tools/vision.md` for its known reliability lessons.
 
 **Vector database** — a database optimized for storing and querying
 embeddings by similarity, one of the storage engines in NOVA's hybrid

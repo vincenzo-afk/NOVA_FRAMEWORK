@@ -79,8 +79,7 @@ flowchart LR
   degenerates to a single candidate — candidate generation is not
   invoked speculatively where there is nothing to choose between.
 - **Score candidates** — rank generated candidates by cost, latency,
-  risk tier, and combined confidence (`docs/05-ai/
-  confidence-propagation.md`), not by taking the first one the Reasoning
+  risk tier, and combined confidence (`docs/05-ai/confidence-propagation.md`), not by taking the first one the Reasoning
   Engine happens to produce.
 - **Validate** — confirm the top-scored candidate is actually executable
   given current World Model state (`docs/03-runtime/world-model.md`)

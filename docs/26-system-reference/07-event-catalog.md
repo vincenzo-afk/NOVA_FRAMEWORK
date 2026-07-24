@@ -22,8 +22,7 @@ and topic model.
 }
 ```
 
-`schema_version` follows the additive/minor-compatible rule in
-`docs/02-architecture/communication-model.md` — existing consumers must
+`schema_version` follows the additive/minor-compatible rule in`docs/02-architecture/communication-model.md` — existing consumers must
 tolerate new optional fields appearing in `payload` without breaking.
 
 ## Catalog by domain

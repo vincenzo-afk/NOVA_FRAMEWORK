@@ -32,8 +32,7 @@ to the API Gateway over the Internal API (`docs/08-api/internal-api.md`).
 
 **2. Task creation.**
 The API Gateway creates a task via Task Manager
-(`docs/03-runtime/task-manager.md`), which assigns a `task_id` and
-`correlation_id` (`docs/02-architecture/communication-model.md`) and sets
+(`docs/03-runtime/task-manager.md`), which assigns a `task_id` and `correlation_id` (`docs/02-architecture/communication-model.md`) and sets
 state to `Created`, then `Planning`.
 
 **3. Context assembly.**
@@ -68,8 +67,7 @@ using Model Context Assembly's exact ordering
 content/instruction separation (`docs/05-ai/prompt-system.md`).
 
 **7. Capability and tool resolution.**
-Each sub-decision resolves to a capability (`docs/05-ai/
-capability-registry.md`, e.g., "delete file," "move file") and then to a
+Each sub-decision resolves to a capability (`docs/05-ai/capability-registry.md`, e.g., "delete file," "move file") and then to a
 specific registered tool via Tool Selection
 (`docs/05-ai/tool-selection.md`) and the Tool Registry
 (`docs/06-tools/tool-registry.md`).

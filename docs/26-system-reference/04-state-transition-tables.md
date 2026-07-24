@@ -11,6 +11,11 @@ transition not listed in a table is invalid and must be rejected (see
 
 ## Task / Agent Lifecycle
 
+> **Known documentation conflict, flagged not resolved** — see
+> `docs/03-runtime/task-manager.md`'s Task state machine for the
+> conflicting version and the full note; a human decision is needed on
+> which framing is authoritative before either is treated as final.
+
 ```
 Idle → Thinking → Planning → Executing → Waiting → Completed
                                  ↓            ↓
@@ -51,19 +56,28 @@ Idle → Thinking → Planning → Executing → Waiting → Completed
 
 ## Plugin Lifecycle
 
+Canonical state names and narrative detail for each state:
+`docs/16-extensibility/plugin-lifecycle.md`. This table is the formal
+transition table derived from that document — if the two ever disagree,
+`docs/16-extensibility/plugin-lifecycle.md` is correct and this table is
+stale; fix this table to match it, per
+`docs/00-implementation-governance/documentation-precedence.md`.
+
 | Current State | Event | Next State | Guard / Condition |
 |---|---|---|---|
-| `Discovered` | Manifest validated | `Registered` | Passes schema + signature check (`FM-12-016`) |
-| `Registered` | User/policy enables | `Enabling` | Consent flow completed (`FM-12-007`) |
-| `Enabling` | Sandbox init succeeds | `Active` | — |
-| `Enabling` | Sandbox init fails | `Failed` | — |
-| `Active` | Health check fails repeatedly | `Degraded` | — |
-| `Active`, `Degraded` | User/policy disables | `Disabling` | — |
-| `Degraded` | Health recovers | `Active` | — |
-| `Disabling` | Teardown hooks complete | `Disabled` | — |
-| `Disabled` | Uninstall requested | `Uninstalling` | — |
-| `Uninstalling` | Cleanup verified | `Removed` | Per `FM-19-008` cleanup verification |
-| `Failed` | Manual review resolves | `Registered` | Never auto-transitions out of `Failed` |
+| `Discovered` | Manifest validated | `Installed` | Passes schema + signature check (`FM-12-016`) |
+| `Installed` | User/policy enables | `Enabled` | Consent flow completed (`FM-12-007`); sandbox init succeeds |
+| `Installed` | Sandbox init fails | `Failed` | — |
+| `Enabled`, `Deprecated` | User/policy disables | `Disabled` | Process stopped, tools deregistered, package retained |
+| `Disabled` | User/policy re-enables | `Enabled` | — |
+| `Enabled` | New version applied | `Updating` | — |
+| `Updating` | Update succeeds | `Enabled` | — |
+| `Updating` | Update fails | `Failed` | — |
+| `Failed` | Manual review resolves | `Disabled` | Never auto-transitions out of `Failed` |
+| `Enabled` | Marked deprecated by publisher/policy | `Deprecated` | Still functional; see `docs/16-extensibility/plugin-lifecycle.md` |
+| `Deprecated` | Un-deprecated | `Enabled` | — |
+| `Disabled`, `Deprecated` | Uninstall requested | `Uninstalled` | Cleanup verified (`FM-19-008`) |
+| `Uninstalled` | — | — | Terminal state |
 
 ## Workflow Node
 

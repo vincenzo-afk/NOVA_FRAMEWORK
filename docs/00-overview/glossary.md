@@ -27,19 +27,16 @@ memory tiers without exceeding the model context window. See
 
 ## D
 
-**Deterministic Before Intelligent** — See `terminology.md` and
-`design-principles.md`.
+**Deterministic Before Intelligent** — See `terminology.md` and `design-principles.md`.
 
 ## E
 
 **Executor** — See `terminology.md`.
-**Execution Priority** — See `terminology.md` and
-`docs/06-tools/execution-priority.md` (Tier 2).
+**Execution Priority** — See `terminology.md` and `docs/06-tools/execution-priority.md` (Tier 2).
 
 ## K
 
-**Knowledge Graph** — See `terminology.md` and `docs/04-memory/
-knowledge-graph.md` (Tier 2).
+**Knowledge Graph** — See `terminology.md` and `docs/04-memory/knowledge-graph.md` (Tier 2).
 
 ## M
 
@@ -58,14 +55,12 @@ Graph. See `docs/04-memory/ontology.md` (Tier 2).
 
 ## R
 
-**Risk Tier** — See `terminology.md` and
-`docs/10-security/permissions.md` (Tier 3).
+**Risk Tier** — See `terminology.md` and `docs/10-security/permissions.md` (Tier 3).
 **Runtime** — See `terminology.md`.
 
 ## T
 
-**Task Success Score** — See `terminology.md` and
-`docs/01-product/success-metrics.md`.
+**Task Success Score** — See `terminology.md` and `docs/01-product/success-metrics.md`.
 **Tool / Tool Registry** — See `terminology.md`.
 
 ## V

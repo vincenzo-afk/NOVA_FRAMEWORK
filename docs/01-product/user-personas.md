@@ -9,8 +9,7 @@ rather than an implicit "everyone."
 ## Scope
 
 v1 targets power users exclusively. General consumer personas are
-explicitly deferred — see `docs/00-overview/non-goals.md` and
-`ROADMAP.md`.
+explicitly deferred — see `docs/00-overview/non-goals.md` and `ROADMAP.md`.
 
 ## Primary personas
 

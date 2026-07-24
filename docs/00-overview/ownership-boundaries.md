@@ -4,8 +4,7 @@
 
 States, explicitly and per responsibility, which single component owns
 each piece of behavior or state — not merely what each component does
-(already covered per-component in `docs/02-architecture/
-service-architecture.md`), but who is *authoritative* for a given
+(already covered per-component in `docs/02-architecture/service-architecture.md`), but who is *authoritative* for a given
 responsibility, so that responsibilities do not slowly overlap as new
 capability is added.
 
@@ -47,8 +46,7 @@ hold.
   convention.
 - **An owner's decision is authoritative within its scope.** The
   Verifier's outcome is authoritative for "did this succeed" — the
-  Planner does not second-guess a `Failed` verification by treating it
-  as `Completed` based on its own confidence in the plan.
+  Planner does not second-guess a `Failed` verification by treating it as `Completed` based on its own confidence in the plan.
 - **Ownership does not imply exclusive access.** Memory is owned by the
   Memory/Knowledge Graph services for writes, but is read by many
   components (Planner, Context Builder, UI surfaces) — ownership governs

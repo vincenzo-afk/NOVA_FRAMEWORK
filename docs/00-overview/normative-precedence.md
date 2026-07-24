@@ -16,6 +16,13 @@ conflicts within a single document — an internal contradiction in one
 document is a defect in that document, to be fixed directly, not
 resolved by precedence.
 
+This order governs conflicts *among the specification documents*.
+`docs/00-implementation-governance/ai-constitution.md` sits above all of
+it as the process-level rule set (how an agent behaves when it
+encounters a conflict, an ambiguity, or a gap at all) — see
+`docs/00-implementation-governance/documentation-precedence.md` for how
+the two relate.
+
 ## Precedence order (highest to lowest)
 
 1. **`docs/00-overview/system-invariants.md`** — an invariant is never
@@ -26,15 +33,13 @@ resolved by precedence.
    decision overrides any component document that has not been updated
    to reflect it. An ADR is only superseded by a newer ADR explicitly
    marked as superseding it, never by an unrelated document.
-3. **`docs/00-overview/non-goals.md` and `docs/01-product/
-   project-scope.md`** — scope boundaries override any component
+3. **`docs/00-overview/non-goals.md` and `docs/01-product/project-scope.md`** — scope boundaries override any component
    document that implies broader scope than these establish.
 4. **`docs/02-architecture/` (system, runtime, and dependency
    architecture)** — structural architecture overrides individual
    component documents where they conflict on process topology, service
    boundaries, or dependency direction.
-5. **Component specification documents** (`docs/03-runtime/` through
-   `docs/09-ui/`, `docs/16-extensibility/`, `docs/17-workflow/`) — the
+5. **Component specification documents** (`docs/03-runtime/` through `docs/09-ui/`, `docs/16-extensibility/`, `docs/17-workflow/`) — the
    detailed behavior of an individual component, authoritative for that
    component's own internals.
 6. **`docs/08-api/schemas.md` and other wire-format schemas** — the
@@ -53,8 +58,7 @@ resolved by precedence.
    appear in.
 2. Apply the precedence order above to determine which one is correct.
 3. **Do not silently follow the lower-precedence document.** File the
-   conflict as a documentation defect (`docs/14-development/
-   technical-debt.md`) and correct the lower-precedence document to
+   conflict as a documentation defect (`docs/14-development/technical-debt.md`) and correct the lower-precedence document to
    match — implementing against a document known to conflict with a
    higher-precedence one reproduces the error into code.
 

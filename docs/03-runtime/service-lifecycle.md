@@ -81,8 +81,7 @@ stateDiagram-v2
 ## Health check and heartbeat parameters
 
 The heartbeat interval and the missed-heartbeat threshold that triggers a
-`Healthy`/`Degraded` → `Failed` transition are the same parameters
-defined in `runtime-manager.md`'s health check protocol — this state
+`Healthy`/`Degraded` → `Failed` transition are the same parameters defined in `runtime-manager.md`'s health check protocol — this state
 machine is the per-service view of the same mechanism that document
 describes from the supervisor's perspective.
 

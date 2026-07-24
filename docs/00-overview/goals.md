@@ -53,7 +53,7 @@ built, does not get built in that phase — see
 ## Phase 5 goals (Provider-agnostic, multi-device, multi-channel — v5)
 
 Ratified by `docs/15-decisions/adr-0008-v5-architecture-evolution.md`,
-replacing the earlier "Phase 5 deferred" placeholder with concrete,
+replacing the earlier "Phase 5 deferred" stub entry with concrete,
 testable targets:
 
 1. Every capability domain (LLM, vision, STT, TTS, embeddings, OCR,
@@ -84,8 +84,8 @@ testable targets:
 ## Cross-cutting goals (apply to every phase)
 
 1. **Deterministic Before Intelligent** is measurable: for a sampled set of
-   tasks, the proportion resolved without any LLM call should be trackable
-   and should not decrease as new tool integrations are added.
+   tasks, the proportion resolved without any LLM call must be trackable
+   and must not decrease as new tool integrations are added.
 2. Every autonomous action, in every phase, is captured in the audit trail
    described in `docs/10-security/audit.md` (Tier 3) — this is not a later
    enhancement, it exists from Phase 2 onward.

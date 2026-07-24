@@ -8,13 +8,7 @@ Everything that happens before a token is even generated: choosing which model/p
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/05-ai/model-router.md`
-- `docs/05-ai/model-routing-matrix.md`
-- `docs/18-providers/provider-routing.md`
-- `docs/18-providers/provider-interface.md`
-- `docs/18-providers/capability-management.md`
-- `docs/18-providers/local-model-management.md`
-- `docs/18-providers/hardware-detection.md`
+- `docs/05-ai/model-router.md` - `docs/05-ai/model-routing-matrix.md` - `docs/18-providers/provider-routing.md` - `docs/18-providers/provider-interface.md` - `docs/18-providers/capability-management.md` - `docs/18-providers/local-model-management.md` - `docs/18-providers/hardware-detection.md`
 
 ## Failure Catalog
 

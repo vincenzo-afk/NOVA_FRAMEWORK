@@ -11,8 +11,7 @@
 | `nova plugin test` | Run the plugin's test suite inside the same sandbox it will execute in at runtime (`docs/16-extensibility/plugin-sandboxing.md`) |
 | `nova plugin sign` | Sign the package for supply-chain verification (`FM-12-016`) |
 
-`nova plugin validate` is deliberately run automatically as a pre-step
-inside both `package` and `publish` — a plugin cannot be packaged or
+`nova plugin validate` is deliberately run automatically as a pre-step inside both `package` and `publish` — a plugin cannot be packaged or
 published without passing validation, closing the gap described in
 `FM-19-007` (permission manifest not matching runtime access) as early
 as possible in the authoring loop, not just at marketplace review time.
@@ -41,8 +40,7 @@ as possible in the authoring loop, not just at marketplace review time.
 
 - `docs/16-extensibility/plugin-architecture.md`, `plugin-sandboxing.md`,
   `plugin-marketplace.md` — full plugin lifecycle detail
-- `docs/06-tools/tool-interface.md` — the schema `tool create` scaffolds against
-- `docs/05-ai/prompt-versioning.md` — what `prompt validate` checks
+- `docs/06-tools/tool-interface.md` — the schema `tool create` scaffolds against - `docs/05-ai/prompt-versioning.md` — what `prompt validate` checks
 
 ## Where This Breaks
 

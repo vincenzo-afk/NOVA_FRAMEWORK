@@ -110,7 +110,7 @@ documents only for the three that were genuinely missing.
   and the six `docs/16-extensibility/plugin-*.md` documents already
   specify versioning, compatibility, and lifecycle in more depth than
   the request assumed
-- "NOVA as platform" framing — already `README.md`'s and `vision.md`'s
+- "NOVA as platform" framing — already `README.md`'s and `docs/00-overview/vision.md`'s
   opening statement, unchanged
 
 ## [1.0.0] — v5 architecture evolution: provider-agnostic, multi-device, multi-channel
@@ -127,22 +127,15 @@ repealed/narrowed/standing breakdown).
   `capability-management.md`, `provider-routing.md`,
   `hardware-detection.md`, `local-model-management.md`,
   `cloud-provider-management.md`, `credential-management.md`,
-  `mcp-server-management.md`
-- `docs/19-setup/` (new) — `setup-wizard.md`, `configuration-system.md`
-- `docs/20-devices/` (new) — `multi-device-architecture.md`,
+  `mcp-server-management.md` - `docs/19-setup/` (new) — `setup-wizard.md`, `configuration-system.md` - `docs/20-devices/` (new) — `multi-device-architecture.md`,
   `cross-device-memory.md`, `android-companion.md`,
-  `screen-streaming.md`, `remote-control.md`, `ai-phone.md`
-- `docs/21-channels/` (new) — `messaging-platforms.md`,
-  `email-assistant.md`, `calendar-assistant.md`, `phone-calls.md`
-- `docs/22-voice/` (new) — `voice-assistant.md`,
-  `local-speech-models.md`
-- `docs/23-autonomy/` (new) — `autonomous-plugin-discovery.md`,
+  `screen-streaming.md`, `remote-control.md`, `ai-phone.md` - `docs/21-channels/` (new) — `messaging-platforms.md`,
+  `email-assistant.md`, `calendar-assistant.md`, `phone-calls.md` - `docs/22-voice/` (new) — `voice-assistant.md`,
+  `local-speech-models.md` - `docs/23-autonomy/` (new) — `autonomous-plugin-discovery.md`,
   `automatic-software-installation.md`, `self-growing-capability.md`,
   `personal-analytics.md`, `adaptive-personalization.md`,
-  `background-life-assistant.md`
-- `docs/24-collaboration/` (new) — `multi-agent-collaboration.md`,
-  `browser-agent.md`
-- `docs/06-tools/vision-everywhere.md` (new) — unifies desktop, phone,
+  `background-life-assistant.md` - `docs/24-collaboration/` (new) — `multi-agent-collaboration.md`,
+  `browser-agent.md` - `docs/06-tools/vision-everywhere.md` (new) — unifies desktop, phone,
   camera, and browser vision under one capability domain
 
 ### Changed
@@ -153,7 +146,7 @@ repealed/narrowed/standing breakdown).
 - `docs/01-product/project-scope.md` — revised to v2 reflecting the same
   expansion
 - `docs/00-overview/goals.md` — added Phase 5 goals (concrete, testable
-  targets replacing the prior "deferred" placeholder)
+  targets replacing the prior "deferred" stub entry)
 - `docs/00-overview/vision.md` — identity statement extended from
   single-PC to multi-device/multi-channel; core loop unchanged
 - `docs/00-overview/architecture-summary.md` — diagram and service table
@@ -275,8 +268,7 @@ repealed/narrowed/standing breakdown).
   architecture into implementation.
 - **Retroactive "Implementation Notes" sections on all 200+ existing
   files** — the same non-retroactive-sweep policy already established
-  for `docs/14-development/module-contract-standard.md` and
-  `naming-conventions.md` applies here too.
+  for `docs/14-development/module-contract-standard.md` and `naming-conventions.md` applies here too.
 
 ## [0.5.0] — Gap-analysis pass 2: invariants, ownership, and consistency
 
@@ -408,8 +400,7 @@ improvements
 - **Task state machine reconciled** (`docs/03-runtime/task-manager.md`,
   `docs/diagrams/runtime.md`, `docs/08-api/schemas.md`,
   `docs/09-ui/task-monitor.md`): added `WaitingResources`, `Paused`,
-  `WaitingUser`, and `Retrying` as explicit states. `Created` replaces
-  `Queued` as the initial state. `Archived` is deliberately *not* added
+  `WaitingUser`, and `Retrying` as explicit states. `Created` replaces `Queued` as the initial state. `Archived` is deliberately *not* added
   as a peer execution state — it is documented as the existing memory-
   lifecycle Archive transition applied to terminal task records, to
   avoid inventing a second, conflicting concept.
@@ -529,8 +520,7 @@ improvements
 ### Added
 - Repository scaffolding: `README.md`, `LICENSE` (MIT), `CONTRIBUTING.md`,
   `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CHANGELOG.md`, `ROADMAP.md`,
-  `FAQ.md`.
-- `docs/00-overview/` — vision, goals, non-goals, design principles,
+  `FAQ.md`.- `docs/00-overview/` — vision, goals, non-goals, design principles,
   architecture summary, terminology, glossary.
 - `docs/01-product/` — product specification, user personas, use cases,
   user journeys, feature list, feature priority, project scope, success

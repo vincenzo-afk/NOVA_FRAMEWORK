@@ -2,7 +2,7 @@
 
 ## Flow
 
-See `29-product/onboarding.md` for content; this flow specifies the exact screen sequence and the ability to skip/resume onboarding without losing prior choices.
+See `docs/29-product/onboarding.md` for content; this flow specifies the exact screen sequence and the ability to skip/resume onboarding without losing prior choices.
 
 ## Reference
 

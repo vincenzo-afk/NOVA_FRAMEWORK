@@ -5,16 +5,14 @@
 Defines the *allowed direction* of dependency between architectural
 layers — as distinct from `docs/02-architecture/dependency-map.md`,
 which documents actual service startup dependencies. This document is a
-design rule enforced at code-review time (`docs/14-development/
-module-checklist.md`): which layer may call, import, or depend on which
+design rule enforced at code-review time (`docs/14-development/module-checklist.md`): which layer may call, import, or depend on which
 other layer, and which interactions are explicitly forbidden regardless
 of whether they would technically work.
 
 ## Scope
 
 Layer-to-layer dependency direction and forbidden interactions. Specific
-service-to-service startup ordering is `docs/02-architecture/
-dependency-map.md`; this document is about architectural layering, a
+service-to-service startup ordering is `docs/02-architecture/dependency-map.md`; this document is about architectural layering, a
 different and complementary axis.
 
 ## Layer stack and allowed dependency direction

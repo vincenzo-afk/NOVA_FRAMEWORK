@@ -8,9 +8,7 @@ The failure modes of the network itself and of every third-party API NOVA depend
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/08-api/rest-api.md`
-- `docs/08-api/versioning.md`
-- `docs/18-providers/credential-management.md`
+- `docs/08-api/rest-api.md` - `docs/08-api/versioning.md` - `docs/18-providers/credential-management.md`
 
 ## Failure Catalog
 

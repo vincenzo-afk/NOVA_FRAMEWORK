@@ -34,8 +34,7 @@ Caches are always a derived, disposable view over a persisted source —
 never authoritative. A cache miss or explicit invalidation must always
 be resolvable by reconstructing from the owning store; a cache that
 cannot be safely dropped and rebuilt is a persistence bug, not a valid
-optimization. See `docs/11-performance/caching.md` for eviction policy
-and `docs/25-failure-modes/` (cache-corruption entries) for corrupted-
+optimization. See `docs/11-performance/caching.md` for eviction policy and `docs/25-failure-modes/` (cache-corruption entries) for corrupted-
 cache recovery.
 
 ## Sync
@@ -55,8 +54,7 @@ Two general strategies apply, chosen per entity type:
   causal order can be established (most config and preference data).
 - **Explicit merge with user or Verifier arbitration** for entities
   where silent resolution could lose meaningful information (Memory
-  nodes, Task state) — see `docs/04-memory/memory-conflict-resolution.md`
-  and `docs/37-edge-cases/sync-conflict.md`.
+  nodes, Task state) — see `docs/04-memory/memory-conflict-resolution.md` and `docs/37-edge-cases/sync-conflict.md`.
 
 No entity type is permitted to resolve conflicts by silently discarding
 one side without logging both versions somewhere recoverable, per the
@@ -91,8 +89,7 @@ Recovery from a corrupted or partially-written store follows the
 Failure Matrix (`docs/25-failure-modes/`, `docs/36-failure-catalog/`):
 rebuild from the last known-good backup plus replay of the durable
 event log where available, never a best-effort in-place repair as the
-first resort. See `docs/03-runtime/failure-recovery.md` and
-`docs/38-disaster-recovery/crash-recovery.md`.
+first resort. See `docs/03-runtime/failure-recovery.md` and `docs/38-disaster-recovery/crash-recovery.md`.
 
 ## Backup
 
@@ -107,8 +104,7 @@ See `docs/13-devops/backup.md` and `docs/38-disaster-recovery/backup.md`.
 Restore is a two-phase operation: restore to an isolated, non-serving
 copy first, verify integrity against the invariants in
 `system-invariants.md`, then cut over. A restore is never performed
-directly against the live store. See `docs/38-disaster-recovery/restore.md`
-and `docs/38-disaster-recovery/complete-recovery.md`.
+directly against the live store. See `docs/38-disaster-recovery/restore.md` and `docs/38-disaster-recovery/complete-recovery.md`.
 
 ## Cross-cutting rule
 

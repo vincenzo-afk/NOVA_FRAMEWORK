@@ -13,8 +13,7 @@ verification scaffolding from earlier phases already exists.
 ## Phase 0 — Scoping and safety framework
 **Status:** Complete (this documentation baseline).
 Target OS, risk-tiering model, fixed core knowledge-graph schema, and
-consent/retention policy are settled. See `docs/01-product/project-scope.md`
-and `docs/15-decisions/adr-0001-project-scope.md` (Tier 3).
+consent/retention policy are settled. See `docs/01-product/project-scope.md` and `docs/15-decisions/adr-0001-project-scope.md` (Tier 3).
 
 ## Phase 1 — Passive observation and structured memory, zero execution
 **Status:** Documentation pending (Tier 2/3).
@@ -64,8 +63,7 @@ flow assumes the Capability Registry and permission-escalation gates from
 5a/5b already exist.
 
 ## Phase 6 — Full-peer mobile runtime and background life assistant maturity
-**Status:** Scoped, not yet implemented. See `docs/20-devices/ai-phone.md`
-and `docs/23-autonomy/background-life-assistant.md`.
+**Status:** Scoped, not yet implemented. See `docs/20-devices/ai-phone.md` and `docs/23-autonomy/background-life-assistant.md`.
 Deliverable, when undertaken: the phone graduating from Companion mode to
 a Full-peer runtime where hardware supports it
 (`docs/20-devices/multi-device-architecture.md`), and the background
@@ -108,8 +106,7 @@ rather than every gap that is merely conceivable in the abstract.
 
 ## What comes next
 
-Implementation, following `docs/14-development/implementation-order.md`
-and tracked against `docs/14-development/milestones.md`, starting with
+Implementation, following `docs/14-development/implementation-order.md` and tracked against `docs/14-development/milestones.md`, starting with
 Phase 1 (passive observation and memory, zero execution).
 
 See `CHANGELOG.md` for the exact file-level breakdown of each tier.

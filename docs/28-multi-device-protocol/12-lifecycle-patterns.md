@@ -27,7 +27,7 @@ subsystem must fully implement.
 
 | Subsystem | Full state machine | Reference |
 |---|---|---|
-| Plugin | `Installed → Loaded → Started → Running → Paused → Updating → Stopping → Stopped → Unloaded` (the pattern in full) | `docs/26-system-reference/04-state-transition-tables.md` |
+| Plugin | `Discovered → Installed → Enabled ⇄ Disabled, → Updating → Enabled/Failed, → Deprecated ⇄ Enabled → Uninstalled` — a specialization: `Installed`≈`Loaded`, `Enabled`≈`Running`, `Disabled`≈`Paused`, `Uninstalled`≈`Unloaded`; adds `Deprecated` and `Failed` as extra branches the generic pattern doesn't name | `docs/16-extensibility/plugin-lifecycle.md` (canonical); table form in `docs/26-system-reference/04-state-transition-tables.md` |
 | Device | `Discovered → Registered → Trusted → Active (⇄ Idle/Sleeping/Offline) → Removed` | `01-cross-device-sync.md`, `04-presence-and-capabilities.md` — a specialization: `Registered`≈`Installed`, `Trusted`≈`Loaded`, `Active`≈`Running`, `Removed`≈`Unloaded`, with no `Paused`/`Updating` equivalent since a device isn't paused/updated the way software is (though a device's *NOVA installation* can be, per `Updating` presence state) |
 | Workflow | `Pending → Ready → Running → Succeeded/Failed/DeadLettered` | `docs/26-system-reference/04-state-transition-tables.md` — a simpler specialization without `Paused`/`Updating`, since workflows are comparatively short-lived |
 | Voice | `Idle → Listening → Processing → Responding → Idle` (⇄ `Muted` as a Paused-equivalent) | `docs/22-voice/voice-assistant.md`; `Muted` maps to the generic `Paused` |
@@ -39,8 +39,7 @@ subsystem must fully implement.
 In a single-device system, lifecycle mismatches are usually caught
 quickly (the one device either works or doesn't). Across devices, two
 peers can each be a valid-but-different point in the *same* subsystem's
-lifecycle simultaneously (e.g. Device A still `Running` a plugin that
-Device B has already moved to `Stopping` as part of an uninstall
+lifecycle simultaneously (e.g. Device A still `Running` a plugin that Device B has already moved to `Stopping` as part of an uninstall
 propagating across devices) — recognizing that both are instances of one
 shared pattern makes it possible to reason about "what does inconsistency
 between two devices' lifecycle states even mean" generically, rather than
@@ -50,8 +49,7 @@ re-deriving that reasoning per subsystem.
 
 - `docs/26-system-reference/04-state-transition-tables.md` — full tables
   for the subsystems whose lifecycle is documented there in detail
-- `docs/22-voice/voice-assistant.md`, `docs/04-memory/memory-
-  architecture.md` — full detail for the subsystems specialized above
+- `docs/22-voice/voice-assistant.md`, `docs/04-memory/memory-architecture.md` — full detail for the subsystems specialized above
 
 ## Where This Breaks
 

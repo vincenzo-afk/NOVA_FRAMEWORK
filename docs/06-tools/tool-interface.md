@@ -4,8 +4,7 @@
 
 The exact interface contract every tool integration must implement to be
 registered in the Tool Registry, regardless of execution tier. This
-document is the concrete schema referenced by `tool-system.md` and
-`tool-registry.md`.
+document is the concrete schema referenced by `tool-system.md` and `tool-registry.md`.
 
 ## Scope
 

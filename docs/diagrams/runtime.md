@@ -65,11 +65,9 @@ stateDiagram-v2
 
 ## Reading notes
 
-`Unverified` is drawn as a distinct state reachable only from `Verifying`
-and never merged visually with `Failed` or `Completed`, reflecting its
+`Unverified` is drawn as a distinct state reachable only from `Verifying` and never merged visually with `Failed` or `Completed`, reflecting its
 status as a first-class, non-success outcome per
-`docs/01-product/success-metrics.md`. `WaitingUser` is drawn as a
-narrower case reachable through `Paused`, distinguishing "blocked on a
+`docs/01-product/success-metrics.md`. `WaitingUser` is drawn as a narrower case reachable through `Paused`, distinguishing "blocked on a
 required confirmation" from a general pause, since the former requires a
 specific user action to unblock. `Retrying` is a distinct, visible state
 rather than an invisible internal loop, so retry count and history remain

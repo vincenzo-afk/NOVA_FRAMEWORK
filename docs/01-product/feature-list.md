@@ -8,9 +8,7 @@ detailed counterpart to `product-specification.md`'s category overview.
 
 ## Scope
 
-Every feature here must trace to a capability in `product-specification.md`
-and respect the boundary in `docs/00-overview/non-goals.md`. Features not
-listed here and not on `ROADMAP.md` Phase 5 are out of scope, full stop.
+Every feature here must trace to a capability in `product-specification.md` and respect the boundary in `docs/00-overview/non-goals.md`. Features not listed here and not on `ROADMAP.md` Phase 5 are out of scope, full stop.
 
 ## Understand
 

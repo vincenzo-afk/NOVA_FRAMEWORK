@@ -9,8 +9,7 @@ concrete build sequence at the code level.
 ## Scope
 
 Build-time sequencing. Product-level phase definitions are `ROADMAP.md`;
-service-level dependency reasoning is `docs/02-architecture/
-dependency-map.md`.
+service-level dependency reasoning is `docs/02-architecture/dependency-map.md`.
 
 ## Phase 1 build order
 
@@ -50,7 +49,7 @@ dependency-map.md`.
 Follow the same pattern: Planner and Model Router
 (`docs/03-runtime/planner.md`, `docs/05-ai/model-router.md`) for Phase 3's
 multi-step orchestration; Accessibility, Vision, and Automation tiers
-(`docs/06-tools/accessibility.md`, `vision.md`, `automation.md`) only in
+(`docs/06-tools/accessibility.md`, `docs/06-tools/vision.md`, `docs/06-tools/automation.md`) only in
 Phase 4, after the undo/verification/permission scaffolding from Phases 2
 and 3 is proven.
 

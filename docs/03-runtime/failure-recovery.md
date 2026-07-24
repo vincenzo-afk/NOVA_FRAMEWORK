@@ -16,8 +16,7 @@ this document covers task- and step-level failure handling.
 
 ## Retries
 
-Governed by the `Retrying` state in
-`docs/03-runtime/task-manager.md`, bounded by the step/time budget in
+Governed by the `Retrying` state in `docs/03-runtime/task-manager.md`, bounded by the step/time budget in
 `docs/03-runtime/planner.md`. A retry re-attempts the failed step, not
 the entire task, using the Planner's existing "reuse completed work"
 logic — prior successful steps are not redone.
@@ -25,8 +24,7 @@ logic — prior successful steps are not redone.
 ## Rollback
 
 For reversible-write actions, the undo mechanism established in
-`docs/01-product/feature-priority.md` and enforced via
-`docs/06-tools/tool-interface.md`'s structured result (which records
+`docs/01-product/feature-priority.md` and enforced via `docs/06-tools/tool-interface.md`'s structured result (which records
 `affected_resources`) provides the basis for rollback: reversing a
 specific action restores the pre-action state captured at execution
 time. Rollback is invoked automatically only when a Failed step's partial
@@ -57,8 +55,7 @@ point rather than replanning from scratch.
 
 ## Resume after crash
 
-Per `docs/02-architecture/lifecycle.md`, a task in `Executing` or
-`Verifying` at crash time is marked `Unverified` on restart, since its
+Per `docs/02-architecture/lifecycle.md`, a task in `Executing` or `Verifying` at crash time is marked `Unverified` on restart, since its
 true outcome cannot be confirmed. A task in `Paused` or `WaitingUser` at
 crash time resumes into that same state, since it was not mid-action when
 the crash occurred (`docs/03-runtime/task-manager.md`).
@@ -145,7 +142,7 @@ concretely:
 | Transient (network blip, provider rate limit) | Retry automatically, bounded, per this document's Retries section |
 | Permanent (tool cannot perform the action at all) | No retry of the same approach; Planner replans with an alternate tool/capability |
 | User (ambiguous/contradictory input) | Route to `docs/05-ai/ambiguity-resolution.md`; no automated retry |
-| External (third-party API/MCP/plugin misbehavior) | Retry once with backoff, then treat as Permanent for that specific provider and fall back per `docs/05-ai/model-routing-matrix.md` or `docs/06-tools/tool-selection.md`'s next-ranked candidate |
+| External (third-party API/MCP/plugin misbehavior) | Retry once with backoff, then treat as Permanent for that specific provider and fall back per `docs/05-ai/model-routing-matrix.md` or `docs/05-ai/tool-selection.md`'s next-ranked candidate |
 | Security (permission correctly denied) | No retry — route to `docs/03-runtime/permission-manager.md`'s denial handling |
 | Validation (malformed input/schema) | No retry of the same input; reported to Planner, which must produce corrected parameters, not blindly resubmit |
 | Internal (defect) | No automatic retry beyond the standard bounded retry; always logged for `docs/14-development/technical-debt.md` |

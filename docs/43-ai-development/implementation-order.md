@@ -22,38 +22,37 @@ first — even a minimal version — rather than guessing its shape.
 1. **Foundations** — `docs/00-overview/*` (read only, no code), then
    `docs/26-system-reference/01-component-dependency-graph.md` as the
    literal build graph.
-2. **State & lifecycle primitives** — `03-runtime/state-manager.md`,
-   `03-runtime/service-lifecycle.md`, `26-system-reference/02-startup-sequence.md`,
+2. **State & lifecycle primitives** — `docs/03-runtime/state-manager.md`,
+   `docs/03-runtime/service-lifecycle.md`, `docs/26-system-reference/02-startup-sequence.md`,
    `03-shutdown-sequence.md`. Nothing else can be tested without these.
-3. **Memory tier 0/1 (working + episodic)** — `04-memory/memory-architecture.md`
-   then `memory-storage.md`. Do not build the Knowledge Graph yet.
+3. **Memory tier 0/1 (working + episodic)** — `docs/04-memory/memory-architecture.md` then `memory-storage.md`. Do not build the Knowledge Graph yet.
 4. **Observers (minimal)** — enough of `07-observers/` to produce events
    the memory layer can store. One observer only (filesystem or clipboard)
    is enough to unblock the next step.
-5. **Planner + Executor + Verifier** — `03-runtime/planner.md`,
+5. **Planner + Executor + Verifier** — `docs/03-runtime/planner.md`,
    `executor.md`, `verifier.md`, in that order, wired to
-   `05-ai/deterministic-first.md`'s decision function *before* any LLM
+   `docs/05-ai/deterministic-first.md`'s decision function *before* any LLM
    call is added.
-6. **Model Router + one provider** — `05-ai/model-router.md` with exactly
+6. **Model Router + one provider** — `docs/05-ai/model-router.md` with exactly
    one provider implemented end-to-end (do not implement fallback chains
    until one path works).
 7. **Tool registry + execution-priority chain** — `06-tools/`.
 8. **Knowledge Graph + retrieval + ranking** — now that Planner/Executor
-   exist to consume it, `04-memory/knowledge-graph.md`, `retrieval-engine.md`,
+   exist to consume it, `docs/04-memory/knowledge-graph.md`, `retrieval-engine.md`,
    `memory-ranking.md`.
-9. **UI shell (read-only chat)** — `09-ui/chat.md` wired to Planner output
+9. **UI shell (read-only chat)** — `docs/09-ui/chat.md` wired to Planner output
    only, no input actions yet.
-10. **Security/permission layer** — `10-security/permissions.md`,
+10. **Security/permission layer** — `docs/10-security/permissions.md`,
     `permission-manager.md` (03-runtime) — must exist before any tool is
     allowed to take a destructive action.
 11. **Extensibility (plugins)** — `16-extensibility/*`, only after step 10.
-12. **Workflow Engine** — `17-workflow/workflow-engine.md`, only after
+12. **Workflow Engine** — `docs/17-workflow/workflow-engine.md`, only after
     Planner/Executor/permissions are stable, since workflows are graphs of
     the same step primitives.
 13. **Providers beyond the first, multi-device, voice, channels, autonomy,
     collaboration** — in the numeric doc order (18 → 24), each gated on
     its prerequisites being marked stable in
-    `26-system-reference/10-feature-maturity-table.md`.
+    `docs/26-system-reference/10-feature-maturity-table.md`.
 14. **Everything under `43-ai-development/`, `45-code-perfection-failure-modes/`
     is read continuously, not built once** — these are guardrails, not a phase.
 

@@ -70,8 +70,7 @@ or side-loaded for personal use, its developer runs it against a local
 **Plugin Test Harness** distributed as part of the public SDK
 (`docs/08-api/sdk.md`): a standalone runner that instantiates the plugin
 package outside a live NOVA instance and checks it against the same
-contract a real installation would enforce — `docs/06-tools/
-tool-interface.md` conformance for every declared tool, manifest schema
+contract a real installation would enforce — `docs/06-tools/tool-interface.md` conformance for every declared tool, manifest schema
 validity, declared-versus-actual `required_permissions`, and the
 `sdk_version_range` compatibility declaration (`plugin-versioning.md`).
 The harness reports contract violations before publication rather than a

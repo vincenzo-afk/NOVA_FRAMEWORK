@@ -38,15 +38,13 @@ specific tool's assumptions about its target application).
   configured maximum duration (`docs/03-runtime/failure-recovery.md`'s
   timeout strategy), not an unbounded wait.
 - **External APIs change their contracts over time**, independent of
-  NOVA's own versioning. This is why `docs/06-tools/api.md` and
-  `docs/06-tools/mcp.md` treat a capability-mismatch or unexpected
+  NOVA's own versioning. This is why `docs/06-tools/api.md` and `docs/06-tools/mcp.md` treat a capability-mismatch or unexpected
   response shape as a normal, handled failure mode, not an exceptional
   crash condition.
 - **MCP servers and plugins may be poorly implemented or actively
   malicious**, independent of the user's intent in installing them —
   this is why they are sandboxed and treated as untrusted by default
-  (`docs/10-security/sandboxing.md`, `docs/16-extensibility/
-  plugin-sandboxing.md`) rather than trusted based on installation
+  (`docs/10-security/sandboxing.md`, `docs/16-extensibility/plugin-sandboxing.md`) rather than trusted based on installation
   choice alone.
 
 ## Assumptions about infrastructure

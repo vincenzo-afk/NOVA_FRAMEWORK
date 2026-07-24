@@ -73,8 +73,7 @@ synthesized claim still subtly misrepresents the grounded source.
 ## Stress testing scenarios
 
 Beyond golden-dataset simulation, the suite includes fixed high-load
-scenarios run on a slower cadence (mirroring `docs/12-testing/
-chaos-tests.md`'s cadence reasoning): 1,000 concurrently queued tasks
+scenarios run on a slower cadence (mirroring `docs/12-testing/chaos-tests.md`'s cadence reasoning): 1,000 concurrently queued tasks
 (exercising `docs/03-runtime/scheduler.md`'s concurrency limits and
 starvation prevention), 100 simultaneously enabled plugins (exercising
 `docs/16-extensibility/plugin-sandboxing.md`'s per-plugin resource

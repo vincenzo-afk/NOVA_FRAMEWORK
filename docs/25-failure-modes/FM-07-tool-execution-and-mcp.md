@@ -8,11 +8,7 @@ Failures in actually calling out to the world — local tools, binaries, and MCP
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/06-tools/tool-interface.md`
-- `docs/06-tools/tool-registry.md`
-- `docs/06-tools/mcp.md`
-- `docs/06-tools/error-codes.md`
-- `docs/06-tools/tool-schema-versioning.md`
+- `docs/06-tools/tool-interface.md` - `docs/06-tools/tool-registry.md` - `docs/06-tools/mcp.md` - `docs/06-tools/error-codes.md` - `docs/06-tools/tool-schema-versioning.md`
 
 ## Failure Catalog
 

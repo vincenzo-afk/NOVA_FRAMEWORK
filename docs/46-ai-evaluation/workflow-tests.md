@@ -1,3 +1,3 @@
 # Workflow Tests
 
-Correctness of branching, parallel merge, and rollback under injected mid-execution failures — see `12-testing/chaos-tests.md`.
+Correctness of branching, parallel merge, and rollback under injected mid-execution failures — see `docs/12-testing/chaos-tests.md`.

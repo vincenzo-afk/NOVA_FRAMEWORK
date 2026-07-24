@@ -48,13 +48,13 @@ continue to function, since they never call it.
 No service directly mutates another service's owned state. For example,
 the Executor never writes directly to Memory — it returns a result to Task
 Manager, which is what triggers a Memory write. This indirection is what
-keeps the dependency map in `dependency-map.md` accurate and prevents
+keeps the dependency map in `docs/02-architecture/dependency-map.md` accurate and prevents
 undocumented coupling from accumulating.
 
 ## Related documents
 
 - `docs/00-overview/architecture-summary.md` — the one-page version
-- `dependency-map.md` — the dependency graph implied by the table above,
+- `docs/02-architecture/dependency-map.md` — the dependency graph implied by the table above,
   made explicit
 - `communication-model.md` — how services actually exchange the
   inputs/outputs listed above

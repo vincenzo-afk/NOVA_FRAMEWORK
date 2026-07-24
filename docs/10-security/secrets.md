@@ -35,8 +35,7 @@ itself:
 }
 ```
 
-This is the pattern referenced throughout `docs/05-ai/model-providers.md`
-and `docs/06-tools/mcp.md` — resolution happens at call time by looking up
+This is the pattern referenced throughout `docs/05-ai/model-providers.md` and `docs/06-tools/mcp.md` — resolution happens at call time by looking up
 the vault reference, and the resolved value is held only transiently in
 memory for the duration of the call, never persisted or logged.
 

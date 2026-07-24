@@ -96,10 +96,8 @@ versioned** (that restriction stands), but the **capability/plugin
 surface** is now permitted to grow at runtime. When NOVA determines it
 needs a capability it doesn't have (e.g., "I need Telegram"), it may
 search the plugin/MCP registry, propose an installation, and — subject to
-the same permission-escalation gates in `docs/10-security/permissions.md`
-and `permission-escalation.md` — install and register it. This is
-specified in `docs/23-autonomy/autonomous-plugin-discovery.md` and
-`docs/23-autonomy/automatic-software-installation.md`. No install ever
+the same permission-escalation gates in `docs/10-security/permissions.md` and `permission-escalation.md` — install and register it. This is
+specified in `docs/23-autonomy/autonomous-plugin-discovery.md` and `docs/23-autonomy/automatic-software-installation.md`. No install ever
 bypasses user confirmation; autonomy applies to *discovery and proposal*,
 not to unattended irreversible action.
 
@@ -129,8 +127,7 @@ memory/knowledge-graph substrate as v1, not a new model-weight artifact.
 The Planner may now decompose a task across multiple concurrently running
 agent instances (e.g., a research agent and a code agent working in
 parallel), coordinated through the existing event bus and Task Manager,
-specified in `docs/24-collaboration/multi-agent-collaboration.md`. This
-extends `docs/03-runtime/planner.md` and `docs/03-runtime/task-manager.md`
+specified in `docs/24-collaboration/multi-agent-collaboration.md`. This extends `docs/03-runtime/planner.md` and `docs/03-runtime/task-manager.md`
 rather than introducing a second runtime.
 
 ## What is explicitly *not* repealed
@@ -141,8 +138,7 @@ rather than introducing a second runtime.
   infrastructure.
 - **Not an unsandboxed code executor.** Automatic software installation
   and autonomous plugin installation both execute inside the sandboxing
-  model in `docs/10-security/sandboxing.md` and
-  `docs/16-extensibility/plugin-sandboxing.md`.
+  model in `docs/10-security/sandboxing.md` and `docs/16-extensibility/plugin-sandboxing.md`.
 - **Not a bypass of human approval.** Every destructive, irreversible, or
   credential-granting action — including plugin installs, remote-control
   sessions, and financial actions — still requires explicit confirmation.

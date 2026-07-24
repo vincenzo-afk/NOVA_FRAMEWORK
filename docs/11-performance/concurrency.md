@@ -51,8 +51,7 @@ of the underlying storage (`docs/04-memory/memory-storage.md`).
 
 Where two tasks' steps could plausibly touch the same resource
 simultaneously (e.g., two tasks both organizing files in the same
-folder), the Resource Manager's lock queue (`docs/03-runtime/
-resource-manager.md`) serializes them — the second task's conflicting
+folder), the Resource Manager's lock queue (`docs/03-runtime/resource-manager.md`) serializes them — the second task's conflicting
 step waits rather than proceeding against a resource mid-modification by
 the first, eliminating the interleaved-write corruption risk this
 project's foundational review identified as a gap in the original

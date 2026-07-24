@@ -27,7 +27,7 @@ against the audit trail's higher-level action record for the same task.
 
 Credential values (`docs/10-security/secrets.md`), raw clipboard/
 notification content beyond what the relevant permission level allows
-(`docs/07-observers/clipboard.md`, `notifications.md`), and keystroke/
+(`docs/07-observers/clipboard.md`, `docs/07-observers/notifications.md`), and keystroke/
 mouse-movement content (never captured at all,
 `docs/07-observers/keyboard.md`, `mouse.md`) — diagnostic logging is
 held to the same content restrictions as the audit trail and observation
@@ -40,8 +40,7 @@ Diagnostic logs are retained for a shorter, configurable window than
 Memory/audit data, since their purpose is operational debugging rather
 than durable record-keeping — old diagnostic logs are pruned
 automatically, distinct from the user-controlled retention model
-governing Timeline Memory and the audit trail (`docs/04-memory/
-timeline.md`, `docs/10-security/audit.md`).
+governing Timeline Memory and the audit trail (`docs/04-memory/timeline.md`, `docs/10-security/audit.md`).
 
 ## Log access
 

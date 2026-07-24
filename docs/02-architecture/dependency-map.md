@@ -2,8 +2,7 @@
 
 ## Purpose
 
-Makes the dependency relationships implied throughout `docs/02-
-architecture/` and `docs/03-runtime/` explicit and singular, so that
+Makes the dependency relationships implied throughout `docs/02-architecture/` and `docs/03-runtime/` explicit and singular, so that
 startup order (`lifecycle.md`), failure-domain reasoning
 (`service-architecture.md`), and build/test sequencing
 (`docs/14-development/implementation-order.md`, Tier 3) all reference the

@@ -43,8 +43,7 @@ tests from `docs/12-testing/` for its layer.
 ## Commit conventions
 
 Commit messages reference the documentation path they implement or
-modify (e.g., `docs/03-runtime/planner.md: implement replanning budget
-check`), making it straightforward to trace implementation history back
+modify (e.g., `docs/03-runtime/planner.md: implement replanning budget check`), making it straightforward to trace implementation history back
 to the specification that motivated it.
 
 ## Related documents

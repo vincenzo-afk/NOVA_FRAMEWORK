@@ -18,15 +18,13 @@ contributors (human or AI) in parallel.
 
 `nova verify` is the single most important command in this group: it is
 the local, on-demand invocation of every automated check described
-throughout `docs/25-failure-modes/FM-24-documentation-and-reference-
-integrity.md` and `docs/26-system-reference/11-documentation-lint-ci.md`,
+throughout `docs/25-failure-modes/FM-24-documentation-and-reference-integrity.md` and `docs/26-system-reference/11-documentation-lint-ci.md`,
 so drift can be caught before a PR is even opened, not just in CI.
 
 ## CI/CD checks
 
 The full pipeline runs roughly thirty checks. Beyond the documentation
-checks already specified in `docs/26-system-reference/11-documentation-
-lint-ci.md`, the additional CI surface includes:
+checks already specified in `docs/26-system-reference/11-documentation-lint-ci.md`, the additional CI surface includes:
 
 | Category | Checks |
 |---|---|

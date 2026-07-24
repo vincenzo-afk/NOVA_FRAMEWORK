@@ -24,8 +24,7 @@ Phone's queued requests     existing failure-mode note)
 resume against it
 ```
 
-This is a direct extension of `docs/20-devices/multi-device-
-architecture.md`'s existing "Primary Runtime unreachable" failure mode:
+This is a direct extension of `docs/20-devices/multi-device-architecture.md`'s existing "Primary Runtime unreachable" failure mode:
 that document already specifies the no-other-peer case (queue and
 surface clearly); this document adds the promote-a-peer case, which only
 applies in topologies with more than one Full Peer.
@@ -58,8 +57,7 @@ failure modes) to a minimum.
 ## Migration
 
 Migrating memory/config schemas across a multi-device set follows the
-same migration-chain discipline as `docs/25-failure-modes/FM-20-
-deployment-and-evolution.md`, with one addition: a schema migration is
+same migration-chain discipline as `docs/25-failure-modes/FM-20-deployment-and-evolution.md`, with one addition: a schema migration is
 only considered complete for the *workspace* once every currently-online
 device has applied it — a partially-migrated workspace (some devices on
 old schema, some on new) is treated as an active degraded state, not

@@ -8,11 +8,7 @@ Failures intrinsic to the model itself, independent of routing or infrastructure
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/05-ai/hallucination-prevention.md`
-- `docs/05-ai/explainability.md`
-- `docs/05-ai/confidence-propagation.md`
-- `docs/05-ai/reasoning-engine.md`
-- `docs/05-ai/deterministic-first.md`
+- `docs/05-ai/hallucination-prevention.md` - `docs/05-ai/explainability.md` - `docs/05-ai/confidence-propagation.md` - `docs/05-ai/reasoning-engine.md` - `docs/05-ai/deterministic-first.md`
 
 ## Failure Catalog
 

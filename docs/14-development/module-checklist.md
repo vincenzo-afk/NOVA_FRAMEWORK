@@ -2,8 +2,7 @@
 
 ## Purpose
 
-The concrete, per-pull-request checklist referenced by `CONTRIBUTING.md`
-and `docs/12-testing/validation.md`, used to verify a change satisfies
+The concrete, per-pull-request checklist referenced by `CONTRIBUTING.md` and `docs/12-testing/validation.md`, used to verify a change satisfies
 every applicable requirement before merge.
 
 ## Scope

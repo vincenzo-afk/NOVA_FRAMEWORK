@@ -3,16 +3,14 @@
 ## Purpose
 
 A module-composition tree an AI agent can read top-to-bottom to know what
-must exist before what — distinct from `docs/02-architecture/
-dependency-map.md`'s service-level Mermaid graph (which encodes runtime
+must exist before what — distinct from `docs/02-architecture/dependency-map.md`'s service-level Mermaid graph (which encodes runtime
 "depends on to function" edges for failure-domain reasoning). This
 document encodes the same graph as a build/implementation tree, answering
 "what order do I write and bring these modules up in" rather than "what
 degrades if X goes down."
 
 Both documents describe the same underlying dependency graph. If they
-ever disagree, `dependency-map.md` is authoritative (per `docs/00-overview/
-normative-precedence.md`, Tier 2 over a Tier 3 reference document) and
+ever disagree, `docs/02-architecture/dependency-map.md` is authoritative (per `docs/00-overview/normative-precedence.md`, Tier 2 over a Tier 3 reference document) and
 this file must be corrected to match, not the other way around.
 
 ## The tree
@@ -61,7 +59,7 @@ Read `├──` as "is a child module of, and typically depends on being
 initialized after, its parent." A child that appears under two branches
 (e.g. Provider Registry under AI Layer, but also referenced by
 `docs/18-providers/` directly) has its primary/owning branch listed here;
-see `dependency-map.md` for the full non-tree edge set (e.g. Verifier
+see `docs/02-architecture/dependency-map.md` for the full non-tree edge set (e.g. Verifier
 also reads State Manager directly, a cross-branch edge a tree cannot
 represent).
 
@@ -84,7 +82,7 @@ functional (`docs/23-autonomy/self-growing-capability.md`).
   produces
 - `docs/14-development/implementation-order.md` — build/test sequencing
   for contributors, Tier 3 detail
-- `startup-sequence.md`, `shutdown-sequence.md` (this folder)
+- `02-startup-sequence.md`, `03-shutdown-sequence.md` (this folder)
 
 ## Where This Breaks
 
@@ -92,6 +90,6 @@ This document is itself a build artifact an AI agent relies on. If it drifts fro
 
 | ID | Failure | Trigger | Detection | Severity | Mitigation | Recovery |
 |---|---|---|---|---|---|---|
-| **FM-24-001** | Tree diverges from `dependency-map.md` | A new module is added or an edge changes and only one of the two documents is updated. | CI doc-lint (see `documentation-lint-ci.md`) diffs the module list in both files and fails the build if they disagree. | Medium | Treat `dependency-map.md` edits as required whenever this tree changes, enforced by a single PR-template checklist item, not memory. | Regenerate this tree from `dependency-map.md` mechanically rather than hand-editing both independently. |
-| **FM-24-002** | Agent infers a false dependency | Tree's parent-child nesting is read as a strict dependency when it was only an organizational grouping. | A build/implementation attempt fails because a step assumed an unnecessary prerequisite. | Low | State explicitly in this file (as done above) that nesting means typical dependency, not universal strict dependency; call out exceptions inline. | Consult `dependency-map.md`'s explicit edge list to confirm before treating a nesting relationship as a hard blocker. |
-| **FM-24-003** | Circular dependency introduced silently | A new module's edge, added to `dependency-map.md` but not cross-checked against this tree, creates a cycle. | Same cycle-detection CI check referenced in `dependency-map.md`'s Circular-dependency rule. | High | Never add an edge to either document without running the cycle-detection check locally first. | Revert the offending edge; resolve per `dependency-map.md`'s guidance on breaking apparent mutual dependencies via event flow instead of a direct edge. |
+| **FM-24-001** | Tree diverges from `docs/02-architecture/dependency-map.md` | A new module is added or an edge changes and only one of the two documents is updated. | CI doc-lint (see `11-documentation-lint-ci.md`) diffs the module list in both files and fails the build if they disagree. | Medium | Treat `docs/02-architecture/dependency-map.md` edits as required whenever this tree changes, enforced by a single PR-template checklist item, not memory. | Regenerate this tree from `docs/02-architecture/dependency-map.md` mechanically rather than hand-editing both independently. |
+| **FM-24-002** | Agent infers a false dependency | Tree's parent-child nesting is read as a strict dependency when it was only an organizational grouping. | A build/implementation attempt fails because a step assumed an unnecessary prerequisite. | Low | State explicitly in this file (as done above) that nesting means typical dependency, not universal strict dependency; call out exceptions inline. | Consult `docs/02-architecture/dependency-map.md`'s explicit edge list to confirm before treating a nesting relationship as a hard blocker. |
+| **FM-24-003** | Circular dependency introduced silently | A new module's edge, added to `docs/02-architecture/dependency-map.md` but not cross-checked against this tree, creates a cycle. | Same cycle-detection CI check referenced in `docs/02-architecture/dependency-map.md`'s Circular-dependency rule. | High | Never add an edge to either document without running the cycle-detection check locally first. | Revert the offending edge; resolve per `docs/02-architecture/dependency-map.md`'s guidance on breaking apparent mutual dependencies via event flow instead of a direct edge. |

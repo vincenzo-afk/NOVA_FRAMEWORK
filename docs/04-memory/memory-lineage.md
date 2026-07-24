@@ -55,9 +55,7 @@ execution) does not cover, since not every memory transformation
 ## Lineage and confidence
 
 A record's confidence (`docs/04-memory/memory-confidence.md`) can be
-informed by its lineage: a summary `summarized_from` multiple
-`user_confirmed` records inherits a reasonable basis for higher
-confidence than one `derived_from` a single low-confidence,
+informed by its lineage: a summary `summarized_from` multiple `user_confirmed` records inherits a reasonable basis for higher confidence than one `derived_from` a single low-confidence,
 `llm_synthesized` source — lineage is one input to confidence
 computation, not a separate, disconnected metadata trail.
 
@@ -71,8 +69,7 @@ merged node, which the `merged_from` lineage entry preserves.
 ## Retention of lineage after source deletion
 
 If a source record is later deleted (via expiration,
-`docs/04-memory/memory-garbage-collection.md`), a `summarized_from` or
-`derived_from` lineage reference to it is retained as a historical
+`docs/04-memory/memory-garbage-collection.md`), a `summarized_from` or `derived_from` lineage reference to it is retained as a historical
 pointer (noting the source no longer exists) rather than silently
 removed — this preserves the ability to know a summary had a specific
 provenance even after the underlying detail has been reclaimed.

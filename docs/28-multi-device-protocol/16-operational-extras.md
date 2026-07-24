@@ -9,8 +9,7 @@ than warranting its own long-form document.
 
 ## Resource limits
 
-Per-device and per-workspace ceilings, extending `docs/26-system-
-reference/08-configuration-reference.md`'s `limits` section across the
+Per-device and per-workspace ceilings, extending `docs/26-system-reference/08-configuration-reference.md`'s `limits` section across the
 multi-device topology: a Companion device (typically far less powerful
 than a Full Peer) gets its own, lower resource ceiling profile, checked
 via `04-presence-and-capabilities.md`'s capability advertisement rather
@@ -34,8 +33,7 @@ entry exists only to cross-reference it from this folder's index.
 
 ## Background tasks
 
-Background/autonomous tasks (`docs/23-autonomy/background-life-
-assistant.md`) that touch multi-device state must respect this folder's
+Background/autonomous tasks (`docs/23-autonomy/background-life-assistant.md`) that touch multi-device state must respect this folder's
 sync-timing (`06-global-state-and-sync-timing.md`) and resource-
 arbitration (`13-resource-arbitration-and-offline-mode.md`) rules exactly
 as a foreground user-initiated action would — autonomy is not an
@@ -51,8 +49,7 @@ invalidation on one device has no cross-device effect or requirement.
 
 ## Telemetry
 
-Multi-device telemetry aggregates per-device metrics (`docs/13-devops/
-monitoring.md`) under one workspace identity for a unified operational
+Multi-device telemetry aggregates per-device metrics (`docs/13-devops/monitoring.md`) under one workspace identity for a unified operational
 view, while still tagging every metric with its originating device ID —
 never blending device-specific signals (e.g. Companion battery level)
 into a workspace-wide average that would obscure which specific device
@@ -69,8 +66,7 @@ diagnostics from every device separately during an incident.
 
 ## Installation
 
-Installing NOVA on an additional device (`docs/27-cli/03-dev-
-infrastructure-and-env.md`'s one-line installers) is the entry point
+Installing NOVA on an additional device (`docs/27-cli/03-dev-infrastructure-and-env.md`'s one-line installers) is the entry point
 into `02-device-pairing-protocol.md` — installation and pairing are
 sequential, not the same step: installing NOVA gives you an unpaired,
 standalone instance until pairing is explicitly performed.
@@ -100,8 +96,7 @@ The multi-device-specific disaster-recovery scenario beyond
 `docs/25-failure-modes/FM-21-catastrophic-failures.md`'s single-device
 catalog: **total loss of every paired device simultaneously** (e.g.
 household fire, theft of both devices together). Mitigated only by an
-off-site/cloud-independent backup existing per `11-recovery-and-
-backup.md`'s Backup section — this is the specific scenario that makes
+off-site/cloud-independent backup existing per `11-recovery-and-backup.md`'s Backup section — this is the specific scenario that makes
 "a Full Peer's replica is not a substitute for a real snapshot backup"
 (stated in that section) matter most: if every replica is lost together,
 only an actual out-of-band snapshot can recover the workspace at all.

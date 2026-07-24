@@ -57,8 +57,7 @@ flowchart BT
 Arrows point toward the dependency (e.g., Planner depends on Context
 Builder, Model Router, and Tool Registry). This graph is a topological
 sort input for `docs/02-architecture/lifecycle.md`'s startup sequence and
-a failure-isolation reference for `docs/02-architecture/
-service-architecture.md` — a service failure only necessarily degrades
+a failure-isolation reference for `docs/02-architecture/service-architecture.md` — a service failure only necessarily degrades
 services that depend on it downstream in this graph, not services
 upstream of or unrelated to it.
 

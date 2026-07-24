@@ -8,8 +8,7 @@ Failures specific to spoken-language I/O and multi-language/multi-region support
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/22-voice/voice-assistant.md`
-- `docs/22-voice/local-speech-models.md`
+- `docs/22-voice/voice-assistant.md` - `docs/22-voice/local-speech-models.md`
 
 ## Failure Catalog
 

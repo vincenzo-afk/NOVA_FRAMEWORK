@@ -102,9 +102,7 @@ Memory for:
 
 ## Related documents
 
-- `docs/04-memory/ontology.md` (v2) — the Goal node and `pursues` /
-  `advances` / `blocks` edges this document relies on
-- `background-life-assistant.md` — the scheduling and briefing-delivery
+- `docs/04-memory/ontology.md` (v2) — the Goal node and `pursues` /`advances` / `blocks` edges this document relies on - `background-life-assistant.md` — the scheduling and briefing-delivery
   mechanism goal reviews reuse rather than duplicate
 - `docs/03-runtime/task-manager.md` — Tasks, the unit that actually
   advances a Goal

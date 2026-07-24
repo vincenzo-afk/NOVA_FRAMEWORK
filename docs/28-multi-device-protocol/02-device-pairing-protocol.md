@@ -71,8 +71,7 @@ sequenceDiagram
 The resulting pairing keypair is stored per
 `docs/18-providers/credential-management.md` (OS credential vault, not a
 plain config file) and used to authenticate all subsequent sync
-(`01-cross-device-sync.md`) and remote-control (`docs/20-devices/remote-
-control.md`) traffic between the two devices.
+(`01-cross-device-sync.md`) and remote-control (`docs/20-devices/remote-control.md`) traffic between the two devices.
 
 ## Related documents
 

@@ -40,8 +40,7 @@ not changing routing code.
 
 ## Local model support
 
-Local models are configured with `endpoint: "local"` and `privacy_class:
-"local"`, and are treated as first-class citizens in the routing
+Local models are configured with `endpoint: "local"` and `privacy_class: "local"`, and are treated as first-class citizens in the routing
 algorithm, not a degraded fallback — per
 `docs/00-overview/non-goals.md`'s local-first commitment, full offline
 operation depends on local models being genuinely equivalent participants

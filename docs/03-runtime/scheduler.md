@@ -22,8 +22,7 @@ Task ordering and dispatch only. Does not decide *how* a task is executed
 - Apply priority ordering: user-interactive tasks (something the user is
   actively waiting on) are dispatched ahead of background/autonomous tasks
   (e.g., a multi-step cleanup task running unattended).
-- Respect resource locks already held (`docs/03-runtime/
-  resource-manager.md`) when deciding whether a queued task can start —
+- Respect resource locks already held (`docs/03-runtime/resource-manager.md`) when deciding whether a queued task can start —
   a task requiring a currently-locked resource is held rather than
   dispatched to fail immediately.
 

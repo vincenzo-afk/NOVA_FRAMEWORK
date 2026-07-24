@@ -47,8 +47,7 @@ even though this revision expanded scope substantially.
   channels (`docs/21-channels/`).
 - **Multi-device:** In scope. Memory, task state, and identity
   synchronize across paired devices per
-  `docs/20-devices/multi-device-architecture.md` and
-  `docs/20-devices/cross-device-memory.md`.
+  `docs/20-devices/multi-device-architecture.md` and `docs/20-devices/cross-device-memory.md`.
 - **Capability growth:** In scope. NOVA may discover, propose, and
   (with confirmation) install plugins, MCP servers, and third-party
   software at runtime, per `docs/23-autonomy/self-growing-capability.md`.

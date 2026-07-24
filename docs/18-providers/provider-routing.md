@@ -47,8 +47,7 @@ place; routing then chooses among whatever the user has enabled.
 ## Fallback chains
 
 Every routing decision walks the enabled-provider list for a capability
-in priority order, skipping any that fail `healthCheck()` or whose
-`describe()` capabilities don't meet the request's minimum requirements.
+in priority order, skipping any that fail `healthCheck()` or whose `describe()` capabilities don't meet the request's minimum requirements.
 The chain is exhausted — not retried indefinitely — before returning a
 typed "capability unavailable" error to the caller (Planner, Executor, or
 UI), which is responsible for surfacing that clearly rather than

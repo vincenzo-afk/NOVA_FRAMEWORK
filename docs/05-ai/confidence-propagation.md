@@ -22,8 +22,7 @@ A single Planner decision (e.g., "delete this file") can be informed by
 confidence from multiple independent sources:
 
 - **Memory confidence** — how confident NOVA is in the underlying fact
-  (e.g., "this is the correct file") per `docs/04-memory/
-  memory-confidence.md`.
+  (e.g., "this is the correct file") per `docs/04-memory/memory-confidence.md`.
 - **Retrieval confidence** — how strongly the Retrieval Fusion Engine's
   ranking favored this result over alternatives
   (`docs/04-memory/memory-ranking.md`).
@@ -53,8 +52,7 @@ since the weakest link determines how much the overall conclusion can
 actually be trusted. Self-reported reasoning-model confidence is
 tracked and logged (for the audit trail, `docs/10-security/audit.md`) but
 is explicitly excluded from this combination — it never raises or lowers
-the computed value, consistent with `docs/05-ai/
-hallucination-prevention.md`'s existing rule.
+the computed value, consistent with `docs/05-ai/hallucination-prevention.md`'s existing rule.
 
 ## Why weakest-link rather than averaging
 

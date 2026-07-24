@@ -2,7 +2,7 @@
 
 ## Scenario
 
-Actions queued locally on the offline device and synced on reconnect, with conflict resolution applied per `04-memory/memory-conflict-resolution.md`.
+Actions queued locally on the offline device and synced on reconnect, with conflict resolution applied per `docs/04-memory/memory-conflict-resolution.md`.
 
 ## Requirement
 

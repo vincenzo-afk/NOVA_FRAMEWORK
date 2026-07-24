@@ -4,8 +4,7 @@
 
 Defines the common interface every provider — local or cloud, for every
 capability domain — must implement so that NOVA Core never contains
-provider-specific logic, per `docs/15-decisions/adr-0008-v5-architecture-evolution.md`.
-This is the generalization of the pattern `docs/05-ai/model-providers.md`
+provider-specific logic, per `docs/15-decisions/adr-0008-v5-architecture-evolution.md`.This is the generalization of the pattern `docs/05-ai/model-providers.md`
 already established for LLM providers, applied to every capability
 domain in `capability-management.md`.
 

@@ -13,19 +13,16 @@ Plugin (cross-cutting — scoped to a Device, but its identity/permissions
         are tracked independently of the Session/Agent hierarchy above)
 ```
 
-- **User** — a single NOVA identity, per `docs/20-devices/multi-device-
-  architecture.md`'s "one identity spans all paired devices" rule. NOVA
+- **User** — a single NOVA identity, per `docs/20-devices/multi-device-architecture.md`'s "one identity spans all paired devices" rule. NOVA
   remains explicitly not multi-user (`docs/00-overview/non-goals.md`).
 - **Workspace** — see below; the top-level container for a user's
   memory/knowledge-graph/config, distinct from any one device.
-- **Device** — a registered, paired device (`02-device-pairing-
-  protocol.md`), operating as Full Peer or Companion.
+- **Device** — a registered, paired device (`02-device-pairing-protocol.md`), operating as Full Peer or Companion.
 - **Session** — a bounded conversation/interaction window on a specific
   device, per `docs/26-system-reference/04-state-transition-tables.md`'s
   Session state machine.
 - **Agent** — an individual sub-agent instance within a task, scoped to
-  that task's lifetime, per `docs/24-collaboration/multi-agent-
-  collaboration.md`.
+  that task's lifetime, per `docs/24-collaboration/multi-agent-collaboration.md`.
 - **Plugin** — scoped to the device it's installed on
   (`09-config-secrets-plugin-distribution.md`), with its own permission
   identity independent of any session/agent.
@@ -50,8 +47,7 @@ non-goals referenced above.
   `docs/27-cli/02-bootstrap-and-health.md`) — never as an ordinary
   operating mode, since a locked workspace blocks all devices' sync |
 | Recover | Per `docs/26-system-reference/05-data-ownership.md`'s
-  cross-reference to `docs/25-failure-modes/FM-21-catastrophic-
-  failures.md` — workspace recovery follows the same backup/restore
+  cross-reference to `docs/25-failure-modes/FM-21-catastrophic-failures.md` — workspace recovery follows the same backup/restore
   procedure as single-device Memory recovery, since a workspace's
   durable state has one logical source of truth (whichever device's
   backup is most recent and valid) even though it's replicated across

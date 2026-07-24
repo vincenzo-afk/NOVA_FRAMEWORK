@@ -31,8 +31,7 @@ a dedicated "Contract" section or clearly within existing sections:
   timeout strategy, for any module whose operations can take meaningful
   time).
 - **Permissions** — what authorization or risk-tier requirements gate the
-  module's operation, per `docs/10-security/authorization.md` and
-  `docs/10-security/permissions.md`.
+  module's operation, per `docs/10-security/authorization.md` and `docs/10-security/permissions.md`.
 
 ## Example: applying the standard to an existing module
 

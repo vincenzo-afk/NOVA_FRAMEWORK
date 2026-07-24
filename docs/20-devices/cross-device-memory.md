@@ -43,8 +43,7 @@ sync endpoint itself never has plaintext access.
 ## Conflict resolution
 
 Memory records carry the same lineage and versioning fields already
-defined in `docs/04-memory/memory-lineage.md` and
-`docs/04-memory/memory-versioning.md`. A conflicting edit made on two
+defined in `docs/04-memory/memory-lineage.md` and `docs/04-memory/memory-versioning.md`. A conflicting edit made on two
 devices while offline from each other resolves using those existing
 lineage rules (last-write-wins per field with full history retained, not
 silent overwrite) — multi-device sync does not introduce a new conflict

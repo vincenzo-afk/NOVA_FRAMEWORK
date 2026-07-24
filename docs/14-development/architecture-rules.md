@@ -1,17 +1,23 @@
 # Architecture Rules (Non-Negotiables)
 
-## Purpose
+## Status: full detail — summary lives in the governance folder
 
-The authoritative, detailed version of the non-negotiable rules
-summarized in `CONTRIBUTING.md` — the specific architectural constraints
-every contribution must satisfy regardless of how reasonable an
-exception might seem in a specific case.
+`docs/00-implementation-governance/architecture-lock.md` is the short,
+first-read summary of this document and is what the governance folder
+points to first. This file remains the authoritative, detailed version
+of the non-negotiable rules also summarized in `CONTRIBUTING.md` — the
+specific architectural constraints every contribution must satisfy
+regardless of how reasonable an exception might seem in a specific case.
+If this file and `architecture-lock.md` disagree, this file is correct;
+fix the summary, per
+`docs/00-implementation-governance/documentation-precedence.md`.
+
+## Purpose
 
 ## Scope
 
 Hard constraints derived directly from the five design principles in
-`docs/00-overview/design-principles.md` and the ADRs in
-`docs/15-decisions/`.
+`docs/00-overview/design-principles.md` and the ADRs in `docs/15-decisions/`.
 
 ## Rule 1: Deterministic Before Intelligent is checked first, always
 
@@ -24,8 +30,7 @@ of how narrow or well-intentioned the shortcut appears.
 ## Rule 2: No execution bypasses the Permission Manager
 
 Every path from Planner/Executor to an actual OS-level action must pass
-through the Permission Manager gate (`docs/03-runtime/
-permission-manager.md`), with no exception for "trusted" internal
+through the Permission Manager gate (`docs/03-runtime/permission-manager.md`), with no exception for "trusted" internal
 callers, test code paths left enabled in production, or new execution
 tiers added later. A new tool integration that finds a way to invoke the
 Executor without this gate is a defect, not a feature.
@@ -62,8 +67,7 @@ confirmation for destructive/irreversible actions.
 ## Enforcement
 
 These rules are checked both by automated tests where mechanically
-possible (Rules 3, 4, 5, 6 are testable via `docs/12-testing/
-unit-tests.md` and `integration-tests.md`) and by mandatory code review
+possible (Rules 3, 4, 5, 6 are testable via `docs/12-testing/unit-tests.md` and `integration-tests.md`) and by mandatory code review
 attention for the less mechanically-checkable ones (Rules 1 and 2,
 verified by tracing call paths).
 

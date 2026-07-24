@@ -1,5 +1,17 @@
 # Component Dependency Map
 
+## Status: derived view — canonical source is elsewhere
+
+`docs/02-architecture/dependency-map.md` is the authoritative,
+service-level dependency graph (see
+`docs/26-system-reference/01-component-dependency-graph.md`, which
+states this explicitly). This file is a task-oriented restatement of
+that same graph, formatted as a prose chain for quick scanning during
+implementation planning rather than as the full Mermaid diagram. If this
+file and `docs/02-architecture/dependency-map.md` ever disagree, the
+architecture-layer file is correct and this file is stale — fix this
+file to match it, never the other way around, per
+`docs/00-implementation-governance/documentation-precedence.md`.
 
 ## Purpose
 
@@ -28,8 +40,8 @@ Voice Assistant ───> Observers (audio) + Planner + TTS provider
 
 1. **Memory Storage** — read/written by every tier, every observer, the
    Knowledge Graph, sync, and most autonomy features. Any schema change
-   here requires a migration doc (`34-disaster-recovery/migration.md`)
-   and a compatibility check (`26-system-reference/09-version-compatibility-matrix.md`).
+   here requires a migration doc (`docs/38-disaster-recovery/migration.md`)
+   and a compatibility check (`docs/26-system-reference/09-version-compatibility-matrix.md`).
 2. **Tool Registry / Permission Manager** — every tool, plugin, and
    workflow node routes through this. A behavior change here changes
    what every existing tool is allowed to do.

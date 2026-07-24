@@ -16,8 +16,7 @@ across them.
 Peer selection and load-aware assignment for a Task among Full Peers
 only. Companion devices (`android-companion.md`) never execute
 Planner/Executor logic locally and are out of scope here, unchanged from
-`multi-device-architecture.md`. Memory/state sync mechanics this
-scheduling relies on are `cross-device-memory.md`, not repeated here.
+`multi-device-architecture.md`. Memory/state sync mechanics thisscheduling relies on are `cross-device-memory.md`, not repeated here.
 
 ## Default: originating device
 

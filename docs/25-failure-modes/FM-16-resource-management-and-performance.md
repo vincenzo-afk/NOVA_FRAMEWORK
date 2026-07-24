@@ -8,11 +8,7 @@ Failures related to CPU, memory, GPU, disk, threads, and the slow-degradation fa
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/11-performance/resource-usage.md`
-- `docs/11-performance/concurrency.md`
-- `docs/11-performance/scalability.md`
-- `docs/11-performance/optimization.md`
-- `docs/11-performance/performance-goals.md`
+- `docs/11-performance/resource-usage.md` - `docs/11-performance/concurrency.md` - `docs/11-performance/scalability.md` - `docs/11-performance/optimization.md` - `docs/11-performance/performance-goals.md`
 
 ## Failure Catalog
 

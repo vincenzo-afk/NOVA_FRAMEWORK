@@ -31,8 +31,16 @@ here.
 ## Before writing any code
 
 If you are an AI agent (or a human) about to implement any part of NOVA,
-read these two directories first, in this order:
+read these in this order:
 
+0. **`docs/00-implementation-governance/`** — the entire folder,
+   starting with `ai-constitution.md`. This is the highest-precedence
+   rule set in this repository: the Constitution, the Decision Authority
+   Matrix, allowed/forbidden decisions, the technology and architecture
+   locks, the ambiguity policy, code-generation rules, documentation
+   precedence, canonical patterns, definition of done, quality gates,
+   project constraints, and the implementation checklist. Every other
+   document defers to it.
 1. `docs/43-ai-development/implementation-order.md` — what to build, and
    in what sequence, so nothing is built against an interface that
    doesn't exist yet.
@@ -40,17 +48,23 @@ read these two directories first, in this order:
    subsystem-by-subsystem landmines that make generated code *look*
    correct while being subtly wrong. Read the file for the subsystem
    your task touches before writing code, not after something breaks.
+3. `docs/26-system-reference/21-canonical-doc-index.md` — before citing
+   or relying on any document for a cross-cutting concept (contracts,
+   state machines, permissions, versioning, etc.), check this index to
+   confirm you're reading the canonical source and not a summary or a
+   stale duplicate.
 
 ## How this repository is organized
 
 | Path | Contents |
 |---|---|
+| `docs/00-implementation-governance/` | **Read this folder first, always.** The Constitution, Decision Authority Matrix, allowed/forbidden decisions, technology and architecture locks, ambiguity policy, code-generation rules, documentation precedence, canonical patterns, definition of done, quality gates, project constraints, implementation checklist |
 | `docs/00-overview/` | Vision, goals, non-goals, design principles, engineering principles, AI implementation philosophy, success criteria, constraints, terminology |
 | `docs/01-product/` | Product specification, personas, use cases, scope, success metrics |
 | `docs/02-architecture/` | System, runtime, and service architecture |
 | `docs/03-runtime/` | Core services: planner, executor, verifier, observer, world model |
 | `docs/04-memory/` | Memory tiers, knowledge graph, retrieval, ranking (ontology v2 adds Person/Goal/Device as first-class graph entities) |
-| `docs/05-ai/` | Model routing, reasoning, deterministic-first principle, ambiguity resolution |
+| `docs/05-ai/` | Model routing, reasoning, deterministic-first principle, ambiguity resolution, decision/confidence contracts, verification pipeline and stop conditions, escalation rules |
 | `docs/06-tools/` | Tool registry and execution-priority chain |
 | `docs/07-observers/` | Per-source observation (filesystem, browser, clipboard, etc.) |
 | `docs/08-api/` | Public SDK, REST, WebSocket, schemas |
@@ -59,7 +73,7 @@ read these two directories first, in this order:
 | `docs/11-performance/` | Performance goals and budgets |
 | `docs/12-testing/` | Testing strategy |
 | `docs/13-devops/` | Deployment, backup, recovery, monitoring, consolidated persistence spec (storage/caching/sync/conflict resolution/transactions/migration/backup/restore) |
-| `docs/14-development/` | Coding standards, implementation order, milestones |
+| `docs/14-development/` | Coding standards, implementation order, milestones, locked technology stack, library/pattern/communication/state-management rules, error handling/tagging/performance rules |
 | `docs/15-decisions/` | Architecture Decision Records (ADRs) |
 | `docs/16-extensibility/` | Plugin/extension system: lifecycle, permissions, versioning, dependencies, marketplace, sandboxing, extension points (what's customizable/fixed/forbidden) |
 | `docs/17-workflow/` | The workflow engine: branching, parallel execution, human-approval gates, rollback for tasks too complex for the linear planning loop |
@@ -71,7 +85,7 @@ read these two directories first, in this order:
 | `docs/23-autonomy/` | Autonomous plugin/MCP discovery, automatic software installation, self-growing capability, strategy evaluation (comparison/promotion/retirement of recurring-task strategies), goal tracking (persistent multi-week objectives), personal analytics, adaptive personalization, background life assistant (v5) |
 | `docs/24-collaboration/` | Multi-agent collaboration and the browser as a first-class reasoning surface (v5) |
 | `docs/25-failure-modes/` | Project-wide failure-mode catalog: every way each subsystem can break, with trigger conditions, detection methods, severity, mitigation, and recovery procedures. Read the relevant `FM-NN-*.md` file before implementing any subsystem — start at `docs/25-failure-modes/INDEX.md` |
-| `docs/26-system-reference/` | Build-order dependency tree, startup/shutdown sequences, state transition tables, data ownership map, error catalog, event catalog, configuration reference, version compatibility matrix, feature maturity table, sequence diagrams, cross-cutting data models catalog, and the documentation-lint/CI process that keeps all of it honest — every file also documents how *it itself* can drift from reality (see `docs/25-failure-modes/FM-24-documentation-and-reference-integrity.md`) |
+| `docs/26-system-reference/` | Build-order dependency tree, startup/shutdown sequences, state transition tables, data ownership map, error catalog, event catalog, configuration reference, version compatibility matrix, feature maturity table, sequence diagrams, cross-cutting data models catalog, consolidated build contracts / lifecycle & state-machine index / event & internal-API contract matrix / failure & recovery contracts / ordering, concurrency & retry rules / versioning contracts, and the documentation-lint/CI process that keeps all of it honest — every file also documents how *it itself* can drift from reality (see `docs/25-failure-modes/FM-24-documentation-and-reference-integrity.md`) |
 | `docs/27-cli/` | The `nova` developer CLI: bootstrap (`init`/`doctor`/`diagnostics`/`upgrade`/`repair`), dev infrastructure (devcontainer/Nix/Docker/one-line installers/`env`/`config`), AI developer tools (`context`/`task`/`impact`/`docs`/`graph`), observability commands, plugin & AI SDKs, and the hidden-gold commands (`sandbox`/`benchmark`/`explain`/`migrate`/`report`/`verify`/`clean`) plus the full CI/CD check pipeline — see `docs/25-failure-modes/FM-25-cli-infrastructure.md` |
 | `docs/28-multi-device-protocol/` | Cross-device sync, device pairing, session continuity/handoff, presence & capability negotiation, networking/discovery, global state & sync timing, cross-device permissions/notifications, file transfer & media streaming, config/secrets/plugin distribution, identity & workspace, recovery & backup, cross-subsystem lifecycle patterns, resource arbitration & offline mode, time & version compatibility, migration, and operational extras — see `docs/25-failure-modes/FM-26-multi-device-protocol.md` |
 | `docs/diagrams/` | Standalone Mermaid diagrams referenced across the repo |
@@ -84,13 +98,13 @@ read these two directories first, in this order:
 | `docs/42-design-qa/` | Visual regression, accessibility, responsive, spacing, animation, and typography QA checklists |
 | `docs/35-analytics/` | Event taxonomy, funnels, north-star/guardrail metrics, retention definition, privacy-safe telemetry rules |
 | `docs/36-failure-catalog/` | Categorized quick-reference failure lists per subsystem |
-| `docs/37-edge-cases/` | Concrete edge-case scenarios (power loss, disk full, clock skew, sync/file conflicts, corruption), each requiring a test |
+| `docs/37-edge-cases/` | Concrete edge-case scenarios (power loss, disk full, clock skew, sync/file conflicts, corruption, empty/oversized repos, symlink loops, invalid plugins, conflicting instructions), indexed in `00-index.md`, each requiring a test |
 | `docs/38-disaster-recovery/` | Complete/partial recovery, backup, restore, rollback, migration, crash & state recovery |
 | `docs/39-performance-budgets/` | Numeric latency/resource budgets for chat, memory, startup, shutdown, CPU, GPU, memory, battery |
 | `docs/46-ai-evaluation/` | Benchmarks for reasoning, tool use, memory recall, planning, workflows, providers, hallucination, grounding, and safety |
 | `docs/47-runbooks/` | Symptom → detection → logs → root cause → recovery → escalation runbooks for the most likely on-call scenarios |
 | `docs/48-incident-response/` | Incident lifecycle, severity levels, communication style, postmortem template, root-cause-analysis method |
-| `docs/43-ai-development/` | **Start here before generating any code.** Implementation order, coding guidelines, architecture index, dependency map, task/context generation, acceptance criteria, definition of done, coding + review checklists, common AI-agent pitfalls |
+| `docs/43-ai-development/` | **Start here before generating any code.** Implementation order, coding guidelines, architecture index, dependency map, task/context generation, acceptance criteria, definition of done, coding + review checklists, common AI-agent pitfalls, AI decision authority (what AI may/must never decide, ambiguity policy, decision authority matrix) |
 | `docs/44-product-design-failure-cases/` | Product-level failure scenarios and the full required-state checklist every screen must implement |
 | `docs/45-code-perfection-failure-modes/` | **The most important directory for correctness.** Code-generation-time landmines (not runtime failures) per subsystem: memory/state, planner/executor/verifier, model router/providers, async/concurrency, tool execution/permissions, workflow engine, plugins/sandboxing, multi-device/sync, UI/state binding, data validation/schemas, error handling/logging, testing blind spots |
 
@@ -109,8 +123,7 @@ scaffolding rather than replacing it.
 
 At this point, most newly reported gaps are refinements to an already-
 complete architecture rather than missing foundations — read
-`docs/00-overview/normative-precedence.md` and
-`docs/15-decisions/adr-0008-v5-architecture-evolution.md` first if
+`docs/00-overview/normative-precedence.md` and `docs/15-decisions/adr-0008-v5-architecture-evolution.md` first if
 something still seems ambiguous or contradictory; a genuine remaining gap
 is likely better found through actual implementation (per
 `docs/14-development/implementation-order.md`) than further paper

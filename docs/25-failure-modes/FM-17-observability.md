@@ -8,8 +8,7 @@ Failures in NOVA's ability to see itself. This category is uniquely dangerous be
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/13-devops/logging.md`
-- `docs/13-devops/monitoring.md`
+- `docs/13-devops/logging.md` - `docs/13-devops/monitoring.md`
 
 ## Failure Catalog
 

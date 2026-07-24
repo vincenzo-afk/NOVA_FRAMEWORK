@@ -4,8 +4,7 @@
 
 Defines what an authenticated caller — the UI Layer, an external API
 consumer, or a specific agent instance — is permitted to do, layered on
-top of the identity established by `authentication.md` and independent of
-the risk-tier confirmation gating in `permissions.md`.
+top of the identity established by `authentication.md` and independent of the risk-tier confirmation gating in `permissions.md`.
 
 ## Scope
 
@@ -33,14 +32,12 @@ Tokens issued for external API access (`authentication.md`) can be scoped
 at issuance to a subset of capability — e.g., a read-only scope
 permitting Memory/Knowledge Graph queries but not task submission, or a
 scope permitting task submission but restricted to a specific project.
-This scoping is checked at the API Gateway (`docs/02-architecture/
-service-architecture.md`) before a request is even forwarded to Task
+This scoping is checked at the API Gateway (`docs/02-architecture/service-architecture.md`) before a request is even forwarded to Task
 Manager.
 
 ## Agent-instance scopes
 
-As detailed in `docs/05-ai/planner-agent.md` and enforced per
-`docs/03-runtime/permission-manager.md`, every spawned agent instance
+As detailed in `docs/05-ai/planner-agent.md` and enforced per `docs/03-runtime/permission-manager.md`, every spawned agent instance
 carries a tool allowlist that bounds what it can invoke regardless of
 what the Planner might otherwise select — this prevents, for example, a
 sub-task instance scoped to "read and summarize a document" from being

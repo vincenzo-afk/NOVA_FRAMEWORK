@@ -8,10 +8,7 @@ The failures severe enough to warrant their own incident-response runbook rather
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/13-devops/incident-response.md`
-- `docs/13-devops/runbook.md`
-- `docs/13-devops/recovery.md`
-- `docs/13-devops/backup.md`
+- `docs/13-devops/incident-response.md` - `docs/13-devops/runbook.md` - `docs/13-devops/recovery.md` - `docs/13-devops/backup.md`
 
 ## Failure Catalog
 

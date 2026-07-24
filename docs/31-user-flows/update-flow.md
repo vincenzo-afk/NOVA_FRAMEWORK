@@ -2,7 +2,7 @@
 
 ## Flow
 
-Background update check → download → user notified update is ready → applied on next restart, or immediately if user chooses → changelog shown, with rollback available if the update introduces a detected regression (`34-disaster-recovery/rollback.md`).
+Background update check → download → user notified update is ready → applied on next restart, or immediately if user chooses → changelog shown, with rollback available if the update introduces a detected regression (`docs/38-disaster-recovery/rollback.md`).
 
 ## Reference
 

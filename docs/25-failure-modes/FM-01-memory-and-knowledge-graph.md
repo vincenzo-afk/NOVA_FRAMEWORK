@@ -8,14 +8,7 @@ Catalogs everything that can go wrong in how NOVA stores, links, embeds, indexes
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/04-memory/memory-architecture.md`
-- `docs/04-memory/retrieval-engine.md`
-- `docs/04-memory/knowledge-graph.md`
-- `docs/04-memory/embeddings.md`
-- `docs/04-memory/memory-ranking.md`
-- `docs/04-memory/memory-conflict-resolution.md`
-- `docs/04-memory/memory-garbage-collection.md`
-- `docs/04-memory/entity-resolution.md`
+- `docs/04-memory/memory-architecture.md` - `docs/04-memory/retrieval-engine.md` - `docs/04-memory/knowledge-graph.md` - `docs/04-memory/embeddings.md` - `docs/04-memory/memory-ranking.md` - `docs/04-memory/memory-conflict-resolution.md` - `docs/04-memory/memory-garbage-collection.md` - `docs/04-memory/entity-resolution.md`
 
 ## Failure Catalog
 

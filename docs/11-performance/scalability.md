@@ -5,9 +5,9 @@
 Describes how NOVA sustains the latency targets in `performance-goals.md`
 as memory volume, Knowledge Graph size, and concurrent task count grow
 over months and years of continuous single-machine use — replacing the
-circular "scaling means handling more without degrading" placeholder this
-project's foundational review flagged, with the actual mechanisms that
-achieve it.
+circular "scaling means handling more without degrading" definition that
+this project's foundational review flagged as insufficient, with the
+actual mechanisms that achieve it.
 
 ## Scope
 
@@ -16,11 +16,9 @@ specifics are `caching.md`; concurrency limits are `concurrency.md`.
 
 ## Memory and Knowledge Graph growth
 
-Each independently-scaling factor from `docs/00-overview/architecture-
-summary.md`'s service list is addressed as follows:
+Each independently-scaling factor from `docs/00-overview/architecture-summary.md`'s service list is addressed as follows:
 
-- **Memory volume** — tiered storage (`docs/04-memory/memory-
-  architecture.md`) keeps the actively-queried Working/Recent Memory
+- **Memory volume** — tiered storage (`docs/04-memory/memory-architecture.md`) keeps the actively-queried Working/Recent Memory
   small and fast regardless of how much Long-term Memory/Archive has
   accumulated; retrieval queries against Archive are explicitly excluded
   from default context assembly (`docs/05-ai/context-builder.md`) so

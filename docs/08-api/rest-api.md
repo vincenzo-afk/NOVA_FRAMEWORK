@@ -26,8 +26,7 @@ are `schemas.md`; versioning policy is `versioning.md`.
   (subject to `sdk.md`'s trust model).
 - **Permissions** — query and update observer/execution permission
   grants (`docs/10-security/permissions.md`).
-- **Configuration** — provider configuration (`docs/05-ai/
-  model-providers.md`), cost budgets, and other user-configurable
+- **Configuration** — provider configuration (`docs/05-ai/model-providers.md`), cost budgets, and other user-configurable
   settings.
 
 ## Request/response conventions

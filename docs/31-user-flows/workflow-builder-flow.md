@@ -2,7 +2,7 @@
 
 ## Flow
 
-User creates workflow from a template or blank canvas → adds nodes (step, condition, approval gate) → validates graph (cycle check, per `45-code-perfection-failure-modes/06-workflow-engine.md`) → saves → can dry-run before activating.
+User creates workflow from a template or blank canvas → adds nodes (step, condition, approval gate) → validates graph (cycle check, per `docs/45-code-perfection-failure-modes/06-workflow-engine.md`) → saves → can dry-run before activating.
 
 ## Reference
 

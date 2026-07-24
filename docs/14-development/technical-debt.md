@@ -31,8 +31,7 @@ architecture document and the acceptance criteria in
 
 ## What does not count as technical debt
 
-A deliberate, ADR-ratified scope exclusion (`docs/00-overview/
-non-goals.md`) is not technical debt — it is a scope decision. Debt
+A deliberate, ADR-ratified scope exclusion (`docs/00-overview/non-goals.md`) is not technical debt — it is a scope decision. Debt
 specifically refers to gaps within in-scope work, not features
 deliberately deferred to a later phase per `ROADMAP.md`.
 

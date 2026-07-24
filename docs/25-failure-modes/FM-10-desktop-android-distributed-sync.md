@@ -8,11 +8,7 @@ NOVA spans desktop, Android, and cloud runtimes. This file covers both the singl
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/09-ui/desktop.md`
-- `docs/20-devices/android-companion.md`
-- `docs/20-devices/multi-device-architecture.md`
-- `docs/20-devices/cross-device-memory.md`
-- `docs/20-devices/distributed-task-scheduling.md`
+- `docs/09-ui/desktop.md` - `docs/20-devices/android-companion.md` - `docs/20-devices/multi-device-architecture.md` - `docs/20-devices/cross-device-memory.md` - `docs/20-devices/distributed-task-scheduling.md`
 
 ## Failure Catalog
 

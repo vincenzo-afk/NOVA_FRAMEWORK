@@ -64,8 +64,7 @@ _Status: Stable | Beta | Draft | Deprecated — Owner: <role/team> — Last revi
 
 This metadata is applied going forward and opportunistically during
 revision, consistent with the same non-retroactive-sweep approach used
-for `docs/14-development/module-contract-standard.md` and
-`docs/14-development/naming-conventions.md` — it is not backfilled across
+for `docs/14-development/module-contract-standard.md` and `docs/14-development/naming-conventions.md` — it is not backfilled across
 all 180+ existing documents in a single pass, since that would be a
 purely cosmetic, high-risk-of-error bulk edit for a benefit for which
 the "Related documents" section and repository structure already

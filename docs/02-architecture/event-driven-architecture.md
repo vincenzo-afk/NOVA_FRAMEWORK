@@ -58,8 +58,7 @@ flowchart TD
     C --> G
 ```
 
-This means a 50,000-file git clone produces one `observer.filesystem.
-bulk_change` event referencing the operation and its scope, rather than
+This means a 50,000-file git clone produces one `observer.filesystem.bulk_change` event referencing the operation and its scope, rather than
 50,000 individual events — Memory and Knowledge Graph consumers handle
 bulk-change events with a dedicated, more efficient ingestion path (see
 `docs/04-memory/indexing.md`) rather than processing each file

@@ -74,8 +74,7 @@ nova
 ## Related documents
 
 - `docs/26-system-reference/01-component-dependency-graph.md` — the
-  module structure `nova graph` visualizes
-- `docs/26-system-reference/06-error-catalog.md` — the codes every
+  module structure `nova graph` visualizes - `docs/26-system-reference/06-error-catalog.md` — the codes every
   command's failure output uses
 - `docs/25-failure-modes/FM-25-cli-infrastructure.md` — consolidated
   failure index for this whole folder

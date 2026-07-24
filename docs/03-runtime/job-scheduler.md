@@ -76,7 +76,6 @@ missed occurrence is not worth catching up on).
 
 - `docs/03-runtime/scheduler.md` — the distinct, user-triggered task
   dispatch concept
-- `docs/04-memory/memory-garbage-collection.md`, `docs/13-devops/
-  backup.md` — example consumers of this scheduling model
+- `docs/04-memory/memory-garbage-collection.md`, `docs/13-devops/backup.md` — example consumers of this scheduling model
 - `docs/11-performance/resource-usage.md` — the background-job resource
   budget these jobs operate within

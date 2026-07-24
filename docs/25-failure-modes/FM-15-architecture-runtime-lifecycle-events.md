@@ -8,12 +8,7 @@ The structural failures underneath everything else: how NOVA's services start up
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/02-architecture/system-architecture.md`
-- `docs/02-architecture/lifecycle.md`
-- `docs/02-architecture/event-bus-specification.md`
-- `docs/03-runtime/service-lifecycle.md`
-- `docs/03-runtime/runtime-manager.md`
-- `docs/03-runtime/state-manager.md`
+- `docs/02-architecture/system-architecture.md` - `docs/02-architecture/lifecycle.md` - `docs/02-architecture/event-bus-specification.md` - `docs/03-runtime/service-lifecycle.md` - `docs/03-runtime/runtime-manager.md` - `docs/03-runtime/state-manager.md`
 
 ## Failure Catalog
 

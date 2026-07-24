@@ -52,8 +52,7 @@ no operational check behind it.
 
 ## Storage growth budget
 
-While CPU/RAM are bounded as above, storage growth (`docs/04-memory/
-memory-storage.md`) is not artificially capped, since retention is a
+While CPU/RAM are bounded as above, storage growth (`docs/04-memory/memory-storage.md`) is not artificially capped, since retention is a
 user-controlled choice (`docs/04-memory/timeline.md`) rather than a
 performance constraint — storage usage is surfaced to the user (via the
 Memory Explorer, `docs/09-ui/memory-explorer.md`) so they can make an

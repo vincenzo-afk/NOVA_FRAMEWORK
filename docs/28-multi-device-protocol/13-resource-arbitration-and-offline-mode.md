@@ -33,8 +33,7 @@ required from the user; the moment connectivity returns
 (`05-networking-and-discovery.md`'s `Reconnecting → Connected`
 transition), sync resumes from the last checkpoint.
 
-**Conflict rules while offline**: unchanged from `01-cross-device-
-sync.md` — offline editing is simply another source of concurrent writes
+**Conflict rules while offline**: unchanged from `01-cross-device-sync.md` — offline editing is simply another source of concurrent writes
 resolved by the same memory-lineage rules once devices reconnect; there
 is no special "offline mode" conflict model distinct from the general
 one.

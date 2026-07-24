@@ -10,8 +10,7 @@ its prior contract.
 ## Scope
 
 Tool-level input/output schema versioning. Plugin-package versioning
-(the bundle a tool ships in) is `docs/16-extensibility/
-plugin-versioning.md`; this document covers the tool contract itself.
+(the bundle a tool ships in) is `docs/16-extensibility/plugin-versioning.md`; this document covers the tool contract itself.
 
 ## Tool version metadata
 

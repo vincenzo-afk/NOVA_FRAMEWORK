@@ -10,8 +10,7 @@ reliably — as opposed to consuming free-form model text directly.
 ## Scope
 
 LLM call construction and structured output parsing. Deciding whether a
-call is needed at all is `deterministic-first.md` and
-`ambiguity-resolution.md`; assembling the context passed into the call is
+call is needed at all is `deterministic-first.md` and `ambiguity-resolution.md`; assembling the context passed into the call is
 `context-builder.md`.
 
 ## Structured output requirement

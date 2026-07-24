@@ -57,8 +57,7 @@ low-risk actions the user never asks about. It is generated:
 
 ## Grounding requirement applies to explanations too
 
-Per `docs/04-memory/search.md`'s grounding requirement, `why_this_plan`
-and `why_this_capability` are generated from the actual retrieved
+Per `docs/04-memory/search.md`'s grounding requirement, `why_this_plan` and `why_this_capability` are generated from the actual retrieved
 records and routing decisions that occurred — the explanation is a
 faithful account of the real decision process, not a plausible-sounding
 post-hoc narrative constructed separately from what actually happened.
@@ -81,8 +80,7 @@ option" question — every capability or provider that was a candidate but
 was not selected (per Capability Registry matching or Model Router
 scoring) is listed with its specific rejection reason, rather than the
 schema only ever justifying the winning choice. This is populated from
-the same routing/matching pass that produced `why_this_capability` and
-`why_this_model`, not a separate retrospective explanation.
+the same routing/matching pass that produced `why_this_capability` and `why_this_model`, not a separate retrospective explanation.
 
 ## Related documents
 

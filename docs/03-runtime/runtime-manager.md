@@ -4,8 +4,7 @@
 
 The supervisor process responsible for starting, health-checking, and
 restarting every other supervised service process. This is the one
-service with no upstream dependency (see `docs/02-architecture/
-dependency-map.md`) and the first thing to start and last thing to stop.
+service with no upstream dependency (see `docs/02-architecture/dependency-map.md`) and the first thing to start and last thing to stop.
 
 ## Scope
 

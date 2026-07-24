@@ -49,8 +49,7 @@ same capability groupings as `docs/01-product/feature-list.md`.
 An agent implementing a new feature that depends on something marked
 `Planned` must either treat that dependency as out of scope for the
 current milestone or explicitly flag the cross-dependency in its own
-design doc — building on top of a `Planned` capability as if it were
-`Stable` is how integration work silently stalls waiting on something
+design doc — building on top of a `Planned` capability as if it were `Stable` is how integration work silently stalls waiting on something
 that was never actually shipped.
 
 ## Related documents

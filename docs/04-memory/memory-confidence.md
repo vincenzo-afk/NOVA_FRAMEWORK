@@ -47,8 +47,7 @@ entities/relationships alike) carries:
 
 ## Verification status transitions
 
-A record's `verification_status` advances from `unverified` to
-`corroborated` when an independent second signal supports it (mirroring
+A record's `verification_status` advances from `unverified` to `corroborated` when an independent second signal supports it (mirroring
 State Manager's conflict-resolution corroboration model,
 `docs/03-runtime/state-manager.md`, applied here to memory records
 generally rather than only current desktop state), and to

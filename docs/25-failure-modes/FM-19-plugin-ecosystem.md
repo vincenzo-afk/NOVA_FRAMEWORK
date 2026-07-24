@@ -8,12 +8,7 @@ Failures in the extensibility layer — everything third-party or user-installed
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/16-extensibility/plugin-architecture.md`
-- `docs/16-extensibility/plugin-lifecycle.md`
-- `docs/16-extensibility/plugin-dependencies.md`
-- `docs/16-extensibility/plugin-versioning.md`
-- `docs/16-extensibility/plugin-marketplace.md`
-- `docs/16-extensibility/plugin-permissions.md`
+- `docs/16-extensibility/plugin-architecture.md` - `docs/16-extensibility/plugin-lifecycle.md` - `docs/16-extensibility/plugin-dependencies.md` - `docs/16-extensibility/plugin-versioning.md` - `docs/16-extensibility/plugin-marketplace.md` - `docs/16-extensibility/plugin-permissions.md`
 
 ## Failure Catalog
 

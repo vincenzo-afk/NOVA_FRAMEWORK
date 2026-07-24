@@ -27,8 +27,7 @@ Given `nova explain NOVA-AI001`, the command:
    the actual logged context (which provider, which step) against the
    general explanation to produce a specific, not generic, root-cause
    hypothesis.
-4. Suggests the concrete next command (e.g., `nova repair`, `nova
-   provider test <name>`) most likely to resolve it.
+4. Suggests the concrete next command (e.g., `nova repair`, `nova provider test <name>`) most likely to resolve it.
 
 This is the CLI's most direct expression of the principle behind the
 entire `docs/25-failure-modes/` catalog: every failure should be
@@ -40,7 +39,7 @@ Replays a captured event/task sequence against the *current* codebase —
 distinct from simply re-reading a log — to answer "would this still fail
 the same way after my fix," which is the fastest verification loop for a
 bug that was hard to reproduce interactively. Replayed sequences run in
-`nova sandbox` (see `07-hidden-gold-commands.md`) by default, never
+`nova sandbox` (see `docs/27-cli/07-hidden-gold-and-ci.md`) by default, never
 against live user data.
 
 ## Related documents

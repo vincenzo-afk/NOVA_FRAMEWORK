@@ -19,12 +19,12 @@
 4. **Step retries re-run non-idempotent side effects.** If step 3 of 5
    sends an email and step 4 fails, a naive retry-from-failure re-sends
    the email. Every step needs an idempotency key checked before
-   re-execution, per `03-runtime/failure-recovery.md`.
+   re-execution, per `docs/03-runtime/failure-recovery.md`.
 5. **Partial plan execution leaves world-model state inconsistent** —
    e.g., Executor marks a task "in progress" but a crash before the
    Verifier runs leaves it stuck there forever with no recovery sweep. Any
    status field needs a documented recovery/timeout path in
-   `26-system-reference/04-state-transition-tables.md`.
+   `docs/26-system-reference/04-state-transition-tables.md`.
 6. **Planner context assembly silently truncates history to fit a token
    budget** without the Planner knowing truncation happened, causing it
    to reason with the assumption it has full context when it doesn't

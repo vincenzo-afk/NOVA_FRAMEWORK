@@ -1,5 +1,14 @@
 # Plugin Lifecycle
 
+## Status: canonical for state names and narrative detail
+
+This file is the canonical source for plugin state names and the
+behavior at each transition. The formal transition table (for building
+a switch/match statement) is a derived summary at
+`docs/26-system-reference/04-state-transition-tables.md`, Plugin
+Lifecycle section — kept in sync with this file's diagram; if they ever
+disagree, this file is correct.
+
 ## Purpose
 
 Defines the states a plugin moves through from installation to removal,

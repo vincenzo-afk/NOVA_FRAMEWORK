@@ -28,8 +28,7 @@ timestamp.
 ## Reconstructing a full causal chain
 
 Because every message on the Communication Bus carries the same
-`correlation_id` for a given task (`docs/02-architecture/
-communication-model.md`), the audit trail can reconstruct the complete
+`correlation_id` for a given task (`docs/02-architecture/communication-model.md`), the audit trail can reconstruct the complete
 path from a user's original request through every plan step, tool
 invocation, and verification result it produced — this is what makes "why
 did you do that" answerable directly from the log, without needing to
@@ -38,8 +37,7 @@ interview the system or guess at its reasoning after the fact.
 ## Availability window
 
 Full step-level audit detail remains queryable for the duration Recent
-Memory retains the underlying records (`docs/04-memory/memory-lifecycle.
-md`), even after those records have been summarized into Long-term
+Memory retains the underlying records (`docs/04-memory/memory-lifecycle.md`), even after those records have been summarized into Long-term
 Memory for ordinary retrieval purposes — summarization compresses what
 Search and Context Builder use for everyday queries, but does not delete
 the underlying step-level audit detail until it separately ages into

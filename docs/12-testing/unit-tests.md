@@ -27,8 +27,7 @@ Per-service, in-isolation testing. Cross-service behavior is
   behavior.
 - **AI-layer logic** (`docs/05-ai/`) — the deterministic-first decision
   logic and ambiguity-resolution flow
-  (`docs/05-ai/deterministic-first.md`, `docs/05-ai/
-  ambiguity-resolution.md`) are unit tested against the exact worked
+  (`docs/05-ai/deterministic-first.md`, `docs/05-ai/ambiguity-resolution.md`) are unit tested against the exact worked
   examples documented there, since these are fully deterministic
   decision trees despite governing when non-deterministic LLM calls
   occur.

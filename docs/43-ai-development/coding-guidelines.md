@@ -14,9 +14,9 @@ it holds long-lived private user data and takes real-world actions.
    past its own module boundary uncaught.** NOVA is a long-running
    background process — an uncaught exception in one observer must not
    crash the runtime. Wrap all observer/tool/plugin entry points in a
-   supervised boundary (see `03-runtime/failure-recovery.md`).
+   supervised boundary (see `docs/03-runtime/failure-recovery.md`).
 2. **No function calls an LLM without going through the Model Router.**
-   Direct provider SDK calls anywhere outside `05-ai/model-router.md`'s
+   Direct provider SDK calls anywhere outside `docs/05-ai/model-router.md`'s
    implementation are a defect, full stop — they bypass deterministic-first
    evaluation, cost tracking, and fallback.
 3. **No write to memory tiers without going through the tier's documented
@@ -28,7 +28,7 @@ it holds long-lived private user data and takes real-world actions.
    an audit log. Code that executes-then-checks is a security defect.
 5. **Timestamps are always stored and compared in UTC**; conversion to
    the user's local time is a presentation-layer concern only (see
-   `00-overview/time-semantics.md`). Comparing a stored UTC timestamp to
+   `docs/00-overview/time-semantics.md`). Comparing a stored UTC timestamp to
    `Date.now()` in local time is a recurring, real bug class in this kind
    of system — treat any naive `Date`/`datetime` construction as a code
    smell.
@@ -37,8 +37,7 @@ it holds long-lived private user data and takes real-world actions.
    creation; never key anything by a title, filename, or timestamp that
    could collide or change.
 7. **All cross-process and cross-device messages are versioned and
-   schema-validated on receipt**, per `28-multi-device-protocol/` and
-   `08-api/schemas.md`. Never trust a payload shape because "we control
+   schema-validated on receipt**, per `28-multi-device-protocol/` and `docs/08-api/schemas.md`. Never trust a payload shape because "we control
    both ends" — versions will drift the moment one device updates before
    another.
 8. **Idempotency is required for anything that can be retried** — task

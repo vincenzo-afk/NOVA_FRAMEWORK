@@ -13,10 +13,10 @@
    loudly) with the same handler.
 3. **Logging full request/response payloads that include user data or
    secrets** — every new log statement needs a check against
-   `10-security/secrets.md` and `29-product/privacy.md` before it ships.
+   `docs/10-security/secrets.md` and `docs/29-product/privacy.md` before it ships.
 4. **Error messages shown to the user leaking internal implementation
    details** (stack traces, internal IDs, SQL) instead of the
-   user-facing error mapped from `26-system-reference/06-error-catalog.md`.
+   user-facing error mapped from `docs/26-system-reference/06-error-catalog.md`.
 5. **No correlation ID threaded through a multi-step operation**, making
    it impossible to trace a single user action across Planner → Executor
    → Tool → memory write in logs when debugging a production issue.

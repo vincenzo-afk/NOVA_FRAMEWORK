@@ -10,7 +10,7 @@
    rather than a routing event. Every response should carry which
    provider actually served it.
 2. **Cost/latency tracking implemented per-call but never aggregated**,
-   so budget limits (`18-providers/capability-management.md`) are
+   so budget limits (`docs/18-providers/capability-management.md`) are
    unenforceable because there's no running total to check against.
 3. **Provider-specific response quirks leaking through the abstraction.**
    E.g. one provider returns empty string vs. another returns null for

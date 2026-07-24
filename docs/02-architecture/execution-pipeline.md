@@ -64,8 +64,7 @@ sequenceDiagram
 
 Each step in the loop above may repeat (replanning) if verification
 reports Unverified or Failed and the Planner determines recovery is
-possible — see `docs/03-runtime/planner.md` and
-`docs/03-runtime/verifier.md`.
+possible — see `docs/03-runtime/planner.md` and `docs/03-runtime/verifier.md`.
 
 ## Where risk-tier gating enters the pipeline
 

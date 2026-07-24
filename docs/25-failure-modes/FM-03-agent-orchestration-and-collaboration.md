@@ -8,9 +8,7 @@ When NOVA splits work across multiple specialized agents (Planner → Coder → 
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/24-collaboration/multi-agent-collaboration.md`
-- `docs/03-runtime/executor.md`
-- `docs/03-runtime/verifier.md`
+- `docs/24-collaboration/multi-agent-collaboration.md` - `docs/03-runtime/executor.md` - `docs/03-runtime/verifier.md`
 
 ## Failure Catalog
 

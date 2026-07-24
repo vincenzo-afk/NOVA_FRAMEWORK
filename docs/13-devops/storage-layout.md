@@ -88,8 +88,7 @@ sensitive content beyond what is already protected in `memory/`.
 ## Related documents
 
 - `docs/04-memory/memory-storage.md` — the storage engines within
-  `memory/`
-- `docs/10-security/secrets.md`, `encryption.md` — the security model
+  `memory/` - `docs/10-security/secrets.md`, `encryption.md` — the security model
   applied to specific folders above
 - `docs/13-devops/backup.md`, `updates.md` — the distinct retention
   policies for `backups/` versus `snapshots/`

@@ -3,8 +3,7 @@
 ## Purpose
 
 Defines what "NOVA is working" means, concretely enough to be checked —
-as distinct from `docs/01-product/success-metrics.md` and
-`docs/11-performance/performance-goals.md`, which measure the *product*
+as distinct from `docs/01-product/success-metrics.md` and `docs/11-performance/performance-goals.md`, which measure the *product*
 and the *runtime* respectively. This document is the top-level rollup:
 the small set of criteria that, if all true, mean the project has
 achieved what `vision.md` and `goals.md` set out to do. Everything more
@@ -60,8 +59,7 @@ criterion even if data was ultimately not lost.
 ### 5. Trust is earned incrementally and never violated
 
 Autonomy escalates only along the paths defined in
-`docs/23-autonomy/` and
-`docs/25-failure-modes/FM-18-autonomy-policy-approval.md`, and a single unauthorized or unexpected autonomous action is
+`docs/23-autonomy/` and `docs/25-failure-modes/FM-18-autonomy-policy-approval.md`, and a single unauthorized or unexpected autonomous action is
 enough to fail this criterion for the release in which it occurred,
 independent of how rare it is. Trust criteria are asymmetric by design:
 many correct autonomous actions do not offset one incorrect one.

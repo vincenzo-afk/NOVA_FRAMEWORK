@@ -44,8 +44,7 @@ tool came from.
 
 ## Relationship to the Capability Registry
 
-The Tool Registry is the concrete layer; `docs/05-ai/
-capability-registry.md` sits above it as a named-ability abstraction the
+The Tool Registry is the concrete layer; `docs/05-ai/capability-registry.md` sits above it as a named-ability abstraction the
 Planner reasons in terms of. A capability's `required_tools` list
 references entries in this registry, and Tool Selection
 (`docs/05-ai/tool-selection.md`) is what actually resolves a chosen

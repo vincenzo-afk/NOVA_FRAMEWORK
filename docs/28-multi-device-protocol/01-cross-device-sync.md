@@ -70,8 +70,7 @@ established in `docs/04-memory/memory-lineage.md`.
 
 Per `cross-device-memory.md`: last-write-wins per field with full history
 retained via existing lineage fields, not a new conflict model
-introduced specifically for multi-device. See `04-state-transition-
-tables.md`'s (in `docs/26-system-reference/`) Session table and
+introduced specifically for multi-device. See `04-state-transition-tables.md`'s (in `docs/26-system-reference/`) Session table and
 `docs/25-failure-modes/FM-10-018` for the general pattern this
 specializes.
 
@@ -81,8 +80,7 @@ Each device operates fully from its local replica while disconnected;
 nothing about sync makes local operation dependent on reachability of
 other devices. On reconnect, sync resumes from the last valid checkpoint
 automatically, with exponential backoff if the resumed sync itself fails
-repeatedly (same backoff discipline as `docs/03-runtime/runtime-
-manager.md`'s restart policy).
+repeatedly (same backoff discipline as `docs/03-runtime/runtime-manager.md`'s restart policy).
 
 ## Sync priority
 

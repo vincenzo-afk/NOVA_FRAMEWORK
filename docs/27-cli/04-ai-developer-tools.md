@@ -10,8 +10,7 @@ without needing to read the entire `docs/` tree for every task.
 named subsystem — resolved by walking the `Related documents` sections
 transitively from the subsystem's primary doc, bounded by a configurable
 depth, and deduplicated. Designed to be piped directly into an AI
-agent's context window, respecting `docs/26-system-reference/08-
-configuration-reference.md`'s `limits.max_context_tokens`.
+agent's context window, respecting `docs/26-system-reference/08-configuration-reference.md`'s `limits.max_context_tokens`.
 
 ## `nova task <subsystem>`
 
@@ -34,8 +33,7 @@ command in the CLI for AI-agent-driven development.
 
 `nova impact memory` shows blast radius before a change is made: files
 affected, tests affected, APIs affected, workflows affected, and plugins
-affected — derived from `docs/26-system-reference/01-component-
-dependency-graph.md` and `05-data-ownership.md` plus a static-analysis
+affected — derived from `docs/26-system-reference/01-component-dependency-graph.md` and `05-data-ownership.md` plus a static-analysis
 pass over actual code references, not documentation alone (documentation
 references understate impact if code has drifted from docs, which is
 exactly the class of failure `FM-24` exists to catch).
@@ -49,17 +47,14 @@ right subsystem name isn't already known.
 
 ## `nova graph`
 
-Renders `docs/26-system-reference/01-component-dependency-graph.md` /
-`docs/02-architecture/dependency-map.md` as an interactive visual graph
+Renders `docs/26-system-reference/01-component-dependency-graph.md` /`docs/02-architecture/dependency-map.md` as an interactive visual graph
 (SVG/HTML output), with `--format mermaid` to emit source Mermaid
 directly for embedding elsewhere.
 
 ## Related documents
 
 - `docs/26-system-reference/01-component-dependency-graph.md`,
-  `05-data-ownership.md` — the structural data `impact` and `graph` draw from
-- `docs/15-decisions/` — ADRs `task` packages include
-- `docs/08-api/` — API contracts `task` packages include
+  `05-data-ownership.md` — the structural data `impact` and `graph` draw from - `docs/15-decisions/` — ADRs `task` packages include - `docs/08-api/` — API contracts `task` packages include
 
 ## Where This Breaks
 

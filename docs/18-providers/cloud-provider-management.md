@@ -24,8 +24,7 @@ API.
 
 ## Rate limiting and backpressure
 
-Each cloud provider's configured `requests_per_minute` /
-`tokens_per_minute` (or domain-equivalent) is enforced client-side before
+Each cloud provider's configured `requests_per_minute` /`tokens_per_minute` (or domain-equivalent) is enforced client-side before
 a request is sent, so NOVA fails gracefully with a queued/backoff state
 rather than discovering a 429 after the fact. Backpressure state is
 visible in the Task Monitor UI (`docs/09-ui/task-monitor.md`) so a

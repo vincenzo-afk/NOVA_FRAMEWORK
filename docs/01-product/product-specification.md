@@ -66,8 +66,7 @@ hardcoding, without requiring the user to be tied to a single provider.
 
 ## Target platform (v1)
 
-Windows, single machine, single user. See `project-scope.md` for the full
-boundary and `docs/00-overview/non-goals.md` for what is explicitly
+Windows, single machine, single user. See `project-scope.md` for the full boundary and `docs/00-overview/non-goals.md` for what is explicitly
 excluded.
 
 ## Interfaces

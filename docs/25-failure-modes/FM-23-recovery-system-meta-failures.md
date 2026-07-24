@@ -8,9 +8,7 @@ The recovery mechanisms described throughout `docs/03-runtime/failure-recovery.m
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/03-runtime/failure-recovery.md`
-- `docs/13-devops/recovery.md`
-- `docs/12-testing/chaos-tests.md`
+- `docs/03-runtime/failure-recovery.md` - `docs/13-devops/recovery.md` - `docs/12-testing/chaos-tests.md`
 
 ## Failure Catalog
 

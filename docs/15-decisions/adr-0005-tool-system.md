@@ -53,7 +53,7 @@ success flag, which is enforced structurally via
 
 ## Related Documents
 
-- `docs/06-tools/execution-priority.md`, `tool-interface.md`,
-  `vision.md`, `automation.md` — full implementation detail
+- `docs/06-tools/execution-priority.md`, `docs/06-tools/tool-interface.md`,
+  `docs/06-tools/vision.md`, `docs/06-tools/automation.md` — full implementation detail
 - `docs/03-runtime/verifier.md` — the verification hierarchy this ADR
   establishes

@@ -31,8 +31,7 @@ documents.
   `research.md`.
 - **Robotic process automation industry practice** — the operational
   lessons around UI-automation brittleness and maintenance burden
-  informing the scoping decisions in `docs/06-tools/vision.md` and
-  `docs/00-overview/non-goals.md`.
+  informing the scoping decisions in `docs/06-tools/vision.md` and `docs/00-overview/non-goals.md`.
 - **Prompt injection and LLM security research** — the ongoing security
   research area informing the threat model in
   `docs/10-security/threat-model.md`.

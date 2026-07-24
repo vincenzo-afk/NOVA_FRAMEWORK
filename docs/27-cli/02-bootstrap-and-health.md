@@ -44,8 +44,7 @@ suggestion per failure (not just pass/fail):
 
 Each check maps to a specific `NOVA-` error code
 (`docs/26-system-reference/06-error-catalog.md`) on failure, so a failed
-`nova doctor` run is immediately actionable by an AI agent reading its
-`--json` output, not just a human reading a red X.
+`nova doctor` run is immediately actionable by an AI agent reading its `--json` output, not just a human reading a red X.
 
 ## `nova diagnostics`
 
@@ -67,8 +66,7 @@ single transactional step:
    (`docs/25-failure-modes/FM-20-deployment-and-evolution.md`'s
    migration-chain discipline — never skip a version in the chain).
 3. Update plugin manifests to their compatible versions per
-   `docs/26-system-reference/09-version-compatibility-matrix.md`.
-4. Verify with `nova verify` before declaring success.
+   `docs/26-system-reference/09-version-compatibility-matrix.md`.4. Verify with `nova verify` before declaring success.
 5. On any step failure, roll back to the pre-upgrade snapshot rather than
    leaving a partially-upgraded workspace.
 
@@ -87,9 +85,7 @@ silently guessed at.
 - `docs/26-system-reference/02-startup-sequence.md` — the ordinary
   startup sequence `nova init`'s step 8 hands off to
 - `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — the
-  migration-chain rules `nova upgrade` follows
-- `docs/03-runtime/failure-recovery.md` — the recovery taxonomy `nova
-  repair` implements a CLI-invocable subset of
+  migration-chain rules `nova upgrade` follows - `docs/03-runtime/failure-recovery.md` — the recovery taxonomy `nova repair` implements a CLI-invocable subset of
 
 ## Where This Breaks
 

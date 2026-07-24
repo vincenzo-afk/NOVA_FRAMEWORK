@@ -46,8 +46,7 @@ about deliberately breaking things to confirm recovery.
 ## Success criteria
 
 A chaos test passes when the injected fault results in one of the
-documented, acceptable outcomes (a task correctly marked `Unverified` or
-`Failed`, a service correctly restarted, a lock correctly force-released)
+documented, acceptable outcomes (a task correctly marked `Unverified` or `Failed`, a service correctly restarted, a lock correctly force-released)
 — never a silent inconsistency, an unhandled crash of an unrelated
 component, or data corruption. A chaos test that reveals an undocumented
 or incorrect recovery behavior is treated as a defect

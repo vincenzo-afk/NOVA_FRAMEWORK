@@ -55,8 +55,7 @@ model to determine whether a stated preference is treated as durable:
 - **Consistency** — whether observed behavior actually matches the stated
   preference over time.
 - **Recency** — a recently stated preference is weighted more than an old
-  one, though preferences do not decay automatically (`memory-lifecycle.
-  md`) — recency affects ranking, not deletion.
+  one, though preferences do not decay automatically (`memory-lifecycle.md`) — recency affects ranking, not deletion.
 - **Explicit statements** — a directly stated preference outweighs one
   merely inferred from behavior.
 - **Corrections** — an explicit user correction immediately supersedes

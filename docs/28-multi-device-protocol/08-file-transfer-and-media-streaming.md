@@ -19,8 +19,7 @@ Covers any file moved between paired devices (e.g. the image transfer in
 
 ## Media streaming
 
-Covers live voice, video, screen-share (`docs/20-devices/screen-
-streaming.md`), and camera feeds — distinct from file transfer because
+Covers live voice, video, screen-share (`docs/20-devices/screen-streaming.md`), and camera feeds — distinct from file transfer because
 media streaming tolerates loss/degradation in exchange for lower latency,
 where file transfer never tolerates silent loss.
 

@@ -24,6 +24,22 @@ terminal state.
 
 ## Task state machine
 
+> **Known documentation conflict — flagged per
+> `docs/00-implementation-governance/ai-constitution.md`, Rule 7, not
+> silently resolved.** This diagram and
+> `docs/26-system-reference/04-state-transition-tables.md`'s Task /
+> Agent Lifecycle table describe the same entity with different state
+> names and different shapes (this version centers on
+> `Created`/`Paused`/`WaitingUser`/`Retrying` execution mechanics; the
+> system-reference version centers on
+> `Idle`/`Thinking`/`Planning`/`Waiting`/`Verifying`/`Unverified`
+> cognitive stages). Neither has been confirmed as authoritative over
+> the other. An implementer needing the real Task state machine should
+> treat this as an open question requiring a human decision
+> (`docs/00-implementation-governance/ambiguity-policy.md`), not assume
+> either version and proceed — the two are not obviously reconcilable
+> without deciding which framing the actual code should follow.
+
 ```mermaid
 stateDiagram-v2
     [*] --> Created
@@ -93,10 +109,8 @@ stateDiagram-v2
 
 ## Retry budget
 
-`Retrying` is bounded by the same step/time budget described in
-`docs/03-runtime/planner.md` — a task does not retry indefinitely; once
-its retry budget is exhausted, it settles into its last `Unverified` or
-`Failed` state as final, per the terminal transitions shown above.
+`Retrying` is bounded by the same step/time budget described in`docs/03-runtime/planner.md` — a task does not retry indefinitely; once
+its retry budget is exhausted, it settles into its last `Unverified` or `Failed` state as final, per the terminal transitions shown above.
 
 ## Task record lifecycle (a separate axis from execution state)
 
@@ -140,11 +154,9 @@ already established for mid-task user corrections
 
 ## Replanning vs. retry
 
-`Unverified` and `Failed` both route to `Retrying` and then back to
-`Planning` when the Planner determines recovery is possible
+`Unverified` and `Failed` both route to `Retrying` and then back to `Planning` when the Planner determines recovery is possible
 (`docs/03-runtime/planner.md`), but Task Manager distinguishes them for
-scoring purposes: a task that reaches `Completed` after passing through
-`Unverified`, `Failed`, or `Retrying` at least once is recorded as a
+scoring purposes: a task that reaches `Completed` after passing through `Unverified`, `Failed`, or `Retrying` at least once is recorded as a
 "recovered" success, not a clean success, per the Task Success Score
 definition in `docs/01-product/success-metrics.md`.
 
@@ -160,9 +172,7 @@ it was not actually executing anything at the time of the crash.
 
 ## Related documents
 
-- `scheduler.md` — what decides when a `Created` task is dispatched
-  toward `Planning`
-- `docs/03-runtime/verifier.md` — how the `Verifying` → {`Completed`,
+- `scheduler.md` — what decides when a `Created` task is dispatched toward `Planning` - `docs/03-runtime/verifier.md` — how the `Verifying` → {`Completed`,
   `Unverified`, `Failed`} transition is decided
 - `docs/04-memory/memory-lifecycle.md` — the Archive progression terminal
   task records follow

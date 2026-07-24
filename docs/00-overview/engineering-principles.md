@@ -1,5 +1,13 @@
 # Engineering Principles
 
+## Relationship to the governance folder
+
+`docs/00-implementation-governance/implementation-rules.md` is the
+checklist-form summary of this document's content, for quick reference
+during a task. This file is the full reasoning behind each principle. If
+the two disagree, this file is correct; fix the summary, per
+`docs/00-implementation-governance/documentation-precedence.md`.
+
 ## Purpose
 
 `design-principles.md` states the five principles every *product and
@@ -8,8 +16,7 @@ architectural* decision must satisfy. This document is the companion for
 written, not what the system does. Where `design-principles.md` answers
 "should NOVA do this at all, and in what shape," this document answers
 "given that we're building it, how do we build it so it stays correct
-under change." `docs/14-development/coding-standards.md` and
-`docs/14-development/architecture-rules.md` enforce these principles at
+under change." `docs/14-development/coding-standards.md` and `docs/14-development/architecture-rules.md` enforce these principles at
 the file and module level; this document explains why those rules exist.
 
 ## Scope

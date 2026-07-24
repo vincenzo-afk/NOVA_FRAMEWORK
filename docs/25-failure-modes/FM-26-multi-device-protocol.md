@@ -19,8 +19,7 @@ systems failure catalog already established in
 failure *classes* (split-brain, race conditions, clock skew); this file
 and its 16 source documents cover the specific *protocol surfaces* those
 classes show up in once NOVA's actual multi-device architecture
-(Primary Runtime / Full Peer / Companion, per `docs/20-devices/multi-
-device-architecture.md`) is fully specified.
+(Primary Runtime / Full Peer / Companion, per `docs/20-devices/multi-device-architecture.md`) is fully specified.
 
 ## Consolidated failure index
 

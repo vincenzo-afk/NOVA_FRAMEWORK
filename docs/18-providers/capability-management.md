@@ -54,10 +54,8 @@ provider — configure one" rather than failing silently).
 ## Relationship to plugins and MCP servers
 
 A plugin or MCP server may register one or more capability providers as
-part of its manifest (see `docs/16-extensibility/plugin-architecture.md`
-and `mcp-server-management.md`). Installing "the Telegram plugin," for
-example, registers a Messaging Channel provider with `provider_id:
-telegram`. The Capability Registry does not care whether a provider
+part of its manifest (see `docs/16-extensibility/plugin-architecture.md` and `mcp-server-management.md`). Installing "the Telegram plugin," for
+example, registers a Messaging Channel provider with `provider_id: telegram`. The Capability Registry does not care whether a provider
 arrived built-in, via a plugin, or via an MCP server — all three are
 registered through the same `Provider` interface and manifest shape.
 

@@ -15,8 +15,7 @@ Milestone definitions per phase. Detailed build steps are
 ## Phase 1 milestones
 
 - **M1.1** — Communication Bus operational; two stub services can
-  exchange a message conforming to `docs/02-architecture/
-  communication-model.md`'s envelope.
+  exchange a message conforming to `docs/02-architecture/communication-model.md`'s envelope.
 - **M1.2** — Filesystem Observer captures a real file change and it
   appears, correctly normalized, in Recent Memory.
 - **M1.3** — A natural-language question about a previously observed

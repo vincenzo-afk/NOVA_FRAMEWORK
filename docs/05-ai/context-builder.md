@@ -81,8 +81,7 @@ proceeds in this fixed order, stopping as soon as the budget is met:
    updated incrementally rather than re-summarized from scratch each
    time, avoiding both unbounded growth and repeated summarization cost.
 5. **Hard floor — never compress the user's original request or the
-   response-format instructions** (per `docs/05-ai/
-   model-context-assembly.md`'s ordering) — if applying steps 1-4 to
+   response-format instructions** (per `docs/05-ai/model-context-assembly.md`'s ordering) — if applying steps 1-4 to
    everything else still exceeds budget, the Context Builder reports the
    constraint to the Planner (per the existing token-budget enforcement
    below) rather than trimming these two positions, since compressing

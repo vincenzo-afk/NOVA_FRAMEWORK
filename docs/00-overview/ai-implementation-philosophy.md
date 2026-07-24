@@ -29,8 +29,7 @@ patterns) has a canonical, discoverable answer somewhere in `docs/`.
 
 The corollary: if an AI implementer cannot find the answer to a question
 in the docs, the correct action is to say so and stop, not to infer a
-plausible answer and proceed. `docs/43-ai-development/common-pitfalls.md`
-and `hallucination-prevention.md` (`docs/05-ai/`) both treat "invented an
+plausible answer and proceed. `docs/43-ai-development/common-pitfalls.md` and `hallucination-prevention.md` (`docs/05-ai/`) both treat "invented an
 unstated design decision" as the single most damaging failure mode in
 this repository, more damaging than a bug, because it produces code that
 looks correct, passes a shallow review, and silently diverges from the

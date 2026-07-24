@@ -23,7 +23,7 @@ classes in a system like NOVA.
 - [ ] **Every new external input (file, network payload, plugin output,
       LLM output) is validated against a schema before use** — LLM output
       especially, since it is the least trustworthy input in the system
-      (see `05-ai/hallucination-prevention.md`).
+      (see `docs/05-ai/hallucination-prevention.md`).
 - [ ] **Every new tool call is permission-checked before, not after,
       execution.**
 - [ ] **Every new loop over a collection from an external source has a
@@ -31,10 +31,9 @@ classes in a system like NOVA.
       observer or LLM-provided data are a real DoS/hang vector in a
       long-running background process.
 - [ ] **No secret, token, or credential is logged, including in error
-      messages** — check every new `log`/`print`/`console` call against
-      `10-security/secrets.md`.
+      messages** — check every new `log`/`print`/`console` call against `docs/10-security/secrets.md`.
 - [ ] **Every new retry has a max-attempts and backoff, never an
       unbounded `while (true)` retry.**
 - [ ] **File and network paths are never string-concatenated from user
       or plugin input** without going through the sandboxing/path
-      validation described in `10-security/sandboxing.md`.
+      validation described in `docs/10-security/sandboxing.md`.

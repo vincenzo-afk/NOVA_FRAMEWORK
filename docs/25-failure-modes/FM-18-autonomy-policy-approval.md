@@ -8,9 +8,7 @@ Governs the boundary between what NOVA does on its own and what it must ask perm
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/23-autonomy/self-growing-capability.md`
-- `docs/23-autonomy/background-life-assistant.md`
-- `docs/23-autonomy/strategy-evaluation.md`
+- `docs/23-autonomy/self-growing-capability.md` - `docs/23-autonomy/background-life-assistant.md` - `docs/23-autonomy/strategy-evaluation.md`
 
 ## Failure Catalog
 

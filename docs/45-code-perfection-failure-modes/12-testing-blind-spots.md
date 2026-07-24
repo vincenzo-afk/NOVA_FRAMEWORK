@@ -16,8 +16,8 @@
    actually a real concurrency bug in disguise.
 4. **Chaos/failure-injection tests skipped for "this is just a small
    change"** — small changes to high fan-in components
-   (`43-ai-development/dependency-map.md`) are exactly where chaos tests
-   (`12-testing/chaos-tests.md`) catch the most.
+   (`docs/43-ai-development/dependency-map.md`) are exactly where chaos tests
+   (`docs/12-testing/chaos-tests.md`) catch the most.
 5. **No test for the specific idempotency/retry-safety of a new
    side-effecting tool or workflow step** — if a step sends an email or
    creates a calendar event, there should be an explicit test asserting

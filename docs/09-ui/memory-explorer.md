@@ -10,8 +10,7 @@ during this project's foundational design review.
 ## Scope
 
 Memory Explorer-specific browsing and filtering UI. The underlying data
-source is `docs/04-memory/retrieval-engine.md` and
-`docs/04-memory/timeline.md`.
+source is `docs/04-memory/retrieval-engine.md` and `docs/04-memory/timeline.md`.
 
 ## Browsing modes
 

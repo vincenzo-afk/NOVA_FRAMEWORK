@@ -36,8 +36,7 @@ through the identical request shape.
 
 - **Session-scoped, not continuous surveillance.** Every source captures
   only for the duration of an active task or explicit user request,
-  per the existing tiering philosophy in `docs/06-tools/vision.md` and
-  the session model in `docs/20-devices/screen-streaming.md`.
+  per the existing tiering philosophy in `docs/06-tools/vision.md` and the session model in `docs/20-devices/screen-streaming.md`.
 - **Automation stays tiered.** Any action taken as a result of visual
   understanding — clicking something seen on a desktop screenshot,
   tapping something seen on a phone screen, filling a form seen in a

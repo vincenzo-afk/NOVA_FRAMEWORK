@@ -42,5 +42,4 @@ truth.
 
 - `docs/27-cli/` — every file in this folder
 - `docs/26-system-reference/11-documentation-lint-ci.md` — the check
-  suite `nova verify` invokes locally
-- `docs/25-failure-modes/INDEX.md` — update to include this file
+  suite `nova verify` invokes locally - `docs/25-failure-modes/INDEX.md` — update to include this file

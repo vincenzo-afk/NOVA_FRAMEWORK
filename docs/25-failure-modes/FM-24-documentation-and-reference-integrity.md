@@ -35,7 +35,7 @@ mitigation — there is no runtime signal to hook a mitigation onto.
 
 | ID | Document | Failure | Severity |
 |---|---|---|---|
-| `FM-24-001` – `003` | `01-component-dependency-graph.md` | Tree diverges from `dependency-map.md`; false inferred dependency; silent cycle introduction | Medium–High |
+| `FM-24-001` – `003` | `01-component-dependency-graph.md` | Tree diverges from `docs/02-architecture/dependency-map.md`; false inferred dependency; silent cycle introduction | Medium–High |
 | `FM-24-004` – `006` | `02-startup-sequence.md` | Sequence doc drifts from boot code; reader stops at simplified summary; see also FM-15 | Low–Medium |
 | `FM-24-007` – `009` | `03-shutdown-sequence.md` | Checklist omits a new teardown step; see also FM-15; reader wrongly assumes startup/shutdown are mirror images | Low–Medium |
 | `FM-24-010` – `012` | `04-state-transition-tables.md` | Table omits a real state/transition; undocumented 'convenience' transition ships; two tables disagree at a shared boundary | Low–Critical |

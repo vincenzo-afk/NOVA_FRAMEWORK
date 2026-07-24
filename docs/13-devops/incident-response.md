@@ -25,8 +25,7 @@ Using the failure taxonomy in `docs/03-runtime/failure-recovery.md`:
 - **High** — a destructive action occurred with confirmation, but the
   outcome was clearly not what the user intended (a wrong-target
   deletion, for example).
-- **Medium** — a task reported `Completed` but was later found to be
-  `Unverified` in substance (a verification gap).
+- **Medium** — a task reported `Completed` but was later found to be `Unverified` in substance (a verification gap).
 - **Low** — a task failed or was cancelled with no lasting effect beyond
   the failure itself.
 

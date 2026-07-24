@@ -45,8 +45,7 @@ it.
 Encryption at rest protects against a scenario where the storage files
 themselves are accessed outside of a running, authenticated NOVA
 instance (e.g., the machine's disk being read by another party). It does
-not substitute for the access-control mechanisms in `authorization.md` or
-the risk-tiered execution model in `permissions.md`, which protect
+not substitute for the access-control mechanisms in `authorization.md` or the risk-tiered execution model in `permissions.md`, which protect
 against misuse by or through an already-authenticated session — these are
 complementary controls addressing different threat scenarios, detailed
 further in `threat-model.md`.

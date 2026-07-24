@@ -55,8 +55,7 @@ and the retry/timeout mechanics.
   somewhere durable to go the moment it starts emitting.
 - Plugin discovery/start (9–10) and capability registration (11) happen
   before Planner starts (12), so the Planner never accepts work before
-  its Tool Registry is fully populated — see `docs/02-architecture/
-  lifecycle.md` for why this ordering specifically prevents a
+  its Tool Registry is fully populated — see `docs/02-architecture/lifecycle.md` for why this ordering specifically prevents a
   false-negative "capability not found" (`FM-04-011`).
 - Task resumption (15) happens after Executor/Verifier are up (12), since
   resumed tasks may immediately need to execute or re-verify.

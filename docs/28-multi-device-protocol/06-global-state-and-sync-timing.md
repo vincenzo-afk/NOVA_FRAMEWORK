@@ -9,8 +9,7 @@ sync happen for each category of state.
 
 ## Global state ownership
 
-The single-device ownership table in `docs/26-system-reference/05-data-
-ownership.md` still applies per-device (each device's local Memory
+The single-device ownership table in `docs/26-system-reference/05-data-ownership.md` still applies per-device (each device's local Memory
 instance is still the sole writer of its own local storage) — what's new
 across devices is which device's write is authoritative when the same
 logical entity is touched from two devices:

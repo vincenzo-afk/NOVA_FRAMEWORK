@@ -65,8 +65,7 @@ an accumulating log.
 ## Uncertainty and confidence
 
 Every World Model entry carries a confidence value, using the same
-confidence model as memory generally (`docs/04-memory/
-memory-confidence.md`) rather than a separate, disconnected scheme — an
+confidence model as memory generally (`docs/04-memory/memory-confidence.md`) rather than a separate, disconnected scheme — an
 entry not recently corroborated (per staleness detection below) has
 reduced confidence, and low-confidence entries are treated more
 conservatively wherever they feed a risk-tier decision, consistent with
@@ -105,8 +104,7 @@ Model state and the action's declared effect
 narrow statement like "this will move file X from folder A to folder B"
 rather than a general simulation of consequences. This preview is what
 populates the plain-language description in a confirmation prompt
-(`docs/10-security/permissions.md`) and the `why_this_plan` field in
-`docs/05-ai/explainability.md` — it is a direct description of a specific
+(`docs/10-security/permissions.md`) and the `why_this_plan` field in `docs/05-ai/explainability.md` — it is a direct description of a specific
 planned action's declared effect, not a forecast of downstream
 consequences beyond that action itself.
 

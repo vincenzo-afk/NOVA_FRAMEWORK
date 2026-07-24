@@ -10,8 +10,7 @@ existed — the visual counterpart to the query-based access described in
 ## Scope
 
 Graph Explorer-specific visualization and navigation. The underlying
-graph structure is `docs/04-memory/knowledge-graph.md` and
-`docs/04-memory/ontology.md`.
+graph structure is `docs/04-memory/knowledge-graph.md` and `docs/04-memory/ontology.md`.
 
 ## Visualization model
 

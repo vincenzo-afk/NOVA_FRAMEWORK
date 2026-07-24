@@ -6,13 +6,9 @@ Covers everything that can go wrong from 'user asked for X' to 'a validated sequ
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/03-runtime/planner.md`
-- `docs/03-runtime/task-manager.md`
-- `docs/03-runtime/job-scheduler.md`
-- `docs/17-workflow/workflow-engine.md`
-- `docs/03-runtime/planner-executor-contract.md`
+- `docs/03-runtime/planner.md` - `docs/03-runtime/task-manager.md` - `docs/03-runtime/job-scheduler.md` - `docs/17-workflow/workflow-engine.md` - `docs/03-runtime/planner-executor-contract.md`
 
 ## Failure Catalog
 

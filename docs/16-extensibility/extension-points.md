@@ -28,8 +28,7 @@ noted here at a summary level and detailed in their owning document.
   contract in `docs/07-observers/observer-framework.md`, so long as they
   respect the permission boundaries in `docs/10-security/permissions.md`.
 - **UI panels and screens.** Plugins may register new screens and
-  components within the constraints of `docs/09-ui/design-system.md` and
-  `docs/41-components/`.
+  components within the constraints of `docs/09-ui/design-system.md` and `docs/41-components/`.
 - **Workflow nodes.** Custom nodes may be added to the workflow engine
   per `docs/17-workflow/workflow-engine.md`.
 - **Channels.** New communication channels (beyond email, calendar,
@@ -45,7 +44,7 @@ shape cannot be redefined by extension:
 
 - **The Observe → Remember → Reason → Act → Verify loop.** A plugin
   contributes to a stage; it cannot skip or reorder stages
-  (`design-principles.md`).
+  (`docs/00-overview/design-principles.md`).
 - **The event schema envelope** (`docs/02-architecture/event-bus-specification.md`)
   — a plugin's event payload is extensible; the envelope fields
   (`message_id`, ordering, delivery guarantees) are not.
@@ -65,8 +64,7 @@ shape cannot be redefined by extension:
 - **Direct internal-API calls** into core components — plugins interact
   only through granted capabilities.
 - **Reading another plugin's sandboxed state or credentials** — see
-  `docs/16-extensibility/plugin-sandboxing.md` and
-  `docs/10-security/secrets.md`.
+  `docs/16-extensibility/plugin-sandboxing.md` and `docs/10-security/secrets.md`.
 - **Registering a tool, provider, or capability that shadows a core
   system one** without explicit, user-visible override approval — see
   `docs/06-tools/execution-priority.md`.
@@ -92,8 +90,7 @@ deliberately no informal middle path; see Engineering Principle 1
 
 Every extension point listed here as customizable has its own
 compatibility guarantees under
-`docs/16-extensibility/plugin-versioning.md` and
-`docs/26-system-reference/09-version-compatibility-matrix.md`. Adding a
+`docs/16-extensibility/plugin-versioning.md` and `docs/26-system-reference/09-version-compatibility-matrix.md`. Adding a
 new extension point is additive and non-breaking; narrowing or removing
 one is a breaking change requiring a major version bump and a migration
 path (`docs/38-disaster-recovery/migration.md`).

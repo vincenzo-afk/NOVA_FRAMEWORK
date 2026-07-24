@@ -24,10 +24,10 @@ than *runtime* failure.
    and every consumer built against the simplified interface has to be
    redone.
 4. **Writing LLM prompt templates inline in application code** instead of
-   through `05-ai/prompt-system.md`'s versioned prompt store, which makes
+   through `docs/05-ai/prompt-system.md`'s versioned prompt store, which makes
    prompt changes unreviewable and untestable.
 5. **Hardcoding a single provider's response shape** instead of the
-   provider-agnostic contract in `18-providers/provider-interface.md`,
+   provider-agnostic contract in `docs/18-providers/provider-interface.md`,
    which then breaks the moment routing picks a different provider.
 6. **Skipping the sandboxing layer "just for this one trusted plugin"** —
    there is no trusted plugin at the architecture level; trust is a
@@ -42,7 +42,7 @@ than *runtime* failure.
    like it works in testing and fails intermittently in production.
 9. **Forgetting that NOVA is offline-first** — writing code that assumes
    network/provider availability without a documented degraded-mode path
-   per `05-ai/deterministic-first.md` and the relevant failure-mode doc.
+   per `docs/05-ai/deterministic-first.md` and the relevant failure-mode doc.
 10. **Treating documentation updates as a follow-up task** rather than
     part of the same change — the two drift, and the next agent to read
     the doc implements against a stale contract.

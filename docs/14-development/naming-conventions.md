@@ -18,8 +18,7 @@ belongs to `docs/14-development/coding-standards.md`.
 
 Every entity identifier uses `snake_case` with an explicit `_id` suffix
 naming the entity type: `task_id`, `plugin_id`, `capability_id`,
-`tool_id`, `message_id`, `correlation_id`, `event_id`. Never
-`taskId`, `TaskID`, `tid`, or a bare `id` field without a type-identifying
+`tool_id`, `message_id`, `correlation_id`, `event_id`. Never `taskId`, `TaskID`, `tid`, or a bare `id` field without a type-identifying
 prefix — an unqualified `id` field is ambiguous the moment a record is
 handled alongside records of other entity types, which happens often
 given how frequently entities cross-reference each other
@@ -37,8 +36,7 @@ never need to remember a different casing convention per document.
 ## State naming
 
 State machine states use `PascalCase` (e.g., `Created`, `WaitingUser`,
-`Retrying` in `docs/03-runtime/task-manager.md`; `Enabled`, `Disabled` in
-`docs/16-extensibility/plugin-lifecycle.md`) when referenced in
+`Retrying` in `docs/03-runtime/task-manager.md`; `Enabled`, `Disabled` in `docs/16-extensibility/plugin-lifecycle.md`) when referenced in
 diagrams and prose, and the corresponding `snake_case` form
 (`waiting_user`, `retrying`) when serialized in an API payload
 (`docs/08-api/schemas.md`) — the same state, two casing conventions by

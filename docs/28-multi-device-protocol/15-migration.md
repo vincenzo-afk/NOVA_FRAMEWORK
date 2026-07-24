@@ -53,8 +53,7 @@ If the change was NOT additive-only (a genuine breaking schema change):
    rather than silently corrupting the newer records
 ```
 
-This is why `docs/26-system-reference/09-version-compatibility-matrix.md`
-and `docs/25-failure-modes/FM-20-deployment-and-evolution.md` both
+This is why `docs/26-system-reference/09-version-compatibility-matrix.md` and `docs/25-failure-modes/FM-20-deployment-and-evolution.md` both
 insist so strongly on additive-only schema evolution wherever possible —
 in a multi-device world, a breaking memory-schema change doesn't just
 require *a* migration, it requires *every device* to migrate before

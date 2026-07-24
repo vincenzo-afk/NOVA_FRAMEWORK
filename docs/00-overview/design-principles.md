@@ -42,8 +42,7 @@ Examples: "git status" is always deterministic. "Summarize this project"
 always requires an LLM. "Find my resume" is deterministic search first; an
 LLM is only invoked to rank ambiguous candidates, or the user is asked
 directly if confidence remains too low even after that. Full specification
-in `docs/05-ai/deterministic-first.md` and
-`docs/05-ai/ambiguity-resolution.md` (Tier 2).
+in `docs/05-ai/deterministic-first.md` and `docs/05-ai/ambiguity-resolution.md` (Tier 2).
 
 ### 2. Observe → Remember → Reason → Act → Verify
 

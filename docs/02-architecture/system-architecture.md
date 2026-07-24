@@ -16,8 +16,7 @@ internals are in `docs/04-memory/` and `docs/05-ai/` respectively.
 
 ## Deployment topology
 
-NOVA runs as a single Windows background service (`docs/13-devops/
-deployment.md`, Tier 3) that hosts multiple independently-supervised
+NOVA runs as a single Windows background service (`docs/13-devops/deployment.md`, Tier 3) that hosts multiple independently-supervised
 service processes, rather than one monolithic process or fully separate
 installed services. This is a deliberate middle point: full process
 isolation per service (Principle 3, `docs/00-overview/design-principles.md`)

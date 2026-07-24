@@ -30,8 +30,7 @@ feature branch.
 This statement, ratified by
 `docs/15-decisions/adr-0008-v5-architecture-evolution.md`, extends the
 original v1 identity ("lives on the user's PC") to the multi-device,
-multi-channel reality specified in `docs/20-devices/` and
-`docs/21-channels/`. The core loop below, and the deterministic-first
+multi-channel reality specified in `docs/20-devices/` and `docs/21-channels/`. The core loop below, and the deterministic-first
 preference, are unchanged — what changed is the number of surfaces that
 loop now runs across.
 

@@ -29,8 +29,7 @@ flowchart LR
 - **Dev** — internal, built from the current phase branch
   (`docs/14-development/branching.md`); not distributed.
 - **Nightly** — automated daily build for internal/early testing; may
-  contain `Experimental`-maturity features (`docs/14-development/
-  feature-flags.md`) not yet gated behind opt-in.
+  contain `Experimental`-maturity features (`docs/14-development/feature-flags.md`) not yet gated behind opt-in.
 - **Beta** — opt-in channel for users who want early access; only
   `Beta`-maturity-or-higher features are enabled by default, consistent
   with the feature-flags maturity model.
@@ -48,8 +47,7 @@ including the benchmark and chaos-test gates.
 
 ## Checklist
 
-- [ ] Every phase-branch deliverable listed in `ROADMAP.md` for the
-  target phase is merged and passes `docs/12-testing/validation.md`'s
+- [ ] Every phase-branch deliverable listed in `ROADMAP.md` for the target phase is merged and passes `docs/12-testing/validation.md`'s
   full checklist.
 - [ ] The benchmark suite (`docs/11-performance/benchmarks.md`) shows no
   unresolved regression against `docs/11-performance/performance-goals.md`'s
@@ -61,10 +59,7 @@ including the benchmark and chaos-test gates.
   status, not `Proposed`.
 - [ ] `CHANGELOG.md` is updated with the release's changes, following
   the existing entry format.
-- [ ] Any breaking change to the external API (`docs/08-api/
-  versioning.md`), tool contracts (`docs/06-tools/
-  tool-schema-versioning.md`), or plugin contracts (`docs/16-extensibility/
-  plugin-versioning.md`) has a major version bump and, where applicable,
+- [ ] Any breaking change to the external API (`docs/08-api/versioning.md`), tool contracts (`docs/06-tools/tool-schema-versioning.md`), or plugin contracts (`docs/16-extensibility/plugin-versioning.md`) has a major version bump and, where applicable,
   a deprecation window already communicated, not introduced in the same
   release it takes effect.
 - [ ] A pre-release backup snapshot is confirmed

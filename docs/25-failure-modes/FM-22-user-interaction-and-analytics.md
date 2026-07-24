@@ -8,9 +8,7 @@ Failures at the human-facing edge of the system, and in how NOVA measures its ow
 
 This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
 
-- `docs/09-ui/ui-overview.md`
-- `docs/09-ui/chat.md`
-- `docs/23-autonomy/personal-analytics.md`
+- `docs/09-ui/ui-overview.md` - `docs/09-ui/chat.md` - `docs/23-autonomy/personal-analytics.md`
 
 ## Failure Catalog
 

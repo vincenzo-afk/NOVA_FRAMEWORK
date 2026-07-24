@@ -13,7 +13,7 @@
    (e.g. Planner to Executor) need the same validation discipline as
    external API calls — internal doesn't mean trusted.
 3. **Optional fields treated as always-present downstream** — a field
-   marked optional in `08-api/schemas.md` but accessed with no null check
+   marked optional in `docs/08-api/schemas.md` but accessed with no null check
    three layers down will eventually null-pointer/undefined-access when
    the field is genuinely absent.
 4. **Schema version bumped without a migration path for existing stored

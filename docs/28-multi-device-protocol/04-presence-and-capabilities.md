@@ -19,8 +19,7 @@ actively poll.
 ## Device capabilities
 
 NOVA never assumes every device can do everything — each device
-advertises its actual capabilities at registration (`02-device-pairing-
-protocol.md`) and keeps them updated as hardware/permissions change.
+advertises its actual capabilities at registration (`02-device-pairing-protocol.md`) and keeps them updated as hardware/permissions change.
 
 | Device class | Typical capabilities |
 |---|---|

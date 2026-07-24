@@ -38,8 +38,7 @@ custom wake phrases from Settings.
 
 ## Low latency and streaming
 
-STT and TTS providers used for voice must support the `Stream<DomainChunk>`
-return type defined in `docs/18-providers/provider-interface.md` —
+STT and TTS providers used for voice must support the `Stream<DomainChunk>` return type defined in `docs/18-providers/provider-interface.md` —
 non-streaming providers can be used for other capabilities but are
 excluded from the voice routing policy's candidate set, since round-trip
 buffering defeats the responsiveness requirement. The Planner processes
