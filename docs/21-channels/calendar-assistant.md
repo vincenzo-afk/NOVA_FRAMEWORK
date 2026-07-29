@@ -49,6 +49,7 @@ picking a resolution.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-11-internet-and-external-apis.md` — failure modes for this subsystem
 - `docs/18-providers/credential-management.md` — OAuth handling
 - `docs/03-runtime/job-scheduler.md` — underlying scheduling primitives
 - `docs/23-autonomy/background-life-assistant.md` — proactive daily

@@ -76,3 +76,7 @@ plan comparison, not covered by the five factors above) must state its
 own scoring model here before shipping — an implicit "pick the first
 one" or "pick the one the model liked best" is exactly the improvisation
 this document exists to prevent.
+
+## Related documents
+
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem

@@ -90,8 +90,8 @@ describes from the supervisor's perspective.
 When Runtime Manager restarts a service, that service's `start()` must
 reconstruct any necessary state from persisted storage (Memory, Task
 Manager's persisted task state, etc.) rather than assuming a cold, empty
-state — a mid-flight task should not simply vanish because the Planner
-process restarted; it should be recoverable from Task Manager's
+state — a mid-flight task must not simply vanish because the Planner
+process restarted; it must be recoverable from Task Manager's
 persisted record per `docs/02-architecture/lifecycle.md`'s crash-recovery
 behavior.
 
@@ -106,6 +106,7 @@ dependencies are actually reachable before signaling their own readiness.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this component
 - `docs/02-architecture/lifecycle.md` — the system-wide sequence this
   per-service contract fits into
 - `runtime-manager.md` — the supervisor invoking this interface

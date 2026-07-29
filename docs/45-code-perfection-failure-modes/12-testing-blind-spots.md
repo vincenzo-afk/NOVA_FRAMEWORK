@@ -9,7 +9,7 @@
    applicable landmine above.
 2. **Mocking the Model Router's response instead of testing against the
    deterministic-first decision logic** — this can hide bugs where a
-   task that should never reach the LLM (a deterministic case) is
+   task that must never reach the LLM (a deterministic case) is
    incorrectly routed to it, because the mock always "succeeds."
 3. **Integration tests that share mutable fixture state across tests**,
    producing order-dependent test failures that look flaky but are
@@ -20,9 +20,9 @@
    (`docs/12-testing/chaos-tests.md`) catch the most.
 5. **No test for the specific idempotency/retry-safety of a new
    side-effecting tool or workflow step** — if a step sends an email or
-   creates a calendar event, there should be an explicit test asserting
+   creates a calendar event, there must be an explicit test asserting
    that re-running it (simulating a retry) does not duplicate the effect.
 6. **Snapshot/golden tests over LLM output** treated as pass/fail on
    exact text match — LLM output is nondeterministic by nature; tests
-   should assert on structural/semantic properties (schema validity,
+   must assert on structural/semantic properties (schema validity,
    presence of required fields, absence of PII) not exact string equality.

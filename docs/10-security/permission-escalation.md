@@ -67,6 +67,7 @@ risk-tier confirmation are independent gates that both apply.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/10-security/permissions.md` — standing grants and risk-tier
   confirmation, both independent of this flow
 - `docs/05-ai/planner-agent.md` — the agent-instance allowlist this flow

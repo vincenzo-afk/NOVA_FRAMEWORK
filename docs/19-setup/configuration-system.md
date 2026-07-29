@@ -68,6 +68,7 @@ silently dropping it.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `setup-wizard.md` — the guided first-pass writer of this store
 - `docs/18-providers/capability-management.md` — the largest single
   section of this store

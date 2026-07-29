@@ -63,6 +63,7 @@ task (e.g., a scheduled cleanup) from ever running.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-02-planner-task-queue-scheduler.md` — failure modes for this component
 - `task-manager.md` — what happens to a task once dispatched
 - `resource-manager.md` — the lock state the Scheduler checks before
   dispatch

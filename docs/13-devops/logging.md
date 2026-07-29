@@ -54,6 +54,7 @@ default behavior of this logging system.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-17-observability.md` — failure modes for this subsystem
 - `docs/10-security/audit.md` — the user-facing action record this
   technical logging complements but does not duplicate
 - `monitoring.md` — self-monitoring built on these logs

@@ -69,8 +69,27 @@ step requiring re-planning (`docs/03-runtime/planner.md`), rather than
 attempting to complete an invocation against a tool that no longer
 exists.
 
+## Lifecycle
+
+```mermaid
+stateDiagram-v2
+    [*] --> Registered
+    Registered --> Deregistered
+    Deregistered --> [*]
+```
+
+A tool entry has exactly two states: **Registered** (metadata validated
+and stored; queryable by Tool Selection from the moment registration
+succeeds — there is no separate "available" state distinct from
+registered) and **Deregistered** (source removed; no longer returned by
+lookup; terminal — re-adding the same tool later is a new registration,
+not a resumed one). This registry does not currently define a
+deprecation state distinct from these two; a tool is either registered
+and fully usable, or gone.
+
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `tool-interface.md` — the metadata schema this catalog enforces
 - `docs/05-ai/tool-selection.md` — the primary consumer of registry
   lookups

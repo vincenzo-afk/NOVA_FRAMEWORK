@@ -51,6 +51,7 @@ attempting an interaction pattern built against a different UI layout.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `docs/03-runtime/world-model.md` — the live-state consumer of this

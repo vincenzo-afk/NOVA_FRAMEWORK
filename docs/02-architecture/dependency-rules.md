@@ -34,7 +34,7 @@ flowchart TD
 ```
 
 Dependency flows strictly downward. A layer may depend on the layer(s)
-below it; it may never depend on a layer above it. Memory
+below it; it must never depend on a layer above it. Memory
 (`docs/04-memory/`) is the one explicit exception to strict layering — it
 is read by many layers (UI, Planner, Agent instances, Tool execution
 results feeding back into it) rather than sitting at one point in this
@@ -81,7 +81,7 @@ violation (`docs/14-development/architecture-rules.md`).
 `docs/00-overview/ownership-boundaries.md` states *who* is authoritative
 for a responsibility; this document states the *direction* dependencies
 must flow to respect that ownership — a component that is not the owner
-of a responsibility should depend on the owner, never the reverse.
+of a responsibility must depend on the owner, never the reverse.
 
 ## Related documents
 

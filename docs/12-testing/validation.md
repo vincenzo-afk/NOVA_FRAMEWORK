@@ -37,7 +37,10 @@ Every component, regardless of layer, must satisfy:
    (`docs/10-security/permissions.md`).
 6. **Performance target compliance**, where applicable — measured against
    `docs/11-performance/performance-goals.md` via the benchmark suite
-   (`benchmarks.md`).
+   (`docs/11-performance/benchmarks.md`, whose CI/test-execution
+   integration is described in this directory's own
+   `docs/12-testing/benchmarks.md` — the two are the same suite, not
+   competing ones).
 7. **Audit trail compliance** — any autonomous action the component can
    trigger is fully traceable via `docs/10-security/audit.md`'s
    `correlation_id` mechanism.
@@ -61,6 +64,7 @@ requirement at the individual pull-request level.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `testing-strategy.md` — the five testing layers this checklist draws
   from
 - `docs/06-tools/tool-interface.md`, `docs/10-security/permissions.md` —

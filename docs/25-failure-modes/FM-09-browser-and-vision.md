@@ -6,7 +6,7 @@ Failures in NOVA's ability to perceive and act on visual/web interfaces — the 
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
 - `docs/07-observers/browser.md` - `docs/24-collaboration/browser-agent.md` - `docs/06-tools/vision.md` - `docs/06-tools/vision-everywhere.md`
 

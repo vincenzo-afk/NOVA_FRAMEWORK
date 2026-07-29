@@ -82,6 +82,7 @@ specific capability version.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `docs/06-tools/tool-registry.md`, `tool-interface.md` — the concrete
   layer this registry sits above
 - `docs/05-ai/tool-selection.md` — where a resolved capability becomes a

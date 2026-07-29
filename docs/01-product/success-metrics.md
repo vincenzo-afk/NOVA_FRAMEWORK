@@ -60,10 +60,10 @@ verification step is involved.
 Beyond individual task scoring, the system as a whole is evaluated on:
 
 - The proportion of tasks resolved without any LLM call (tracks
-  Deterministic Before Intelligent adherence — should not decrease as new
+  Deterministic Before Intelligent adherence — must not decrease as new
   tools are added, per `docs/00-overview/goals.md`).
 - The proportion of tasks that reach "unverified" rather than a false
-  "success" (should trend toward zero, not be hidden by counting
+  "success" (must trend toward zero, not be hidden by counting
   unverified as success).
 - Time-to-recovery for tasks that fail partway through (Journey 3 in
   `user-journeys.md`).

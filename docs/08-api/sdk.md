@@ -53,6 +53,7 @@ tool would be (`docs/06-tools/tool-interface.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `rest-api.md`, `websocket.md` — the underlying protocols this SDK wraps
 - `docs/06-tools/tool-registry.md`, `tool-interface.md` — the plugin tool
   registration contract

@@ -72,6 +72,7 @@ separately from code releases, reverting `template_id` to its prior `version` do
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-06-context-prompt-session.md` — failure modes for this subsystem
 - `docs/05-ai/prompt-system.md` — the template structure this versioning
   applies to
 - `docs/12-testing/simulation-tests.md` — required testing for major

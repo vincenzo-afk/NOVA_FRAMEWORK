@@ -23,8 +23,16 @@ plugin-specific permission type that bypasses the established model.
 
 Before a plugin transitions to `Enabled` (`plugin-lifecycle.md`), its
 full declared permission set is presented to the user for explicit
-review and approval — mirroring the permission-center pattern in
-`docs/10-security/permissions.md`, not a blanket "allow all" default.
+review, granted or denied **individually, scope by scope** — not as a
+single "approve all" bundle — mirroring the permission-center pattern in
+`docs/10-security/permissions.md`. Denying one requested scope does not
+block installation outright: the plugin installs and enables with
+whatever subset was actually granted, consistent with "a plugin's
+tools... are subject to exactly the granted scope" below — a tool
+whose required scope was denied simply fails at invocation time with a
+clear permission-denied result, the same as any other authorization
+violation, rather than the whole plugin being blocked from installing
+over one declined permission among several.
 
 ## No privilege beyond declaration
 
@@ -68,6 +76,7 @@ plugin registers multiple tools with independently scoped permissions.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `docs/10-security/authorization.md`, `permissions.md` — the general
   models this document extends to plugins specifically
 - `plugin-lifecycle.md` — the install/update flow this review is part of

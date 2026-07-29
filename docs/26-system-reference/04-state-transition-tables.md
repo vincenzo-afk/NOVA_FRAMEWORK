@@ -9,41 +9,48 @@ across other files. Every entry below is a **hard invariant**: a
 transition not listed in a table is invalid and must be rejected (see
 `FM-15-019`, Invalid state transition).
 
-## Task / Agent Lifecycle
+## Task Lifecycle
 
-> **Known documentation conflict, flagged not resolved** — see
-> `docs/03-runtime/task-manager.md`'s Task state machine for the
-> conflicting version and the full note; a human decision is needed on
-> which framing is authoritative before either is treated as final.
+Derived from `docs/03-runtime/task-manager.md`, which is authoritative
+per `docs/00-overview/normative-precedence.md` — if the two ever
+disagree, `docs/03-runtime/task-manager.md` is correct and this table is
+stale; fix this table to match it.
 
 ```
-Idle → Thinking → Planning → Executing → Waiting → Completed
-                                 ↓            ↓
-                              Failed      Cancelled
-                                 ↓
-                             Unverified → (retry) → Verifying → Completed
-                                                          ↓
-                                                       Failed
+Created → Planning → Executing → Verifying → Completed
+             ↓  ↑         ↓            ↓
+       WaitingResources  Failed    Unverified
+             ↓            ↓            ↓
+          Paused ──→ WaitingUser   Retrying → Planning
+             ↓            ↓
+         (resumed)   Executing / Planning / Cancelled
 ```
 
 | Current State | Event | Next State | Guard / Condition |
 |---|---|---|---|
-| `Idle` | New goal received | `Thinking` | — |
-| `Thinking` | Intent classified | `Planning` | — |
-| `Thinking` | Ambiguity above threshold | `Idle` | Clarifying question sent; returns to `Idle` awaiting reply, not a new hidden state |
+| `Created` | Task submitted | — | Initial state; not yet planned |
+| `Created` | Planner dispatched | `Planning` | Per `docs/03-runtime/scheduler.md` dispatch ordering |
+| `Planning` | Step requires a held resource lock | `WaitingResources` | Queued at Resource Manager (`docs/03-runtime/resource-manager.md`) |
 | `Planning` | Plan validated | `Executing` | Plan passes dependency/cycle/capability validation (`docs/03-runtime/planner.md`) |
-| `Planning` | Plan invalid | `Failed` | No valid plan constructible |
-| `Executing` | Step needs external input | `Waiting` | e.g. human approval (`FM-18`), external API response |
-| `Executing` | All steps done | `Verifying` | Never transitions directly to `Completed` — see `FM-05-016` |
+| `Planning` | Ambiguity-resolution requires user input | `WaitingUser` | `docs/05-ai/ambiguity-resolution.md`'s "ask user for clarification" branch; reason recorded as `clarification_requested` |
+| `Planning` | No valid plan constructible | `Failed` | — |
+| `WaitingResources` | Lock acquired | `Executing` | — |
+| `Executing` | All steps done | `Verifying` | Never transitions directly to `Completed` |
 | `Executing` | Unrecoverable step error | `Failed` | After exhausting retry policy |
-| `Executing` | User cancels | `Cancelled` | — |
-| `Waiting` | Input received | `Executing` | — |
-| `Waiting` | Timeout | `Failed` or `Cancelled` | Per `FM-18-016`'s timeout policy |
-| `Verifying` | Verification passes | `Completed` | Independent verifier, per `FM-05-016` |
+| `Verifying` | Verification passes | `Completed` | Independent verifier, per `docs/03-runtime/verifier.md` |
 | `Verifying` | Verification fails | `Unverified` | Never `Failed` directly — `Unverified` is distinct, see `docs/01-product/success-metrics.md` |
-| `Unverified` | Retry policy allows | `Planning` | Bounded retry count |
-| `Unverified` | Retry exhausted | `Failed` | — |
-| `Completed`, `Failed`, `Cancelled` | — | — | Terminal states; no outgoing transitions |
+| `Unverified` | Retry policy allows | `Retrying` | Bounded retry count |
+| `Failed` | Retry policy allows | `Retrying` | Bounded retry count |
+| `Retrying` | Retry dispatched | `Planning` | — |
+| `Created`, `Planning`, `WaitingResources`, `Executing` | Suspension (user or system) | `Paused` | State preserved for resumption |
+| `Paused` | Resumed to planning | `Planning` | — |
+| `Paused` | Resumed to executing | `Executing` | — |
+| `Paused` | Pending Permission Manager confirmation | `WaitingUser` | Reason recorded as `permission_confirmation` |
+| `WaitingUser` | Confirmed | `Executing` | `permission_confirmation` case only |
+| `WaitingUser` | Denied | `Cancelled` | `permission_confirmation` case only |
+| `WaitingUser` | Clarified | `Planning` | `clarification_requested` case only — always returns to (re-)planning, never directly to `Executing` |
+| `Created`, `Planning`, `WaitingResources`, `Executing` | User/system cancels | `Cancelled` | — |
+| `Completed`, `Unverified` (retries exhausted), `Failed` (retries exhausted), `Cancelled` | — | — | Terminal states; no outgoing transitions |
 
 ## Provider / Circuit Breaker
 
@@ -65,7 +72,7 @@ stale; fix this table to match it, per
 
 | Current State | Event | Next State | Guard / Condition |
 |---|---|---|---|
-| `Discovered` | Manifest validated | `Installed` | Passes schema + signature check (`FM-12-016`) |
+| — (`[*]`) | Manifest validated (schema + signature check, `FM-12-016`) | `Installed` | This is the initial transition — there is no separate `Discovered` state in the canonical source; validation happens before the tracked lifecycle begins |
 | `Installed` | User/policy enables | `Enabled` | Consent flow completed (`FM-12-007`); sandbox init succeeds |
 | `Installed` | Sandbox init fails | `Failed` | — |
 | `Enabled`, `Deprecated` | User/policy disables | `Disabled` | Process stopped, tools deregistered, package retained |

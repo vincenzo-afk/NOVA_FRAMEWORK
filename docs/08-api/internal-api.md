@@ -55,6 +55,7 @@ external API (`versioning.md`) — both sides update in lockstep.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `docs/02-architecture/system-architecture.md` — the process boundary
   this API crosses
 - `docs/09-ui/` — the UI surfaces consuming this API

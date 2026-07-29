@@ -35,6 +35,12 @@ the two relate.
    marked as superseding it, never by an unrelated document.
 3. **`docs/00-overview/non-goals.md` and `docs/01-product/project-scope.md`** — scope boundaries override any component
    document that implies broader scope than these establish.
+   `docs/29-product/` extends and complements `docs/01-product/` (each
+   of its documents says so explicitly, e.g. "Complements
+   `docs/01-product/user-journeys.md`") but never expands scope beyond
+   what `docs/01-product/` and `non-goals.md` establish — a
+   `docs/29-product/` document is additional framing/detail, not a
+   second, independent source of scope authority.
 4. **`docs/02-architecture/` (system, runtime, and dependency
    architecture)** — structural architecture overrides individual
    component documents where they conflict on process topology, service
@@ -47,10 +53,17 @@ the two relate.
    description of a payload differs from the schema, the schema is
    authoritative for wire format specifically, since it is what external
    consumers and other implementations actually integrate against.
-7. **`docs/references/`, `docs/diagrams/`** — supporting and
-   illustrative material, never authoritative over anything above it. A
-   diagram that has drifted from its source document is a defect in the
-   diagram, not a reason to change the source.
+7. **`docs/references/`, `docs/diagrams/`, `docs/26-system-reference/`** —
+   supporting, illustrative, and consolidated-index material, never
+   authoritative over anything above it. `docs/26-system-reference/` in
+   particular exists to *index and cross-reference* the catalogs,
+   tables, and events already specified elsewhere (see its own documents'
+   "Where This Breaks" sections) — it does not originate new behavior. A
+   diagram, table, or catalog entry in any of these locations that has
+   drifted from its source document (a Tier 4/5 component specification,
+   or a higher-precedence document above) is a defect in that diagram,
+   table, or catalog, never a reason to change the source, and never
+   grounds for treating the drifted copy as an open, unresolved question.
 
 ## How to use this when a conflict is found
 
@@ -60,7 +73,7 @@ the two relate.
 3. **Do not silently follow the lower-precedence document.** File the
    conflict as a documentation defect (`docs/14-development/technical-debt.md`) and correct the lower-precedence document to
    match — implementing against a document known to conflict with a
-   higher-precedence one reproduces the error into code.
+   higher-precedence one reproduces the error into code. An implementation must not be built against the lower-precedence reading while the conflict is open.
 
 ## Example application
 
@@ -68,7 +81,7 @@ If `docs/06-tools/vision.md` (a component document) described vision
 automation as available for any application, but
 `docs/00-overview/non-goals.md` (scope) restricts it to an explicit
 allow-list, `non-goals.md` wins — `vision.md` would have a defect
-requiring correction, and no implementation should be built against the
+requiring correction, and an implementation must not be built against the
 broader, incorrect reading.
 
 ## What this document does not do

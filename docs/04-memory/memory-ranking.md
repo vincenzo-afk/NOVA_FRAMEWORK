@@ -69,6 +69,7 @@ accordingly and may prompt confirmation in ambiguous situations.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `retrieval-engine.md` — where these rankings are applied during fusion
 - `memory-types.md` — the User Preferences records scored here
 - `docs/05-ai/context-builder.md` — the primary consumer of dynamic

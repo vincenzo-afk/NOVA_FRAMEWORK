@@ -50,7 +50,7 @@ Reconstruct the full causal chain using `correlation_id`
 (`docs/02-architecture/communication-model.md`) from the original
 request through every plan step, tool invocation, and verification
 result, per the audit trail's design (`docs/10-security/audit.md`) —
-this reconstruction should be possible directly from stored data without
+this reconstruction must be possible directly from stored data without
 needing to interview the system or guess.
 
 ## Rollback and compensation
@@ -74,6 +74,7 @@ implementation bug against an already-correct rule.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-23-recovery-system-meta-failures.md` — failure modes for this subsystem
 - `SECURITY.md` — vulnerability-specific disclosure process
 - `docs/00-overview/system-invariants.md` — what an incident review
   checks against

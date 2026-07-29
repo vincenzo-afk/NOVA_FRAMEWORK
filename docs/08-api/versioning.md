@@ -56,6 +56,7 @@ plugin authors time to update.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `rest-api.md`, `websocket.md`, `events.md` — the endpoints subject to
   this policy
 - `schemas.md` — the schema version field referenced above

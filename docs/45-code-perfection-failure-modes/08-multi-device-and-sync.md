@@ -22,7 +22,7 @@
    version the wire protocol per `28-multi-device-protocol/` and fail
    loudly on an unknown version.
 5. **Device pairing not invalidating stale sessions on re-pair** —
-   re-pairing a device should revoke the previous session's credentials,
+   re-pairing a device must revoke the previous session's credentials,
    not leave both valid, which would let a lost/stolen device retain
    access silently.
 6. **Large payload sync (e.g. full Knowledge Graph resync) not chunked**,

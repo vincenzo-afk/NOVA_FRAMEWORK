@@ -102,16 +102,23 @@ consistently across Memory records and World Model entries alike:
 
 **This document deliberately does not specify exact numeric
 coefficients** (e.g., a decay half-life in days, or a corroboration
-weight multiplier) — those are implementation-tuning parameters best set
+weight multiplier). These are explicitly classified as
+**IMPLEMENTATION-DEFINED (intentionally delegated)**: they must be set
 and adjusted empirically against real usage and the benchmark suite
-(`docs/11-performance/benchmarks.md`), not architectural commitments that
-should be fixed in a specification document before any real data exists
-to tune them against. Specifying invented numbers here would create a
-false impression of precision without a basis for the specific values
-chosen.
+(`docs/11-performance/benchmarks.md`), not hard-coded as an architectural
+commitment in this specification before any real data exists to tune
+them against. An implementation MUST choose concrete values for every
+coefficient this document leaves unspecified — leaving a coefficient
+undefined at runtime is not a valid reading of this delegation — but
+MAY choose any values consistent with the qualitative rules above,
+and MUST make the chosen values configurable and revisable rather than
+buried as inline literals, so later empirical tuning does not require a
+code change. Specifying invented numbers here would create a false
+impression of precision without a basis for the specific values chosen.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/04-memory/memory-ranking.md` — confidence as a retrieval-ranking
   factor
 - `docs/03-runtime/state-manager.md` — the analogous corroboration model

@@ -5,8 +5,8 @@ This folder is NOVA's project-wide failure-mode catalog: every place the system 
 ## How to use this folder
 
 1. Before implementing a subsystem, read its corresponding FM file(s) and treat every 'Mitigation' cell as a design requirement, not an optional nice-to-have.
-2. Every 'Detection' cell should map to an actual metric, log, or test — if it doesn't, that's itself a gap (see FM-17, Observability).
-3. Every 'Critical' or 'High' severity item should have a corresponding test in `docs/12-testing/chaos-tests.md` that deliberately triggers it and verifies the recovery path actually works.
+2. Every 'Detection' cell must map to an actual metric, log, or test — if it doesn't, that's itself a gap (see FM-17, Observability).
+3. Every 'Critical' or 'High' severity item must have a corresponding test in `docs/12-testing/chaos-tests.md` that deliberately triggers it and verifies the recovery path actually works.
 4. When you discover a new failure mode not listed here, add it — this catalog is a living document, not a fixed spec.
 
 ## Files
@@ -39,6 +39,8 @@ This folder is NOVA's project-wide failure-mode catalog: every place the system 
 | [`FM-24-documentation-and-reference-integrity.md`](FM-24-documentation-and-reference-integrity.md) | Documentation & Reference Integrity — covers `docs/26-system-reference/` drifting from the system it describes |
 | [`FM-25-cli-infrastructure.md`](FM-25-cli-infrastructure.md) | CLI Infrastructure — failures across `docs/27-cli/`'s bootstrap, health, dev, AI-developer-tool, observability, SDK, and CI commands |
 | [`FM-26-multi-device-protocol.md`](FM-26-multi-device-protocol.md) | Multi-Device Protocol — failures across `docs/28-multi-device-protocol/`'s sync, pairing, handoff, networking, state, permissions, and recovery documents |
+| [`FM-27-external-api-surface.md`](FM-27-external-api-surface.md) | NOVA's Own External API Surface — REST, WebSocket, SDK, webhooks, and the versioning contract across `docs/08-api/` (the inbound direction; see FM-11 for the outbound direction) |
+| [`FM-27-external-api-surface.md`](FM-27-external-api-surface.md) | NOVA's Own External API Surface — REST, WebSocket, SDK, webhooks, and versioning for `docs/08-api/` (the inbound counterpart to FM-11's outbound-only scope) |
 
 ## Numbering Convention
 

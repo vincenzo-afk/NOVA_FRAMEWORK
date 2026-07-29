@@ -54,6 +54,7 @@ full step-by-step view the Desktop app's Task Monitor panel shows.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `docs/08-api/internal-api.md` — the shared backend interface
 - `docs/10-security/permissions.md` — the confirmation UX shared across
   surfaces

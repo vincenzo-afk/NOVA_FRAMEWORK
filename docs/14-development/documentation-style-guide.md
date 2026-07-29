@@ -37,7 +37,7 @@ for its cross-references.
   reasoning, not stated as a bare assertion.
 - **Illustrative examples belong in prose; normative contracts belong in
   schemas.** A code-like JSON block in a document is a normative schema
-  contributors should implement against; a narrative example (e.g., the
+  contributors must implement against; a narrative example (e.g., the
   "I like Python" / "I hate Python" example in
   `docs/04-memory/memory-conflict-resolution.md`) illustrates a rule
   without being the rule itself — keep these visually and structurally

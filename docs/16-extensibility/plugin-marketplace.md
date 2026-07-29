@@ -58,6 +58,7 @@ lets NOVA do" rather than only by name.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `plugin-lifecycle.md` — the installation flow following discovery
 - `plugin-permissions.md` — the mandatory review after installation
 - `docs/05-ai/capability-registry.md` — the capability vocabulary used

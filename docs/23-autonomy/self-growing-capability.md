@@ -59,6 +59,7 @@ manually installed items, editable and removable the same way.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `autonomous-plugin-discovery.md`, `automatic-software-installation.md`
   — the two registry-backed growth mechanisms
 - `docs/06-tools/tool-registry.md` — where Composite Tools register

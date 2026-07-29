@@ -90,8 +90,31 @@ are additionally covered by simulation testing against golden datasets,
 since their non-deterministic nature makes exhaustive unit-level
 assertion less meaningful on its own.
 
+## Static security analysis on generated code
+
+Every AI-generated code change is run through a static application
+security testing (SAST) pass before it is presented as complete — a
+known-bad pattern (SQL string concatenation, hardcoded secret, missing
+input validation) is a blocking failure, never a soft warning, per
+`docs/25-failure-modes/FM-08-code-generation-and-testing.md`'s FM-08-009.
+This runs in addition to, not instead of, the unit/integration/e2e
+layers above; a security-lint failure blocks delivery regardless of
+whether the functional tests pass.
+
+## Test/production environment parity
+
+The test sandbox environment (dependency versions, OS/runtime target,
+configuration) is kept as close to the actual deployment target as
+practical, specifically to prevent a test passing in the sandbox while
+the same code fails once deployed (`docs/25-failure-modes/FM-08-code-generation-and-testing.md`'s FM-08-015). Where full parity isn't
+practical (e.g., testing all supported OS targets on every commit),
+the gap between sandbox and target is an explicit, tracked technical-
+debt item (`docs/14-development/technical-debt.md`), not a silent
+assumption that "it probably works the same."
+
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `unit-tests.md`, `integration-tests.md`, `e2e-tests.md`,
   `simulation-tests.md`, `chaos-tests.md` — full detail per layer
 - `validation.md` — acceptance criteria tying these layers together

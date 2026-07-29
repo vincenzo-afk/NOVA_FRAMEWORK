@@ -67,6 +67,7 @@ is no hidden background listening mode.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `multi-device-architecture.md` — how this device pairs and syncs
 - `screen-streaming.md` — phone screen as a vision source
 - `docs/22-voice/voice-assistant.md` — voice capture and response

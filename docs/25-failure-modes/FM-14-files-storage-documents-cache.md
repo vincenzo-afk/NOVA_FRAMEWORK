@@ -6,9 +6,9 @@ Everything that can go wrong persisting, reading, and caching data on disk.
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/13-devops/storage-layout.md` - `docs/13-devops/backup.md` - `docs/11-performance/caching.md`
+- `docs/13-devops/storage-layout.md` - `docs/13-devops/backup.md` - `docs/11-performance/caching.md` - `docs/07-observers/filesystem.md` - `docs/13-devops/persistence.md`
 
 ## Failure Catalog
 

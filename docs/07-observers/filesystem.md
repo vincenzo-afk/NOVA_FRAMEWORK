@@ -55,6 +55,7 @@ multiple link paths.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-14-files-storage-documents-cache.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `docs/02-architecture/event-driven-architecture.md` — event-storm

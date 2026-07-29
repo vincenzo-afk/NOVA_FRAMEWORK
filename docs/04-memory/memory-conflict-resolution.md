@@ -28,7 +28,7 @@ blanket comparison against all of memory.
 
 ```mermaid
 flowchart TD
-    A[New statement contradicts<br/>existing record] --> B{Is the new statement<br/>an explicit correction?<br/>e.g. "actually, I..."}
+    A[New statement contradicts<br/>existing record] --> B{"Is the new statement<br/>an explicit correction?<br/>e.g. 'actually, I...'"}
     B -->|Yes| C[New statement supersedes;<br/>old record archived with<br/>superseded_by reference]
     B -->|No explicit signal| D{Recency and confidence<br/>of new vs. old}
     D -->|New is user_stated,<br/>old is inferred| C
@@ -64,6 +64,7 @@ silently picking one.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/04-memory/memory-ranking.md` — preference-specific confidence
   scoring and the correction-supersedes rule this document generalizes
 - `docs/04-memory/timeline.md` — where superseded records remain

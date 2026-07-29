@@ -7,7 +7,7 @@ want the visual without navigating into the full architecture narrative.
 
 ## Source
 
-This diagram is authoritative in, and should be kept in sync with,
+This diagram is authoritative in, and must be kept in sync with,
 `docs/02-architecture/system-architecture.md`.
 
 ## Diagram

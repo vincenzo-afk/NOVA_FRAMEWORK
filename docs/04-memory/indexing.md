@@ -40,7 +40,11 @@ flowchart LR
   existing graph nodes (`entity-resolution.md`) and create or update
   relationships.
 - **Memory Classification** — determine which memory tier this belongs in
-  initially (typically Working or Recent Memory, per `memory-lifecycle.md`).
+  initially. Per `memory-lifecycle.md`'s pipeline, every newly indexed
+  item always starts in Working Memory; promotion to Recent Memory
+  happens later, only when its originating task ends and is judged
+  successfully or meaningfully concluded — indexing itself never places
+  new content directly into Recent Memory.
 - **Index Creation** — write into the keyword, semantic, temporal, and
   entity indexes the Retrieval Engine queries.
 - **Store** — persist via the storage engines in `memory-storage.md`.
@@ -75,6 +79,7 @@ rules, not silently left inconsistent with newly indexed data — see
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `embeddings.md` — the embedding generation stage in detail
 - `entity-resolution.md` — how entity linking resolves to existing nodes
 - `docs/02-architecture/event-driven-architecture.md` — the bulk-change

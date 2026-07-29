@@ -57,6 +57,7 @@ number and purpose beforehand, per `docs/10-security/permissions.md`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-11-internet-and-external-apis.md` — failure modes for this subsystem
 - `docs/22-voice/voice-assistant.md` — STT/TTS pipeline reused for calls
 - `docs/20-devices/android-companion.md` — native telephony access source
 - `docs/10-security/permissions.md` — outbound-call confirmation gate

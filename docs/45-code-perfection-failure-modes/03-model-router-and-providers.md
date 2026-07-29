@@ -7,11 +7,13 @@
    Provider A fails and the router falls back to a weaker local model,
    downstream code that assumed Provider A's capability level (e.g.
    tool-calling support) can break in ways that look like a logic bug
-   rather than a routing event. Every response should carry which
+   rather than a routing event. Every response must carry which
    provider actually served it.
 2. **Cost/latency tracking implemented per-call but never aggregated**,
-   so budget limits (`docs/18-providers/capability-management.md`) are
-   unenforceable because there's no running total to check against.
+   so budget limits (`docs/11-performance/performance-goals.md`,
+   `docs/14-development/configuration-schema.md`'s daily-spend-ceiling
+   key) are unenforceable because there's no running total to check
+   against.
 3. **Provider-specific response quirks leaking through the abstraction.**
    E.g. one provider returns empty string vs. another returns null for
    "no output" — if the Provider Interface adapter doesn't normalize this,
@@ -32,5 +34,5 @@
    routing decisions after another process starts consuming GPU memory.
 8. **Prompt-injection from tool output not sanitized before being fed
    back into the next model call** — a plugin's or web page's returned
-   content should be treated as untrusted data, not as trusted context;
+   content must be treated as untrusted data, not as trusted context;
    failing to delimit/sanitize it is a direct prompt-injection vector.

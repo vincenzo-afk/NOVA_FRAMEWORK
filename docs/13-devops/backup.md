@@ -51,6 +51,7 @@ actual scope is not misunderstood.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-14-files-storage-documents-cache.md` — failure modes for this subsystem
 - `docs/04-memory/memory-storage.md` — the storage engines snapshotted
   together
 - `recovery.md` — how these snapshots are used to restore from

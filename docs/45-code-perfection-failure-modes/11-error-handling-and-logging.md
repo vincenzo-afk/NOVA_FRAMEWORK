@@ -9,7 +9,7 @@
    until a user reports something "just silently not happening."
 2. **Generic catch blocks that swallow the distinction between expected
    and unexpected errors** — e.g. catching "file not found" (expected,
-   handle it) and "out of memory" (unexpected, should propagate/crash
+   handle it) and "out of memory" (unexpected, must propagate/crash
    loudly) with the same handler.
 3. **Logging full request/response payloads that include user data or
    secrets** — every new log statement needs a check against

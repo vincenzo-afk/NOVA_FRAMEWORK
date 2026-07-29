@@ -63,6 +63,7 @@ the whole document.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `retrieval-engine.md` — how embeddings are queried for semantic search
 - `docs/05-ai/model-providers.md`, `docs/05-ai/model-router.md` — the
   provider abstraction embedding generation uses

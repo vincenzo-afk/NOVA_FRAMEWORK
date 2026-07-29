@@ -56,6 +56,7 @@ tag browser activity.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-09-browser-and-vision.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `docs/10-security/permissions.md` — the domain-exclusion and content

@@ -59,6 +59,7 @@ stream.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `rest-api.md` — the request/response counterpart to this streaming API
 - `internal-api.md` — the internal, fuller-detail equivalent used by the
   UI Layer

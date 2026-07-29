@@ -59,6 +59,7 @@ triggers normal fallback routing rather than a crash.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/05-ai/model-providers.md` — provider configuration using this
   reference pattern
 - `docs/06-tools/mcp.md`, `docs/06-tools/api.md` — the other credential

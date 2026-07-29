@@ -72,6 +72,7 @@ promotion, summarization, expiry — is fully specified in
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `memory-types.md` — detailed content of each tier
 - `memory-lifecycle.md` — promotion, summarization, and retention rules
 - `memory-storage.md` — concrete storage engines

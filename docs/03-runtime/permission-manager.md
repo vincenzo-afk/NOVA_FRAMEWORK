@@ -59,6 +59,20 @@ user for an alternative, skip the step if it is non-essential to the
 overall goal, or terminate the task, but the Permission Manager itself
 never substitutes a default answer on the user's behalf.
 
+## Permission Request states
+
+A permission request (the confirmation flow entered at `E`/`F` in the
+decision flow above) moves through exactly three states, referenced by
+`docs/26-system-reference/16-lifecycle-and-state-machine-index.md`:
+**Requested** (confirmation asked of the user, awaiting response), then
+either **Approved** (leads to `Allow`) or **Denied** (leads to `Block,
+report to Planner` — this state also covers a timed-out request, which
+is handled identically to an explicit denial, per the section above).
+There is no distinct "Pending" or "Expired" state beyond these three —
+a request is either awaiting response (`Requested`) or resolved
+(`Approved`/`Denied`), and timeout is a path into `Denied`, not a fourth
+terminal state.
+
 ## Auditability
 
 Every Permission Manager decision (allowed, confirmed, denied, timed out)
@@ -68,6 +82,7 @@ action allowed to run" is always answerable from the log alone.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this component
 - `docs/10-security/permissions.md` (Tier 3) — the policy this mechanism
   enforces
 - `executor.md` — the caller gated by this service

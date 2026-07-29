@@ -57,6 +57,7 @@ would directly contradict the ground-truth-first verification principle.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-14-files-storage-documents-cache.md` — failure modes for this subsystem
 - `docs/03-runtime/world-model.md`, `state-manager.md` — the primary
   caching-and-invalidation implementation
 - `docs/05-ai/model-router.md` — the routing-decision cache described

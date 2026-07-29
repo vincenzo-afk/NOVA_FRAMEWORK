@@ -58,6 +58,7 @@ simply fail. It emits a **Capability Gap** event.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `docs/18-providers/capability-management.md` — source of Capability
   Gap events
 - `automatic-software-installation.md` — installing non-plugin software

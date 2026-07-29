@@ -46,6 +46,14 @@ are detailed in their own documents, referenced below.
 - [ ] **Audit trail compliance** — any new autonomous action path
   propagates `correlation_id` correctly
   (`docs/10-security/audit.md`).
+- [ ] **Schema migration tested** — if this change alters a memory
+  record schema or the Knowledge Graph ontology
+  (`docs/04-memory/memory-versioning.md`, `docs/04-memory/ontology.md`),
+  a corresponding migration is included and tested against real
+  old-format data, not just synthetic new-format data, per
+  `docs/25-failure-modes/FM-20-deployment-and-evolution.md`'s
+  FM-20-009 — a schema change with no tested backward-migration path
+  does not pass this checklist.
 
 ## Reviewer responsibility
 

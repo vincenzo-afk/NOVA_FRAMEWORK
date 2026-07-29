@@ -65,6 +65,7 @@ own review.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `testing-strategy.md` — this layer's place in the overall model
 - `docs/03-runtime/failure-recovery.md` — the mechanisms this layer
   validates

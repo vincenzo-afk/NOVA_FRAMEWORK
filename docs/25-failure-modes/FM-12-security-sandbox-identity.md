@@ -2,13 +2,13 @@
 
 ## Purpose
 
-The highest-severity category in this whole set — failures here tend to be silent until exploited, and the blast radius is rarely contained to a single task. Every entry here should be treated as a design constraint, not an edge case to patch later.
+The highest-severity category in this whole set — failures here tend to be silent until exploited, and the blast radius is rarely contained to a single task. Every entry here must be treated as a design constraint, not an edge case to patch later.
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/10-security/security-model.md` - `docs/10-security/threat-model.md` - `docs/10-security/sandboxing.md` - `docs/10-security/permissions.md` - `docs/10-security/authentication.md` - `docs/10-security/authorization.md` - `docs/10-security/secrets.md` - `docs/10-security/encryption.md` - `docs/10-security/permission-escalation.md` - `docs/10-security/audit.md`
+- `docs/10-security/security-model.md` - `docs/10-security/threat-model.md` - `docs/10-security/sandboxing.md` - `docs/10-security/permissions.md` - `docs/10-security/authentication.md` - `docs/10-security/authorization.md` - `docs/10-security/secrets.md` - `docs/10-security/encryption.md` - `docs/10-security/permission-escalation.md` - `docs/10-security/audit.md` - `docs/10-security/supply-chain-security.md` - `docs/03-runtime/permission-manager.md` (the runtime enforcement mechanism for the permission model above, per `docs/26-system-reference/21-canonical-doc-index.md`)
 
 ## Failure Catalog
 

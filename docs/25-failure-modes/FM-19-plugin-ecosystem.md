@@ -6,9 +6,9 @@ Failures in the extensibility layer — everything third-party or user-installed
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/16-extensibility/plugin-architecture.md` - `docs/16-extensibility/plugin-lifecycle.md` - `docs/16-extensibility/plugin-dependencies.md` - `docs/16-extensibility/plugin-versioning.md` - `docs/16-extensibility/plugin-marketplace.md` - `docs/16-extensibility/plugin-permissions.md`
+- `docs/16-extensibility/plugin-architecture.md` - `docs/16-extensibility/plugin-lifecycle.md` - `docs/16-extensibility/plugin-dependencies.md` - `docs/16-extensibility/plugin-versioning.md` - `docs/16-extensibility/plugin-marketplace.md` - `docs/16-extensibility/plugin-permissions.md` - `docs/16-extensibility/plugin-sandboxing.md` - `docs/16-extensibility/extension-points.md` - `docs/16-extensibility/extension-contracts.md`
 
 ## Failure Catalog
 
@@ -29,7 +29,7 @@ Each failure is assigned a stable ID (`FM-19-0XX`) for cross-referencing from co
 
 Notes on how failures in this file interact with failures elsewhere in this catalog — read these before assuming a bug is isolated to one subsystem.
 
-- Plugin abandonment (FM-19-006) combined with a hard dependency from a core feature on that plugin is how 'optional extensibility' quietly becomes 'load-bearing and unmaintained' — core features should never have a hard runtime dependency on an unvetted third-party plugin.
+- Plugin abandonment (FM-19-006) combined with a hard dependency from a core feature on that plugin is how 'optional extensibility' quietly becomes 'load-bearing and unmaintained' — core features must never have a hard runtime dependency on an unvetted third-party plugin.
 
 ## Severity Legend
 

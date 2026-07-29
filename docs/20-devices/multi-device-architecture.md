@@ -29,6 +29,27 @@ Planner/Executor/Memory stack, and other devices are either:
 
 Which mode a device runs in is a pairing-time choice, editable later.
 
+## Primary Runtime designation
+
+The first device to complete setup (`docs/19-setup/setup-wizard.md`),
+before any pairing has occurred, is the Primary Runtime by default —
+there is no election or negotiation process, since a single unpaired
+device is definitionally the only runtime that exists at that point.
+Pairing a second device always pairs it *against* an existing Primary
+Runtime; the pairing flow (below) never runs without one already
+designated. This is a fixed role, not a fluctuating one: the Primary
+Runtime does not change simply because another device becomes more
+available or more powerful — it changes only through an explicit
+migration, per `docs/28-multi-device-protocol/15-migration.md`'s "Primary
+Runtime (or first device to upgrade)" handoff, or the disaster-recovery
+path when the original Primary Runtime is permanently lost
+(`docs/28-multi-device-protocol/11-recovery-and-backup.md`). In a
+Full-Peer-only topology (no Companions), any one peer may be designated
+Primary for the specific purposes that need a single coordinator (e.g.,
+`docs/28-multi-device-protocol/16-operational-extras.md`'s
+capability-request routing) without changing the fact that every Full
+Peer already runs the complete stack independently.
+
 ## Pairing
 
 Pairing a new device generates a keypair on the new device and exchanges
@@ -66,6 +87,7 @@ full context that requires.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `cross-device-memory.md` — sync and conflict resolution
 - `android-companion.md` — the companion client itself
 - `remote-control.md` — the transport pairing rides on

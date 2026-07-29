@@ -66,6 +66,7 @@ the user hasn't set as their briefing destination.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `docs/03-runtime/job-scheduler.md` — underlying scheduling
 - `calendar-assistant.md`, `email-assistant.md` — primary data sources
 - `personal-analytics.md`, `adaptive-personalization.md` — feedback loop

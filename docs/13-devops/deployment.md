@@ -51,6 +51,7 @@ appropriate (`backup.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `docs/02-architecture/system-architecture.md`, `lifecycle.md` — the
   process topology and startup sequence this deployment model supports
 - `docs/03-runtime/runtime-manager.md` — the supervision this deployment

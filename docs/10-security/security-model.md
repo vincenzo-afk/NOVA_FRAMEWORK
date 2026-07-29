@@ -54,6 +54,7 @@ are recorded across `docs/02-architecture/` through `docs/06-tools/`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/15-decisions/adr-0006-security.md` — the ADR ratifying this
   overall model
 - Every document listed in the index above

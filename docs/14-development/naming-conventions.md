@@ -30,7 +30,7 @@ All JSON schemas throughout this repository (tool contracts, API
 payloads, configuration) use `snake_case` for field names, consistently
 — this repository does not mix `snake_case` and `camelCase` across
 different schemas, since a contributor moving between, for example,
-`docs/06-tools/tool-interface.md` and `docs/08-api/schemas.md` should
+`docs/06-tools/tool-interface.md` and `docs/08-api/schemas.md` must
 never need to remember a different casing convention per document.
 
 ## State naming
@@ -83,7 +83,7 @@ generated IDs from different machines must never collide.
 
 New schemas are checked against this convention as part of
 `docs/14-development/module-checklist.md`. An existing schema found to
-violate this convention during an otherwise-motivated revision should be
+violate this convention during an otherwise-motivated revision must be
 corrected as part of that revision; this document does not mandate a
 standalone sweep to fix any pre-existing inconsistency, consistent with
 the same reasoning in `docs/14-development/module-contract-standard.md`

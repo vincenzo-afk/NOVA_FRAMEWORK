@@ -42,7 +42,9 @@ losing information that later turns out to matter.
 Summarization compresses raw step-by-step detail (every intermediate
 tool call, every retried attempt) into the durable facts and decisions
 that resulted from it. The raw detail is not immediately deleted — it
-remains in Recent Memory for its normal window and then ages into Archive
+remains in Recent Memory for its configured retention window (default 4
+weeks, per `docs/14-development/configuration-schema.md`'s
+`memory.recent_memory_retention_weeks`) and then ages into Archive
 rather than being destroyed at the moment of summarization, so that a
 "why did you do that" audit query shortly after a task completes can
 still reach full step detail (`docs/10-security/audit.md`, Tier 3),
@@ -69,7 +71,7 @@ assignment):
   (subject only to explicit user deletion by time range), since they
   represent durable facts the "never forget" identity of the system
   depends on.
-- **Expires after weeks** (default: configurable, typically 2-6 weeks) —
+- **Expires after weeks** (default: 30 days; configurable) —
   raw Working/Recent Memory detail not yet summarized: individual tool-
   call step detail, transient observation events, and clipboard/
   notification content at the metadata level. This detail remains
@@ -88,6 +90,7 @@ content in a lower-priority tier rather than removing it.
 
 ## Related documents (expiration policy)
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/10-security/audit.md` — the window during which expiring raw
   detail remains available for audit purposes before it expires
 - `memory-confidence.md` — the source metadata informing tier assignment

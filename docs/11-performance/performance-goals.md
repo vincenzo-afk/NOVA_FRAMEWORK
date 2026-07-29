@@ -60,6 +60,7 @@ silent, undetected degradation.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `scalability.md`, `caching.md`, `concurrency.md`, `optimization.md` —
   the mechanisms achieving these targets
 - `benchmarks.md` — measurement methodology

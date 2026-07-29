@@ -55,7 +55,7 @@ was written; consolidating them here without restating their content
 avoids the exact "duplicate explanations across multiple documents"
 problem flagged in this project's own documentation-quality review.
 Where this repository's other documents reference "the event bus," they
-should be understood to mean the specification indexed here.
+must be understood to mean the specification indexed here.
 
 ## Related documents
 

@@ -56,6 +56,44 @@ terminal state. Its scratch memory (`docs/04-memory/memory-types.md`) is
 discarded at destruction except for whatever the Verifier confirms as a
 durable outcome, which is merged into Recent Memory by Task Manager.
 
+### Agent instance state machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Spawned
+    Spawned --> Active
+    Spawned --> Aborted
+    Active --> Blocked
+    Blocked --> Active
+    Active --> Completed
+    Active --> Aborted
+    Blocked --> Aborted
+    Completed --> [*]
+    Aborted --> [*]
+```
+
+- **Spawned** — instance created and configured (task scope, tool
+  allowlist, prompt template, memory access rules, time/step budget,
+  success criteria) but has not yet executed its first step.
+- **Active** — executing plan steps within its configured scope.
+- **Blocked** — waiting on a resource lock held by another instance
+  (`docs/03-runtime/resource-manager.md`) or on a sub-instance it
+  spawned; the instance itself is not making forward progress.
+- **Completed** — the sub-goal reached a terminal state and the Verifier
+  confirmed the outcome; scratch memory is discarded except for the
+  confirmed durable outcome, merged into Recent Memory by Task Manager.
+  Terminal.
+- **Aborted** — destroyed before completion: the parent task was
+  cancelled, the time/step budget was exhausted, or an unrecoverable
+  step failure occurred. Terminal; scratch memory is fully discarded,
+  since no outcome was confirmed to preserve.
+
+This state machine tracks one agent instance, a finer grain than the
+Task state machine in `docs/03-runtime/task-manager.md` — one Task's
+`Executing` state always spans one or more agent instances moving
+through `Spawned → Active → Completed`/`Aborted` for each step or
+sub-goal it delegates.
+
 ## Isolation between concurrent instances
 
 Multiple agent instances may be active concurrently for different steps
@@ -68,6 +106,7 @@ belong to the same or different tasks.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-03-agent-orchestration-and-collaboration.md` — failure modes for this subsystem
 - `docs/03-runtime/planner.md` — the planning loop that spawns and
   manages agent instances
 - `prompt-system.md` — the prompt templates instances are configured with

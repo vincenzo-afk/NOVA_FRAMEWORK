@@ -61,6 +61,7 @@ visibility.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `performance-goals.md` — the summary targets this document details
 - `docs/03-runtime/scheduler.md`, `runtime-manager.md` — the enforcement
   mechanisms

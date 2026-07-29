@@ -51,6 +51,7 @@ even if it is cheaper or faster.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `docs/05-ai/model-router.md` — the algorithm evaluating this table
 - `docs/05-ai/model-providers.md` — the provider configuration this table
   is evaluated against

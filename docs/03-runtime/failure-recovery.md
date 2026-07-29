@@ -53,6 +53,17 @@ captures the task's full state — completed steps, their results, and
 current Working Memory context — sufficient to resume from that exact
 point rather than replanning from scratch.
 
+A checkpoint has exactly three states, referenced by
+`docs/26-system-reference/16-lifecycle-and-state-machine-index.md`:
+**Created** (written, immediately usable for resumption), **Valid**
+(the most recent checkpoint for its task — the one resumption actually
+uses), and **Superseded** (an older checkpoint for the same task,
+retained per the audit-trail window but no longer the resumption
+target). A checkpoint is never mutated in place once created — a new
+step transition always writes a new checkpoint and marks the previous
+one Superseded, rather than updating it, so a checkpoint's content is
+always exactly what existed at the moment it was taken.
+
 ## Resume after crash
 
 Per `docs/02-architecture/lifecycle.md`, a task in `Executing` or `Verifying` at crash time is marked `Unverified` on restart, since its
@@ -154,6 +165,7 @@ inspecting free-text error messages to decide which row above applies.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-23-recovery-system-meta-failures.md` — failure modes for this component
 - `docs/03-runtime/task-manager.md` — the state machine these mechanisms
   operate within
 - `docs/06-tools/tool-interface.md` — the structured result schema

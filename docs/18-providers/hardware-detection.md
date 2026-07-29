@@ -65,6 +65,7 @@ Hardware detection does not itself configure anything — it produces a
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `local-model-management.md` — what happens once a local model is chosen
 - `docs/19-setup/setup-wizard.md` — where detection results surface first
 - `docs/20-devices/multi-device-architecture.md` — per-device hardware

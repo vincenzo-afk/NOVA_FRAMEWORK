@@ -75,6 +75,7 @@ escalation centralized in one place rather than duplicated logic.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `docs/06-tools/tool-registry.md` — the catalog being selected from
 - `docs/06-tools/execution-priority.md` — the tier-escalation logic this
   process operates within

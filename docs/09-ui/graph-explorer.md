@@ -55,6 +55,7 @@ user or maintainer responsible for approving them.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `docs/04-memory/knowledge-graph.md` — the structure being visualized
 - `docs/04-memory/ontology.md` — the node/edge types and the extension
   review queue

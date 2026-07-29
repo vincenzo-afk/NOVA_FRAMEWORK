@@ -35,6 +35,22 @@ flowchart LR
     F -->|Invalid| H[Retry with clarified<br/>schema instructions,<br/>bounded attempts]
 ```
 
+## Sampling parameters
+
+For task types where run-to-run consistency matters most — structured
+extraction, code generation, and any other task whose output is
+validated against a schema rather than judged for creative quality —
+the call is made with temperature fixed at 0 (or the lowest value the
+provider's interface exposes) and, where the provider supports it, a
+fixed seed. This does not make the call fully deterministic (model
+weights, provider-side batching, and infrastructure changes can still
+produce drift), but it removes sampling randomness as a *self-inflicted*
+source of run-to-run variance, which is the specific failure this
+guards against
+(`docs/25-failure-modes/FM-03-agent-orchestration-and-collaboration.md`'s FM-03-007). Creative or conversational tasks are exempted from this and use the
+provider's default or a task-appropriate higher temperature, since
+consistency is not the goal there.
+
 ## Content and instruction separation
 
 The assembled prompt in the pipeline above strictly separates observed
@@ -60,6 +76,7 @@ further down the pipeline.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `context-builder.md` — the input this engine consumes
 - `prompt-system.md` — the templates used in call construction
 - `docs/10-security/threat-model.md` (Tier 3) — the injection defense this

@@ -66,7 +66,7 @@ states otherwise:
   external dependency (a provider, a plugin, a remote service), the
   circuit opens for 60 seconds — further calls fail fast rather than
   queuing, and the dependency is marked degraded
-  (`docs/18-providers/provider-interface.md`'s `status` field).
+  (`docs/18-providers/provider-interface.md`'s `health_status` field).
 - **Non-idempotent operations:** never auto-retried by the system; the
   caller must supply an idempotency key (see
   `17-event-and-internal-api-contracts.md`) or explicitly re-confirm.

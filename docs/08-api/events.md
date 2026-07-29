@@ -51,6 +51,7 @@ application with a "notify my webhook" feature would.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `websocket.md` — the persistent-connection alternative to this
   mechanism
 - `rest-api.md` — where webhook registration happens

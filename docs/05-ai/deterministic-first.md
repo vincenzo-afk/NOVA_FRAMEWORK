@@ -62,12 +62,13 @@ even invoked, the proportion of tasks resolved without any LLM call is
 directly measurable from pipeline traces
 (`docs/02-architecture/execution-pipeline.md`) and is tracked as a
 system-level success indicator in `docs/01-product/success-metrics.md` —
-this proportion should not decrease as new tool integrations are added
+this proportion must not decrease as new tool integrations are added
 over time; a decrease indicates new integrations are defaulting to LLM
 resolution rather than implementing deterministic paths where they exist.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `ambiguity-resolution.md` — the full decision flow for the "not clearly
   deterministic" case
 - `docs/00-overview/design-principles.md` — this principle's place among

@@ -83,6 +83,7 @@ higher tiers happen to be unavailable for those applications.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `native-runtime.md` through `automation.md` — full detail per tier
 - `docs/05-ai/tool-selection.md` — selection within a tier
 - `docs/03-runtime/permission-manager.md` — the gate applied uniformly

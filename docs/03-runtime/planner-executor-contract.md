@@ -94,6 +94,7 @@ interface in the system.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-02-planner-task-queue-scheduler.md` — failure modes for this component
 - `docs/03-runtime/planner.md`, `executor.md`, `verifier.md` — the
   components on either side of this contract
 - `docs/06-tools/tool-interface.md` — the underlying tool-level contract

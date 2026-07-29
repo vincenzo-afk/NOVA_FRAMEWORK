@@ -28,6 +28,33 @@ written to be portable to Postgres without redesign, since Phase 5
 (multi-device sync, `ROADMAP.md`) will require a client-server-capable
 option.
 
+## Durability and integrity
+
+SQLite's WAL mode (used for every tier above) provides crash-safe,
+write-ahead-logged durability at the storage-engine level — a write
+either fully commits or is rolled back on the next open, never leaving
+a torn/partial record. In addition, every memory record stores a
+checksum of its own content, verified on read; a checksum mismatch
+marks the record `corrupted` rather than returning malformed data
+silently, per `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md`'s FM-01-005 (memory corruption).
+
+## Workspace scoping and isolation
+
+Every memory record is stamped with the `workspace_id` of the single
+NOVA identity it belongs to
+(`docs/28-multi-device-protocol/10-identity-and-workspace.md`) and this
+scoping is enforced at the storage-engine level (a separate database/
+schema per workspace, not a shared table with an application-level
+filter that a bug could bypass) — never only checked in application
+code above the storage layer. Since NOVA is explicitly not multi-user
+(`docs/00-overview/non-goals.md`), there is exactly one workspace per
+running instance in the common case, but the enforcement exists
+regardless, since multiple independent workspaces can still coexist on
+one physical machine (e.g., separate OS user accounts each running
+their own NOVA instance) and must never read each other's memory, per
+`docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md`'s FM-01-009
+(privacy leak / cross-workspace bleed).
+
 ## Why hybrid rather than one database for everything
 
 A single storage technology optimized for structured queries (SQLite/
@@ -62,6 +89,7 @@ each other — see `docs/13-devops/backup.md` (Tier 3).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `memory-architecture.md` — the tiers this storage assignment implements
 - `docs/10-security/encryption.md` (Tier 3) — encryption-at-rest detail
 - `docs/13-devops/backup.md` (Tier 3) — backup/restore mechanics

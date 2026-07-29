@@ -56,6 +56,7 @@ rather than maintaining two separate test corpora.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `docs/11-performance/benchmarks.md` — the measurement methodology this
   document operationalizes
 - `simulation-tests.md` — the shared recorded-scenario infrastructure

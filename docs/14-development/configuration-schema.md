@@ -103,7 +103,7 @@ source: docs/11-performance/performance-goals.md
 
 key: memory.recent_memory_retention_weeks
 type: integer
-default: (configurable, typically 2-6)
+default: 4
 minimum: 2
 maximum: 6
 hot_reload: true
@@ -149,6 +149,17 @@ description: Optional daily spend ceiling for cloud AI provider calls.
 source: docs/05-ai/model-router.md, docs/11-performance/optimization.md
 ```
 
+## Startup validation
+
+Every `required: true` key above is validated at startup before any
+other service initializes: presence (the environment variable or config
+file key exists) and type/format (matches the declared schema). A
+missing or malformed required key fails startup immediately with an
+error naming the specific key, never a generic "configuration invalid"
+message and never a partial startup that limps along with an unset
+value, per
+`docs/25-failure-modes/FM-20-deployment-and-evolution.md`'s FM-20-002.
+
 ## Keys intentionally not yet populated
 
 Settings referenced conceptually elsewhere but not yet assigned a
@@ -160,6 +171,7 @@ fabrication rule.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this subsystem
 - `docs/14-development/configuration.md` — the scope precedence rules
   these keys resolve under
 - `docs/11-performance/performance-goals.md` — the source of most

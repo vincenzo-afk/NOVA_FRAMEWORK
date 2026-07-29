@@ -93,6 +93,7 @@ is "resolved."
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this component
 - `world-model.md` — the desktop-state-specific consumer of this service
 - `docs/03-runtime/task-manager.md`, `verifier.md` — other consumers
 - `docs/11-performance/resource-usage.md` (Tier 3) — the budget governing

@@ -47,7 +47,7 @@ independent user edit).
 
 ## Distinguishing NOVA-caused changes from user-caused changes
 
-This distinction matters throughout the system: Memory should not treat a
+This distinction matters throughout the system: Memory must not treat a
 NOVA-caused file edit as new information about user behavior the same way
 it treats a user-initiated edit, and the World Model
 (`docs/03-runtime/world-model.md`) needs to know whether a change it just
@@ -67,6 +67,7 @@ from other sources.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this component
 - `docs/07-observers/` (Tier 3) — individual observer source
   implementations
 - `docs/10-security/permissions.md` (Tier 3) — the permission model this

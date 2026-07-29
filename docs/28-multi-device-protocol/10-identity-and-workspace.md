@@ -57,6 +57,46 @@ non-goals referenced above.
   histories are merged using the same memory-lineage conflict rules as
   ordinary sync, not a special one-off merge algorithm |
 
+## Workspace state machine
+
+The table above describes workspace *operations*; this section names the
+states those operations move between, since two other documents in this
+repository had each independently invented a different, unverifiable
+lifecycle for Workspace in the absence of one being specified here.
+Grounded strictly in the behavior already described above — no new
+capability is introduced by naming these states.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Created
+    Created --> Active
+    Active --> Locked
+    Locked --> Active
+    Locked --> Recovering
+    Active --> Recovering
+    Recovering --> Active
+```
+
+- **Created** — workspace initialized for a new user identity; no sync
+  history yet.
+- **Active** — normal operating state: syncing across paired devices per
+  the Sync row above.
+- **Locked** — a workspace-level lock is held for a specific
+  consistency-critical operation (the Lock row above); all devices'
+  sync blocks until the lock is released. Must have a bounded lease
+  with automatic expiry (`FM-26-029`) — never an indefinite hold.
+- **Recovering** — integrity check / backup-restore in progress, entered
+  either from a `Locked` state whose lease expired without a clean
+  release (`FM-26-029`) or from `Active` when split-brain merge
+  (`FM-10-017`) or catastrophic recovery (`FM-21-catastrophic-failures.md`) is triggered; returns to `Active` once consistency is verified.
+
+There is no terminal/archived state: a workspace exists for the
+lifetime of its user identity, consistent with "one workspace per user"
+above and with no account-deletion behavior currently specified anywhere
+in this repository. If account deletion is specified in a future
+revision, a terminal state must be added here first, in this canonical
+document, before any other document may reference it.
+
 ## Related documents
 
 - `docs/20-devices/multi-device-architecture.md` — identity-spans-

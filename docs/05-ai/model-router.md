@@ -110,6 +110,7 @@ chain proceeds directly to human confirmation from stage 4.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `model-providers.md` — the provider configuration this router selects
   from
 - `reasoning-engine.md` — the consumer of a routing decision

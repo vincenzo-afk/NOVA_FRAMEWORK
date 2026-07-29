@@ -59,6 +59,7 @@ as an actionable item.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `credential-management.md` — how auth material is stored and resolved
 - `provider-routing.md` — cost-optimized and privacy-first policies that
   read the fields this doc populates

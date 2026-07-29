@@ -6,7 +6,7 @@ modes elsewhere, that must have a defined and tested product response —
 not just a technical fallback.
 
 - **User abandons onboarding partway through.** State must be resumable,
-  not restarted from step one, and no half-configured observer should be
+  not restarted from step one, and no half-configured observer may be
   left silently running with permissions the user never confirmed.
 - **User denies a requested permission.** The feature that needed it
   degrades gracefully and explains exactly what's unavailable and why —
@@ -31,6 +31,6 @@ not just a technical fallback.
   undo window exists before permanent deletion (aligned with
   `docs/10-security/permissions.md`'s data-control commitments).
 - **User starts voice while another device is already recording.**
-  NOVA disambiguates which device should be authoritative for the
+  NOVA disambiguates which device must be authoritative for the
   session rather than both processing the same audio into duplicate
   actions.

@@ -58,6 +58,7 @@ instance can do regardless.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/02-architecture/system-architecture.md` — the process topology
   this document treats as a security boundary
 - `authorization.md` — the permission scoping enforced within these

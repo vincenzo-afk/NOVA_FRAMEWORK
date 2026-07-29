@@ -76,6 +76,7 @@ configuration; each step shows current state and requires explicit change.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `configuration-system.md` — the persistent store every step reads/writes
 - `docs/18-providers/capability-management.md` — what the wizard populates
 - `docs/20-devices/multi-device-architecture.md`,

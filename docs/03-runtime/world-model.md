@@ -147,6 +147,7 @@ promotion rules (`docs/04-memory/memory-lifecycle.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this component
 - `state-manager.md` — conflict resolution this model relies on
 - `docs/03-runtime/observer.md` — the event stream this model is built
   from

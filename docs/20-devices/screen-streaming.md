@@ -56,6 +56,7 @@ data lifecycle in `docs/04-memory/memory-lifecycle.md`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `android-companion.md` — the app this pipeline runs inside
 - `docs/06-tools/vision.md` — the desktop-side vision tiering this
   extends

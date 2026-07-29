@@ -388,7 +388,7 @@ improvements
 - `docs/14-development/feature-flags.md` — Experimental/Beta/Stable/
   Deprecated/Removed maturity lifecycle for safe capability rollout.
 - `docs/14-development/module-contract-standard.md` — the standard
-  input/output/errors/timeout/permissions contract new modules should
+  input/output/errors/timeout/permissions contract new modules must
   document explicitly.
 - `docs/03-runtime/failure-recovery.md` — consolidated retries,
   rollback, compensation, checkpoints, crash resumption, partial

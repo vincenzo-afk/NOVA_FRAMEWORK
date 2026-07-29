@@ -56,6 +56,7 @@ fully disabled.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `docs/04-memory/memory-architecture.md`, `docs/07-observers/` —
   underlying data sources
 - `docs/18-providers/cloud-provider-management.md` — cost data source

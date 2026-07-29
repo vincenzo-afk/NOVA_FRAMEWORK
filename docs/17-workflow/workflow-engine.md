@@ -104,6 +104,7 @@ parallel branches routes through the same Rollback node logic a normal
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-02-planner-task-queue-scheduler.md` — failure modes for this subsystem
 - `docs/03-runtime/planner.md` — the linear loop this engine is invoked
   from for the subset of tasks that need graph-structured execution
 - `docs/03-runtime/planner-executor-contract.md` — the per-node step

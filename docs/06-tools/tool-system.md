@@ -52,15 +52,19 @@ casing at the point of execution.
 
 ## Tool lifecycle
 
-A tool is registered once (typically at NOVA startup or when a new
-MCP server/plugin is configured), remains in the Tool Registry until
-explicitly deregistered, and is looked up per-step by Tool Selection
-(`docs/05-ai/tool-selection.md`) — tools are not dynamically created or
-destroyed per task the way agent instances are
+A tool is registered once, at the moment its source becomes available —
+at NOVA startup for built-in native functions, or at configuration time
+for any of the other sources `docs/06-tools/tool-registry.md` enumerates
+(MCP server connection, CLI command wrapper registration, direct API
+integration configuration, or plugin installation) — remains in the Tool
+Registry until explicitly deregistered, and is looked up per-step by Tool
+Selection (`docs/05-ai/tool-selection.md`) — tools are not dynamically
+created or destroyed per task the way agent instances are
 (`docs/05-ai/planner-agent.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `tool-registry.md` — the catalog implementation
 - `tool-interface.md` — the exact interface contract
 - `execution-priority.md` — the tier ordering tools are organized under

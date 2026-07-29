@@ -37,7 +37,7 @@ A dropped video frame during a screen-share is imperceptible and not
 worth the latency cost of guaranteeing its delivery; a dropped chunk of a
 file transfer corrupts the resulting file if silently accepted. This
 document's two halves deliberately specify opposite guarantees for this
-reason — an implementer should never apply file-transfer's strict
+reason — an implementer must never apply file-transfer's strict
 per-chunk verification to a media stream (unacceptable latency) or
 media-streaming's loss-tolerance to a file transfer (silent corruption).
 

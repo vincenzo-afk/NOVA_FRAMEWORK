@@ -6,9 +6,9 @@ The recovery mechanisms described throughout `docs/03-runtime/failure-recovery.m
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/03-runtime/failure-recovery.md` - `docs/13-devops/recovery.md` - `docs/12-testing/chaos-tests.md`
+- `docs/03-runtime/failure-recovery.md` - `docs/13-devops/recovery.md` - `docs/12-testing/chaos-tests.md` - `docs/13-devops/incident-response.md` - `docs/13-devops/runbook.md`
 
 ## Failure Catalog
 
@@ -16,7 +16,7 @@ Each failure is assigned a stable ID (`FM-23-0XX`) for cross-referencing from co
 
 | ID | Failure | Trigger Condition | Detection | Severity | Mitigation (prevent) | Recovery (respond) |
 |---|---|---|---|---|---|---|
-| **FM-23-001** | Retry makes things worse | A retried action compounds the damage of the original failure (e.g. retrying a non-idempotent 'charge payment' action). | Post-incident audit finds duplicate real-world side effects traceable to a retry. | Critical | Never auto-retry a non-idempotent action without an idempotency key the downstream system honors; classify every action's idempotency explicitly at design time, per `docs/06-tools/tool-interface.md`. | Reconcile/reverse the duplicated side effect if possible (refund, cancel duplicate); treat as a critical incident and audit all other retry-eligible actions for the same gap. |
+| **FM-23-001** | Retry makes things worse | A retried action compounds the damage of the original failure (e.g. retrying a non-idempotent 'charge payment' action). | Post-incident audit finds duplicate real-world side effects traceable to a retry. | Critical | Never auto-retry a non-idempotent action without an idempotency key the downstream system honors; classify every action's idempotency explicitly at design time via the mandatory `idempotent` field (`docs/06-tools/tool-interface.md`). | Reconcile/reverse the duplicated side effect if possible (refund, cancel duplicate); treat as a critical incident and audit all other retry-eligible actions for the same gap. |
 | **FM-23-002** | Recovery loops forever | The recovery procedure itself fails, triggers another recovery attempt, which fails the same way, indefinitely. | Recovery-attempt count for a single incident exceeds a sane ceiling. | Critical | Bounded recovery attempts with escalation to human intervention after the ceiling, same principle as FM-02-008's task-loop ceiling. | Halt automated recovery attempts, surface the full failure history to a human operator, and require manual diagnosis before further automated attempts. |
 | **FM-23-003** | Recovery incomplete | Recovery procedure restores most, but not all, of the affected state, and reports success anyway. | Post-recovery integrity check (not just 'the recovery script exited 0') finds residual inconsistency. | High | Verify recovery completeness against an explicit checklist/invariant check, never trust the recovery procedure's own self-reported success (same principle as FM-05-016's independent-verification requirement). | Run the completeness check, identify the specific gap, and run a targeted follow-up recovery for just that gap. |
 | **FM-23-004** | Wrong checkpoint restored | Recovery restores from an older checkpoint than necessary, losing more recent valid work than required. | Restored state is missing changes that were actually durably committed after the chosen checkpoint. | Medium | Always restore from the most recent valid checkpoint, verified by integrity check, not just the most recent checkpoint that exists. | Replay any recoverable event-log entries between the restored checkpoint and the actual failure point, if the log survived. |

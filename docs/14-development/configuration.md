@@ -64,6 +64,15 @@ scoped configuration stored as structured records referencing the
 relevant Knowledge Graph Project/Workspace entities rather than as
 freestanding files disconnected from the entity model.
 
+Core system configuration is included in the same backup schedule as
+Memory (`docs/13-devops/backup.md`) and is additionally kept under
+version control as structured, human-readable records (not a binary
+blob), so accidental deletion or corruption of the runtime config store
+is recoverable from either the backup or version history, per
+`docs/25-failure-modes/FM-21-catastrophic-failures.md`'s FM-21-007 —
+never a case where configuration exists only as live, unbacked-up
+runtime state.
+
 ## Explicit conflict surfacing
 
 Where a Project-scoped setting overrides a User-scoped default in a way
@@ -75,6 +84,7 @@ that a more specific scope is overriding their general preference.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this subsystem
 - `docs/05-ai/model-providers.md`, `docs/10-security/permissions.md` —
   examples of settings this precedence model applies to
 - `docs/04-memory/ontology.md` — the Project/Workspace entities

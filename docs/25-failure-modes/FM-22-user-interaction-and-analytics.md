@@ -6,9 +6,9 @@ Failures at the human-facing edge of the system, and in how NOVA measures its ow
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/09-ui/ui-overview.md` - `docs/09-ui/chat.md` - `docs/23-autonomy/personal-analytics.md`
+- `docs/09-ui/ui-overview.md` - `docs/09-ui/chat.md` - `docs/23-autonomy/personal-analytics.md` - `docs/09-ui/command-palette.md` - `docs/09-ui/graph-explorer.md` - `docs/09-ui/memory-explorer.md` - `docs/09-ui/overlay.md` - `docs/09-ui/task-monitor.md` - `docs/09-ui/tray.md`
 
 ## Failure Catalog
 

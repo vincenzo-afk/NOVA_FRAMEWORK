@@ -51,6 +51,7 @@ always presented explicitly.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `deployment.md` — the service registration this installer performs
 - `docs/01-product/user-journeys.md` — Journey 1, which this document
   implements

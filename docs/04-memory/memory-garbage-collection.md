@@ -40,7 +40,7 @@ flowchart TD
 
 Marking a record deleted and excluding it from retrieval must be
 immediate — a user who deletes a time range
-(`docs/04-memory/timeline.md`) should never see that content resurface in
+(`docs/04-memory/timeline.md`) must never see that content resurface in
 a subsequent query. Physical storage reclamation, however, can safely be
 deferred to a background pass, since it has no user-visible effect beyond
 freeing disk space, and batching reclamation is more efficient than
@@ -78,6 +78,7 @@ delay a user-facing query or task.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/04-memory/memory-lifecycle.md` — the expiration policy that
   triggers garbage collection
 - `docs/04-memory/memory-storage.md` — the storage engines being

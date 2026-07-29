@@ -77,6 +77,7 @@ capability from a local to a cloud provider).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `provider-interface.md` — what a registered provider must implement
 - `provider-routing.md` — how the active provider is chosen per call
 - `docs/19-setup/setup-wizard.md` — first-run population of this registry

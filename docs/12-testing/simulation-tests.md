@@ -62,6 +62,7 @@ elsewhere in this repository.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `testing-strategy.md` — this layer's place in the overall model
 - `docs/04-memory/retrieval-engine.md` — the golden-dataset testing
   target

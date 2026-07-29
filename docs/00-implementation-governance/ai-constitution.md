@@ -7,7 +7,7 @@ pointer copy lives at the repository root (`/CONSTITUTION.md`) purely
 for discoverability — anyone opening the repo for the first time sees
 it immediately. This file is the one that is normative; if the two
 ever appear to differ, this file wins and the root copy is stale and
-should be fixed in the same change that edited this one.
+must be fixed in the same change that edited this one.
 
 This is the single highest-precedence rule set in this repository.
 Every AI agent — and every human contributor — reads this before

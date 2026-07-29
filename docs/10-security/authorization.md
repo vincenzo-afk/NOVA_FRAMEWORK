@@ -56,6 +56,7 @@ itself grant escalated privilege through another.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `authentication.md` — identity verification this builds on
 - `permissions.md` — the separate, risk-tier-based confirmation gate
 - `docs/05-ai/planner-agent.md`, `docs/03-runtime/permission-manager.md`

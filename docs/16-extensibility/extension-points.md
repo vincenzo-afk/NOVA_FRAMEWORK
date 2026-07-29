@@ -94,3 +94,7 @@ compatibility guarantees under
 new extension point is additive and non-breaking; narrowing or removing
 one is a breaking change requiring a major version bump and a migration
 path (`docs/38-disaster-recovery/migration.md`).
+
+## Related documents
+
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem

@@ -52,6 +52,7 @@ the steady-state case most other tests exercise.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `testing-strategy.md` — this layer's place in the overall model
 - `docs/02-architecture/communication-model.md`, `docs/02-architecture/dependency-map.md`,
   `event-driven-architecture.md` — the contracts verified at this layer

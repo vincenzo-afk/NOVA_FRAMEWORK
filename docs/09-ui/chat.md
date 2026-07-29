@@ -53,6 +53,7 @@ answer can still be undermined by a UI that doesn't clearly distinguish
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `ui-overview.md` — shared cross-surface conventions
 - `docs/04-memory/search.md` — the grounding requirement this UI must
   surface faithfully

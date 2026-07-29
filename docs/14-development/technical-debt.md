@@ -39,7 +39,7 @@ deliberately deferred to a later phase per `ROADMAP.md`.
 
 Every debt item is recorded with: the component and documentation
 section it relates to, the specific gap versus full specification, and a
-target phase or milestone (`milestones.md`) by which it should be
+target phase or milestone (`milestones.md`) by which it must be
 resolved — an untracked, undocumented gap discovered later is treated as
 a process failure in itself, not merely a technical one.
 

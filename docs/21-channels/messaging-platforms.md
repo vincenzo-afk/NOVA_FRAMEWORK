@@ -70,6 +70,7 @@ treated as authorized commands, only optionally logged.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-11-internet-and-external-apis.md` — failure modes for this subsystem
 - `docs/18-providers/provider-interface.md` — the Provider contract
   channel adapters implement
 - `docs/23-autonomy/autonomous-plugin-discovery.md` — self-service

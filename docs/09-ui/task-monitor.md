@@ -58,6 +58,7 @@ even after it reaches Completed.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `docs/03-runtime/task-manager.md` — the state machine this surface
   renders
 - `docs/03-runtime/verifier.md` — the verification outcomes displayed per

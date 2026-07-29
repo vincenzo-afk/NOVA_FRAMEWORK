@@ -80,6 +80,7 @@ designed to prevent later in the pipeline, so it is prevented here too.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `deterministic-first.md` — the principle this flow operationalizes
 - `docs/04-memory/entity-resolution.md` — a specific application of this
   flow to entity matching

@@ -6,9 +6,27 @@ Catalogs everything that can go wrong in how NOVA stores, links, embeds, indexes
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside every document in
+`docs/04-memory/`, in particular:
 
-- `docs/04-memory/memory-architecture.md` - `docs/04-memory/retrieval-engine.md` - `docs/04-memory/knowledge-graph.md` - `docs/04-memory/embeddings.md` - `docs/04-memory/memory-ranking.md` - `docs/04-memory/memory-conflict-resolution.md` - `docs/04-memory/memory-garbage-collection.md` - `docs/04-memory/entity-resolution.md`
+- `docs/04-memory/memory-architecture.md`
+- `docs/04-memory/retrieval-engine.md`
+- `docs/04-memory/knowledge-graph.md`
+- `docs/04-memory/embeddings.md`
+- `docs/04-memory/memory-ranking.md`
+- `docs/04-memory/memory-conflict-resolution.md`
+- `docs/04-memory/memory-garbage-collection.md`
+- `docs/04-memory/entity-resolution.md`
+- `docs/04-memory/memory-lifecycle.md`
+- `docs/04-memory/memory-types.md`
+- `docs/04-memory/memory-confidence.md`
+- `docs/04-memory/memory-storage.md`
+- `docs/04-memory/memory-lineage.md`
+- `docs/04-memory/memory-versioning.md`
+- `docs/04-memory/indexing.md`
+- `docs/04-memory/search.md`
+- `docs/04-memory/timeline.md`
+- `docs/04-memory/ontology.md`
 
 ## Failure Catalog
 
@@ -20,11 +38,11 @@ Each failure is assigned a stable ID (`FM-01-0XX`) for cross-referencing from co
 | **FM-01-002** | Forgot important memory (false negative) | Memory was garbage-collected, demoted, or never indexed due to an ingestion failure. | Ask-again pattern detected: user reasks a question already answered in a prior session. | High | Never hard-delete memories flagged 'important' by `docs/04-memory/memory-ranking.md`; soft-archive with recoverable TTL instead. | Run entity-resolution backfill against the timeline store; restore from archive tier if soft-deleted. |
 | **FM-01-003** | Retrieved unrelated memory | Embedding collision in high-dimensional space for semantically distant but lexically similar content. | Cross-encoder re-rank score disagrees sharply with the bi-encoder retrieval score. | Medium | Two-stage retrieval (recall via embeddings, precision via re-ranker) before memory ever reaches the Context Builder. | Discard the memory for this turn; do not cache the bad pairing. |
 | **FM-01-004** | Duplicate memories | Same event ingested twice from two observers (e.g. clipboard + browser) without dedup key. | Near-duplicate detector (cosine > 0.98) fires on write, or graph shows two nodes with identical entity signature. | Medium | Content-hash + entity-fingerprint dedup at write time in `docs/04-memory/memory-storage.md`. | Merge duplicate nodes via `entity-resolution.md`'s merge procedure; keep the higher-confidence version, discard the other with an audit trail. |
-| **FM-01-005** | Memory corruption | Partial write during crash, disk error, or concurrent write race. | Checksum mismatch on read; deserialization failure. | Critical | Write-ahead log + checksum on every memory record per `docs/13-devops/storage-layout.md`. | Restore the specific record from the last valid WAL checkpoint; if unrecoverable, quarantine and flag for user review rather than silently dropping. |
+| **FM-01-005** | Memory corruption | Partial write during crash, disk error, or concurrent write race. | Checksum mismatch on read; deserialization failure. | Critical | Write-ahead log + checksum on every memory record per `docs/04-memory/memory-storage.md`'s Durability and integrity section. | Restore the specific record from the last valid WAL checkpoint; if unrecoverable, quarantine and flag for user review rather than silently dropping. |
 | **FM-01-006** | Wrong confidence score | Confidence heuristic miscalibrated after a schema or model change; score does not correlate with actual correctness. | Periodic calibration audit compares stated confidence vs. observed correction rate. | Medium | Recalibrate confidence scoring whenever the embedding model or ranking model changes version. | Downgrade all confidence scores from the affected window to 'unverified' until recalibration completes. |
 | **FM-01-007** | Outdated memory | A fact changed in the world but the memory graph still holds the stale value (e.g. old job title). | Conflicting new observation ingested; `memory-conflict-resolution.md` detects contradiction. | Medium | Time-decay weighting on facts prone to change (job, address, relationship status) so old values lose ranking priority automatically. | Apply conflict resolution: prefer most-recent, high-confidence source; mark the old value 'superseded', not deleted, to preserve lineage. |
 | **FM-01-008** | Infinite memory growth | No garbage collection policy, or GC policy fails silently, causing unbounded storage and slower retrieval over time. | Storage growth rate alert; retrieval latency trend rising with corpus size. | High | Enforce `memory-garbage-collection.md` policy with age/importance/access-frequency scoring, scheduled and monitored. | Run an out-of-band compaction pass; archive cold memories to cold storage tier rather than deleting. |
-| **FM-01-009** | Privacy leak | Cross-user memory bleed, or a sensitive memory surfaces in a context where it should be filtered (e.g. shown to a second identity on a shared device). | Identity-scope check fails on retrieval; audit log shows memory owner_id != requester identity_id. | Critical | Hard scope every memory record by identity_id and enforce at the storage layer, not just the application layer, per `docs/10-security/permissions.md`. | Immediately purge the leaked memory from any downstream cache/context; log to `docs/10-security/audit.md`; notify per incident-response runbook. |
+| **FM-01-009** | Privacy leak | Cross-user memory bleed, or a sensitive memory surfaces in a context where it should be filtered (e.g. shown to a second identity on a shared device). | Identity-scope check fails on retrieval; audit log shows memory owner_id != requester identity_id. | Critical | Hard scope every memory record by `workspace_id` and enforce at the storage layer, not just the application layer, per `docs/04-memory/memory-storage.md`'s Workspace scoping and isolation section. | Immediately purge the leaked memory from any downstream cache/context; log to `docs/10-security/audit.md`; notify per incident-response runbook. |
 | **FM-01-010** | Conflicting memories | Two memories assert incompatible facts with similar confidence and no resolution. | Graph shows two edges of the same relation type with different target values, both active. | Medium | Force explicit conflict resolution at write time rather than allowing two 'active' contradictory facts to coexist. | Surface both to `memory-conflict-resolution.md`'s resolution strategy (most-recent, highest-confidence-source, or ask-user). |
 | **FM-01-011** | Wrong ranking (retrieval) | Ranking model overfits to recency or popularity signals, burying the actually relevant memory. | A/B comparison between ranking-model output and ground-truth relevance judgments diverges. | Medium | Blend recency, semantic similarity, and explicit importance score rather than any single signal dominating. | Re-rank with a fallback lexical-match pass when semantic ranking confidence is low. |
 | **FM-01-012** | Missing documents / chunks (RAG) | Document was ingested but chunking skipped a section (e.g. table, footnote) or ingestion job died mid-file. | Ingestion job status shows partial completion; page/chunk count mismatch vs. source document. | Medium | Verify chunk-count against expected page/section count post-ingestion; fail the ingestion job loudly rather than partially succeeding silently. | Re-run ingestion for the specific missing range only, not the whole document. |

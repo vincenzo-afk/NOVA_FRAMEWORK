@@ -102,6 +102,7 @@ successfully within a recent window is not treated as trustworthy.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-23-recovery-system-meta-failures.md` — failure modes for this subsystem
 - `incident-response.md` — for situations requiring more than a routine
   procedure
 - `docs/13-devops/monitoring.md` — the self-monitoring signals these

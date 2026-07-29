@@ -67,6 +67,7 @@ existing memory partitions rather than flattening them.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `docs/04-memory/memory-lineage.md`, `memory-versioning.md` — conflict
   rules this reuses
 - `multi-device-architecture.md` — pairing and topology

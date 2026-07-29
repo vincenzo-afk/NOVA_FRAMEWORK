@@ -2,7 +2,7 @@
 
 ## Scenario
 
-System RAM exhaustion should trigger graceful shedding (pause non-critical observers, shrink caches) before an OOM kill, per `docs/03-runtime/resource-manager.md`.
+System RAM exhaustion must trigger graceful shedding (pause non-critical observers, shrink caches) before an OOM kill, per `docs/03-runtime/resource-manager.md`.
 
 ## Requirement
 

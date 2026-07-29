@@ -64,3 +64,7 @@ manifest that requests anything from "Everything forbidden" is rejected
 outright, regardless of justification in the manifest's own
 documentation — the system-wide list is a hard ceiling this per-plugin
 template cannot raise.
+
+## Related documents
+
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem

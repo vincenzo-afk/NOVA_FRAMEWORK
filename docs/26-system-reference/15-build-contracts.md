@@ -93,7 +93,11 @@ possible.
   (`system-invariants.md`); silently drop a memory entry without a
   tombstone and event.
 - **Dependencies:** Reflection pipeline, Embeddings service.
-- **Dependents:** Planner, Executor (read-only), Reviewer/Verifier.
+- **Dependents:** Planner, Reviewer/Verifier. (Executor does not read
+  Memory directly — it executes pre-resolved plan steps handed to it by
+  the Planner, which is the component that consults Memory; see
+  `docs/03-runtime/executor.md`'s Purpose section on why it is
+  deliberately "dumb.")
 - **Communicates only through:** `docs/04-memory/memory-storage.md`'s
   public read/write API.
 
@@ -101,17 +105,22 @@ possible.
 
 - **Input:** Executor's step result, the original contract the step
   was supposed to satisfy.
-- **Output:** Accept / reject / retry verdict with evidence.
+- **Output:** One of exactly three outcomes — Verified (Completed),
+  Failed, or Unverified — with supporting evidence, per
+  `docs/03-runtime/verifier.md`'s three verification outcomes.
 - **Owns:** Verification logic (compile/test/lint/static-analysis/review
   pipeline, `verification-and-stop-conditions.md`).
 - **Does NOT own:** Retrying the step itself (it recommends; the
   Executor or Planner acts).
-- **Can:** Run read-only checks, compare against the contract, escalate
-  low-confidence verdicts.
-- **Cannot:** Modify the artifact it is verifying; approve its own
-  escalation.
+- **Can:** Run read-only checks against ground-truth signals (primary)
+  or vision-based re-inspection (fallback only), and compare against the
+  contract.
+- **Cannot:** Modify the artifact it is verifying; decide what happens
+  next (retry, escalate, accept) — that decision belongs to the Planner,
+  informed by the Verifier's outcome.
 - **Must never:** Accept a result without evidence; assume success
-  because "it looks right."
+  because "it looks right"; collapse Unverified into either Verified or
+  Failed for convenience.
 - **Dependencies:** Test runner, Static analysis tools, Confidence model
   (`docs/05-ai/confidence-propagation.md`).
 - **Dependents:** Planner (receives verdicts to decide next step).
@@ -123,8 +132,11 @@ possible.
 - **Output:** A sandboxed, running plugin instance.
 - **Owns:** Sandbox lifecycle, permission enforcement at the boundary.
 - **Does NOT own:** The plugin's internal logic or private state.
-- **Can:** Load, suspend, unload, and kill a plugin; enforce declared
-  capability limits.
+- **Can:** Move a plugin between `Enabled` and `Disabled`, initiate
+  `Updating`, and reach `Uninstalled` (per
+  `docs/16-extensibility/plugin-lifecycle.md`'s actual lifecycle states
+  — this entry previously used "suspend"/"kill", terms that don't
+  appear in that document); enforce declared capability limits.
 - **Cannot:** Modify a plugin's code at runtime; grant a capability not
   explicitly approved.
 - **Must never:** Allow a plugin direct storage or internal-API access

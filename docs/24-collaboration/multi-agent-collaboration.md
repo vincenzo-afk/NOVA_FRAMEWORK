@@ -67,6 +67,7 @@ rather than a new policy.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-03-agent-orchestration-and-collaboration.md` — failure modes for this subsystem
 - `docs/03-runtime/planner.md`, `docs/03-runtime/task-manager.md` — the
   runtime this extends
 - `docs/02-architecture/event-bus-specification.md` — inter-agent

@@ -111,6 +111,24 @@ goal and rebuilds only the remaining plan from the current state forward
 established as a firm requirement, not an optimization that can be
 skipped under time pressure.
 
+## Goal-drift prevention (re-anchoring)
+
+Distinct from mid-task correction above (an explicit user-initiated
+change), this addresses silent drift: over a long multi-step task, a
+sequence of individually-reasonable reinterpretations can compound until
+the Planner is solving a subtly different problem than the one
+originally requested, with no single step having been wrong on its own.
+At each replanning checkpoint (every re-entry into the Planning state,
+per `docs/03-runtime/task-manager.md`), the Planner re-compares its
+current plan state against the original, verbatim goal statement
+recorded at task creation — not the most recently rebuilt plan's own
+description of the goal, which is exactly what could have already
+drifted. A material divergence halts the task and surfaces the drift
+explicitly to the user/Verifier for confirmation before continuing,
+per `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md`'s
+FM-05-008, rather than completing a task that has quietly stopped
+matching what was asked.
+
 ## Step budget and termination
 
 Every plan has a maximum step count and a maximum wall-clock budget,
@@ -131,6 +149,7 @@ independently of planning logic.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-02-planner-task-queue-scheduler.md` — failure modes for this component
 - `docs/05-ai/deterministic-first.md`, `docs/05-ai/ambiguity-resolution.md`
   — the decision logic referenced in the loop above
 - `docs/05-ai/context-builder.md` — how context is assembled before

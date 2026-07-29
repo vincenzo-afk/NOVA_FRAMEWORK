@@ -57,6 +57,7 @@ concurrency slot (`docs/03-runtime/scheduler.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `execution-priority.md` — CLI's place in the tier ordering
 - `tool-interface.md` — the structured result contract CLI tools
   populate

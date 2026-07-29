@@ -123,7 +123,7 @@ scope stays buildable, verifiable, and secure.
 
 Excluding something here does not mean it is unimportant or will never
 exist — it means it is not currently being built, and no other document in
-this repository should assume otherwise. If a document elsewhere in this
+this repository may assume otherwise. If a document elsewhere in this
 repository appears to contradict this list, this list is authoritative
 until a new ADR changes it.
 

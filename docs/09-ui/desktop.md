@@ -46,6 +46,7 @@ privileged blind spot in its own state model.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `ui-overview.md` — shared cross-surface conventions
 - `memory-explorer.md`, `graph-explorer.md`, `task-monitor.md` — embedded
   panels

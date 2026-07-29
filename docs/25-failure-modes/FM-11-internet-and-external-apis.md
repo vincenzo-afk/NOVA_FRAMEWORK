@@ -6,9 +6,17 @@ The failure modes of the network itself and of every third-party API NOVA depend
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/08-api/rest-api.md` - `docs/08-api/versioning.md` - `docs/18-providers/credential-management.md`
+- `docs/18-providers/credential-management.md` - `docs/21-channels/calendar-assistant.md` - `docs/21-channels/email-assistant.md` - `docs/21-channels/messaging-platforms.md` - `docs/21-channels/phone-calls.md`
+
+**Note:** `docs/08-api/rest-api.md` and `docs/08-api/versioning.md` were
+previously listed here in error. This file's entire failure catalog
+concerns NOVA acting as a *client* calling external/internet APIs (DNS,
+TLS, rate limits, third-party breaking changes); `docs/08-api/` documents
+the opposite direction — NOVA's own API surface that external SDK/CLI
+clients call *into*. That direction is now covered by
+`docs/25-failure-modes/FM-27-external-api-surface.md`.
 
 ## Failure Catalog
 
@@ -16,7 +24,7 @@ Each failure is assigned a stable ID (`FM-11-0XX`) for cross-referencing from co
 
 | ID | Failure | Trigger Condition | Detection | Severity | Mitigation (prevent) | Recovery (respond) |
 |---|---|---|---|---|---|---|
-| **FM-11-001** | No internet | Device has no network connectivity at all. | All outbound requests fail at the connection stage, including basic connectivity probes. | High | Detect true offline state distinctly from a single API being down; switch to fully offline-capable mode where possible. | Queue non-urgent requests; use local/cached capabilities per `docs/18-providers/local-model-management.md` until connectivity returns. |
+| **FM-11-001** | No internet | Device has no network connectivity at all. | All outbound requests fail at the connection stage, including basic connectivity probes. | High | Detect true offline state distinctly from a single API being down; switch to fully offline-capable mode where possible. | Queue non-urgent requests; use local/cached capabilities per `docs/18-providers/provider-routing.md`'s Offline Fallback section until connectivity returns. |
 | **FM-11-002** | DNS failure | DNS resolution fails for a specific or all hostnames. | Resolution error distinct from connection-refused/timeout. | Medium | Fall back to a secondary DNS resolver; cache last-known-good IPs for critical endpoints with a bounded TTL. | Retry resolution with a fallback resolver before declaring the endpoint unreachable. |
 | **FM-11-003** | Slow network | High latency degrades responsiveness without outright failing. | Latency metrics exceed a soft threshold without hard errors. | Low | Adaptive timeout budgets and progress indicators rather than a fixed short timeout that misclassifies slow-but-working as failed. | No hard recovery needed; surface a 'working, slower than usual' state rather than silently hanging. |
 | **FM-11-004** | Proxy issue | Corporate/system proxy misconfigured or requires auth NOVA doesn't have. | Connection fails specifically at the proxy layer (407 errors, proxy-specific timeouts). | Medium | Detect proxy-specific failure signatures distinctly from general network failure for clearer diagnostics. | Surface a proxy-configuration-needed message rather than a generic network error. |

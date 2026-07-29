@@ -6,7 +6,7 @@ Failures specific to spoken-language I/O and multi-language/multi-region support
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
 - `docs/22-voice/voice-assistant.md` - `docs/22-voice/local-speech-models.md`
 

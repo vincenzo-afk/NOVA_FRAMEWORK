@@ -79,6 +79,7 @@ self-reported certainty, which is not a reliable safety signal on its own.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `docs/10-security/permissions.md` (Tier 3) — the general risk-tier
   policy this document specializes for AI-influenced actions
 - `ambiguity-resolution.md` — where LLM-resolved targets originate

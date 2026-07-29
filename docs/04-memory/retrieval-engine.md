@@ -31,6 +31,20 @@ flowchart TD
     F --> R[Ranked, deduplicated result set]
 ```
 
+## Semantic search index structure
+
+The vector-similarity search above is a brute-force (exact) comparison
+against every embedding while the corpus is small, and switches to an
+approximate-nearest-neighbor (ANN) index (e.g., HNSW) once corpus size
+crosses a configurable threshold where brute-force search's linear scan
+would start measurably degrading query latency, per
+`docs/11-performance/performance-goals.md`'s latency budget. This is an
+internal implementation switch, not a user-visible mode — result
+relevance is expected to be equivalent, since ANN indexes are tuned for
+high recall at this corpus scale. `docs/25-failure-modes/FM-16-009` (slow
+memory search) is the failure this threshold-based switch exists to
+prevent.
+
 ## Why fusion rather than one dominant method
 
 Each method answers a different kind of question well and others poorly:
@@ -73,6 +87,7 @@ The user-facing `search.md` interface is a second, more direct consumer.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `memory-ranking.md` — the weighting model used at the fusion step
 - `indexing.md`, `embeddings.md` — how the underlying indexes are built
 - `docs/05-ai/context-builder.md` — the primary internal consumer

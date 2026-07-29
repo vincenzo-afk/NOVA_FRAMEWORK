@@ -81,7 +81,7 @@ priority chain from being treated as a blanket safety guarantee.
 Reasoning and action are informed by structured memory and the knowledge
 graph before any new information is requested from the user or inferred
 fresh. A stated preference, a past decision, or a previously resolved
-ambiguity should never need to be re-derived or re-asked if it is already
+ambiguity must never be re-derived or re-asked if it is already
 in memory with sufficient confidence (see
 `docs/04-memory/memory-ranking.md`, Tier 2, for how confidence is scored).
 

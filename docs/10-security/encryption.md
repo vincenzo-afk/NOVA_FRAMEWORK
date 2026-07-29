@@ -60,6 +60,7 @@ decryption overhead that would compete with the query-latency budgets in
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/04-memory/memory-storage.md` — the storage engines this
   encryption covers
 - `secrets.md` — the separate, additional protection model for

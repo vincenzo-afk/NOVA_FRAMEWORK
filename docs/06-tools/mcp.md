@@ -25,6 +25,25 @@ tool is registered conservatively as `verification_signal: "none"`,
 restricting it to confirmation-required execution, per
 `tool-interface.md`'s hard rule.
 
+## Transport
+
+Transport is JSON-RPC per the MCP specification, over one of exactly two
+mechanisms, selected deterministically from the server's configured
+connection type at registration time — never negotiated, probed, or
+chosen by fallback:
+
+- **Locally-spawned MCP server process** (a configured local command) —
+  transport is stdio.
+- **Remote MCP server** (a configured network endpoint URL) — transport
+  is Streamable HTTP (HTTP POST with SSE for server-to-client streaming),
+  per the MCP specification's remote-transport definition.
+
+A given registered server uses exactly one of these two transports for
+its entire connection lifetime; NOVA does not attempt the other
+transport if the configured one fails — a failed connection is a
+connection failure (`docs/25-failure-modes/`), not a signal to retry
+over the other mechanism.
+
 ## Trust boundary
 
 An MCP server is an external, potentially untrusted component. NOVA
@@ -39,6 +58,21 @@ MCP server itself claims about its own safety:
    the OS credential vault (`docs/10-security/secrets.md`, Tier 3) and is
    never passed to or readable by the MCP server's own tool
    implementations beyond what that specific connection requires.
+
+## Server-side scope denial
+
+Distinct from the permission scope enforced above (which bounds what
+NOVA will *attempt*): an MCP server may itself reject a call because the
+credential NOVA holds for it lacks a required scope (e.g., an OAuth
+token missing a specific API permission the server now requires). When
+this happens, NOVA surfaces the specific missing scope to the user with
+an explicit re-authorization action (re-running that server's
+credential setup with the additional scope requested), rather than
+silently retrying or treating it as a generic tool failure. Until
+re-authorized, the affected action is treated as capability-unavailable
+for planning purposes, per
+`docs/25-failure-modes/FM-07-tool-execution-and-mcp.md`'s FM-07-014 —
+never retried against the same insufficient credential.
 
 ## Content from MCP results treated as observed content
 
@@ -59,6 +93,7 @@ MCP servers receive no special preference purely for being MCP-sourced.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `execution-priority.md` — MCP's place in the tier ordering
 - `docs/06-tools/tool-registry.md` — how discovered tools are registered
 - `docs/05-ai/prompt-system.md` — the content/instruction separation

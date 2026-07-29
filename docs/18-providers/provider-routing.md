@@ -53,6 +53,22 @@ typed "capability unavailable" error to the caller (Planner, Executor, or
 UI), which is responsible for surfacing that clearly rather than
 retrying silently forever.
 
+## Offline fallback
+
+If every enabled *cloud* provider for a capability is unreachable
+(network partition, or `docs/00-overview/assumptions.md`'s "the network
+is unreliable" case generally) but an enabled *local* provider for that
+same capability exists and passes `healthCheck()`, the fallback chain
+must fall through to it regardless of the capability's configured
+routing policy — a `cost-optimized` or `latency-optimized` policy's
+ordering preference is not a reason to return "capability unavailable"
+while a working local option sits unused. This operationalizes
+`docs/29-product/product-principles.md`'s "local-first, cloud-optional"
+principle for the specific case of total cloud unavailability, not just
+for `privacy-first`-policy capabilities. Only when no local provider is
+enabled for the capability at all does the chain exhaust as described
+above.
+
 ## Per-request override
 
 A single request (from the Planner, a plugin, or a user command) may
@@ -72,6 +88,7 @@ NOVA use this month" view).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `docs/05-ai/model-router.md` — the original LLM-specific instance;
   kept as the domain-specific detail doc for LLM routing edge cases
 - `capability-management.md` — registry this reads from

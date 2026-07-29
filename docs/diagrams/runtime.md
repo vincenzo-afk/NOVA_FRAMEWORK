@@ -51,6 +51,8 @@ stateDiagram-v2
     Paused --> WaitingUser
     Paused --> Planning: resumed
     Paused --> Executing: resumed
+    Planning --> WaitingUser: clarification needed
+    WaitingUser --> Planning: clarified
     WaitingUser --> Executing: confirmed
     WaitingUser --> Cancelled: denied
     Created --> Cancelled
@@ -67,9 +69,12 @@ stateDiagram-v2
 
 `Unverified` is drawn as a distinct state reachable only from `Verifying` and never merged visually with `Failed` or `Completed`, reflecting its
 status as a first-class, non-success outcome per
-`docs/01-product/success-metrics.md`. `WaitingUser` is drawn as a narrower case reachable through `Paused`, distinguishing "blocked on a
-required confirmation" from a general pause, since the former requires a
-specific user action to unblock. `Retrying` is a distinct, visible state
+`docs/01-product/success-metrics.md`. `WaitingUser` is drawn with two
+entry points — through `Paused` (a pending Permission Manager
+confirmation) and directly from `Planning` (a pending ambiguity-
+resolution clarifying question, `docs/05-ai/ambiguity-resolution.md`) —
+distinguishing both from a general pause, since either requires a
+specific user action to unblock, not a plain resume. `Retrying` is a distinct, visible state
 rather than an invisible internal loop, so retry count and history remain
 directly inspectable. See `docs/03-runtime/task-manager.md` for the full
 state definitions, including why `Archived` is deliberately not shown

@@ -10,7 +10,7 @@
    boundary itself.
 2. **Permission scope checked at the tool level but not the argument
    level.** A "send email" permission might be granted, but the specific
-   recipient/content should still be checked against any documented
+   recipient/content must still be checked against any documented
    allow/deny rules (e.g. no auto-sending to addresses outside the user's
    contact graph) — coarse-grained checks miss argument-level abuse.
 3. **Destructive tool calls (delete, overwrite, send) missing a

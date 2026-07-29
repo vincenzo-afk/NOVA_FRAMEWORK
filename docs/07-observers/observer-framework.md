@@ -99,6 +99,7 @@ source level.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework contract
 - `docs/10-security/permissions.md` — the granular permission model this
   guide's scoping decisions plug into

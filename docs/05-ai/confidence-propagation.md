@@ -80,6 +80,7 @@ change risk tier upward (toward more autonomy) but can push it downward
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `docs/04-memory/memory-confidence.md`, `memory-ranking.md` — the
   individual confidence sources combined here
 - `docs/05-ai/hallucination-prevention.md` — how the combined value is

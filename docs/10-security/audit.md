@@ -61,6 +61,7 @@ memory access (`authorization.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/02-architecture/communication-model.md` — the `correlation_id`
   mechanism this trail depends on
 - `docs/09-ui/memory-explorer.md` — the primary user-facing access point

@@ -77,6 +77,21 @@ including the benchmark and chaos-test gates.
   shipped behavior, not aspirational behavior — checked per
   `docs/12-testing/validation.md`'s "documented behavior matches
   implemented behavior" requirement.
+- [ ] Any new attack surface (new feature, new integration) shipped in
+  this release has a corresponding entry in
+  `docs/10-security/threat-model.md` — no new capability surface ships
+  without this, per
+  `docs/25-failure-modes/FM-12-security-sandbox-identity.md`'s
+  FM-12-014.
+- [ ] Any new action category a component can take has a corresponding
+  entry in the Policy Engine's policy table
+  (`docs/23-autonomy/self-growing-capability.md`,
+  `docs/05-ai/escalation-rules.md`) before it ships — an action category
+  with no matching policy defaults to requiring approval until a policy
+  is authored, per
+  `docs/25-failure-modes/FM-18-autonomy-policy-approval.md`'s
+  FM-18-009, but this checklist item exists so that default is never
+  silently relied on past a release boundary.
 
 ## Release approval
 
@@ -86,6 +101,7 @@ attestation requirement in `docs/14-development/module-checklist.md`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `docs/12-testing/validation.md` — the component-level acceptance
   criteria this checklist aggregates
 - `docs/13-devops/updates.md` — the update sequence this checklist gates

@@ -17,7 +17,7 @@ by `reasoning-engine.md`.
 
 ```mermaid
 flowchart TD
-    A[Planning need: e.g.<br/>"what do I know about project X"] --> B[Formulate one or more<br/>Retrieval Fusion queries]
+    A["Planning need: e.g.<br/>'what do I know about project X'"] --> B[Formulate one or more<br/>Retrieval Fusion queries]
     B --> C[Ranked results from<br/>04-memory/retrieval-engine.md]
     C --> D{Fits within<br/>token budget?}
     D -->|Yes| E[Include as-is]
@@ -35,6 +35,23 @@ Memory into a call regardless of how small the current model's context
 window is relative to total stored memory — every inclusion decision goes
 through ranking (`docs/04-memory/memory-ranking.md`) and is justified by
 relevance to the current task, not convenience.
+
+## Sensitive-category purpose gate
+
+Independent of, and applied before, relevance ranking above: a memory
+record tagged at capture time with a sensitive category (health,
+financial, or any other category the observer/source marks as sensitive
+per its own capture logic, e.g. `docs/07-observers/clipboard.md`'s
+content-vs-metadata distinction) is only eligible for inclusion in
+assembled context when the task's declared purpose explicitly falls
+within that category — high relevance ranking alone never overrides
+this gate. A task summarizing "my recent expenses" may draw on
+financial-tagged memory; a task unrelated to health or finance never
+includes health/financial-tagged memories even if a ranking pass would
+otherwise consider them relevant, per
+`docs/25-failure-modes/FM-06-context-prompt-session.md`'s FM-06-006.
+This gate is enforced in the Context Builder itself, not left as an
+assumption about what the ranking step will naturally exclude.
 
 ## Hierarchical retrieval and entity expansion
 
@@ -99,6 +116,7 @@ unpredictable way.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-06-context-prompt-session.md` — failure modes for this subsystem
 - `docs/04-memory/retrieval-engine.md` — the fusion search this component
   queries
 - `docs/04-memory/memory-ranking.md` — the ranking model driving

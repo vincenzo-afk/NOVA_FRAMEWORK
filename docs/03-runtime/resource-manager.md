@@ -75,6 +75,7 @@ indicates the holding task itself is stuck.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this component
 - `executor.md` — the primary caller of this service
 - `scheduler.md` — how contention affects task dispatch ordering
 - `docs/06-tools/tool-interface.md` — where a tool declares its lockable

@@ -5,7 +5,7 @@
 # Roadmap
 
 This roadmap governs both the software build order and, at present, the
-documentation build order. Nothing in a later phase should be implemented
+documentation build order. Nothing in a later phase may be implemented
 before the phases before it are working and trusted — this is a hard rule,
 not a suggestion, because every later phase's design assumes the safety and
 verification scaffolding from earlier phases already exists.

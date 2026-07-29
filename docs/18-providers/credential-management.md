@@ -55,6 +55,7 @@ remote OAuth grant itself.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-11-internet-and-external-apis.md` — failure modes for this subsystem
 - `docs/10-security/secrets.md` — the Tier 3 rule this document extends
 - `cloud-provider-management.md` — where these credentials get used
 - `docs/20-devices/multi-device-architecture.md` — device-pairing key

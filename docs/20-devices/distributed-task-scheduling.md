@@ -102,6 +102,7 @@ selection as an additional input each retry re-evaluates.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `multi-device-architecture.md` — pairing, topology, and the default
   this document adds exceptions to
 - `cross-device-memory.md` — the sync mechanism that makes a Task's

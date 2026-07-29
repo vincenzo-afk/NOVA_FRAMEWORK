@@ -57,7 +57,7 @@ it holds long-lived private user data and takes real-world actions.
 
 - Small, single-purpose functions; a function that both fetches and
   mutates state is a refactor target, not a pattern.
-- Comments explain *why*, not *what* — the code should read the *what*.
+- Comments explain *why*, not *what* — the code must read the *what*.
 - Every public interface (tool, service method, event shape) is
   documented in the corresponding `docs/` file *before* the code is
   written, and the code cites the doc in a header comment.

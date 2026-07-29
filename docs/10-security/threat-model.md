@@ -114,6 +114,7 @@ inherits rather than independently strengthens.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - Every document in `docs/10-security/` implements at least one
   mitigation referenced above
 - `docs/15-decisions/adr-0006-security.md` — the ADR ratifying this

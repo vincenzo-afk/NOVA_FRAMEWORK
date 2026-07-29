@@ -21,6 +21,22 @@ access NOVA's own service process memory, Memory storage, or Knowledge
 Graph storage; all interaction happens through the tool-invocation
 interface the Executor calls into (`docs/03-runtime/executor.md`).
 
+## Process communication transport
+
+Transport between NOVA and a plugin process is a dedicated named pipe
+established by the Plugin Manager at process spawn time, using the same
+local-IPC mechanism as NOVA's own inter-service communication
+(`docs/02-architecture/communication-model.md`) — never a raw local
+socket and never multiplexed over the process's stdio streams. The
+plugin process's stdout/stderr are captured separately, for logging
+only (`docs/13-devops/logging.md`), and are never parsed as protocol
+data; this keeps a plugin's own arbitrary console output from being
+misinterpreted as a tool-invocation response. This differs deliberately
+from MCP's own stdio-based local transport (`docs/06-tools/mcp.md`)
+because NOVA does not control what a third-party plugin writes to its
+own stdout, whereas MCP's specification mandates strict JSON-RPC framing
+on that stream.
+
 ## Resource limits
 
 Each plugin process is subject to a configurable CPU/memory ceiling,
@@ -51,6 +67,7 @@ deregistration behavior.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `docs/10-security/sandboxing.md` — the general process-isolation model
   this document extends
 - `plugin-permissions.md` — the permission scope enforced at the OS level

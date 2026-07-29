@@ -77,3 +77,7 @@ own assumption afterward ("I assumed X and did it") — an assumption
 made silently at a mandatory trigger point is treated as a policy
 violation regardless of whether the assumption turned out to be
 correct, per the Ambiguity Policy stated in `/CONSTITUTION.md`.
+
+## Related documents
+
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem

@@ -113,3 +113,7 @@ event bus (`system-invariants.md`: "every mutation produces an event"),
 which is what makes sync, audit, and recovery-by-replay possible across
 all of the mechanisms above rather than needing a bespoke solution per
 store.
+
+## Related documents
+
+- `docs/25-failure-modes/FM-14-files-storage-documents-cache.md` — failure modes for this subsystem

@@ -93,7 +93,21 @@ always fires eventually regardless of what any other condition does.
 
 ## Maintenance rule
 
-A new iterative process introduced anywhere in NOVA must declare which
-of the stop conditions above apply to it (all typically do) before it
-ships — a loop with no documented stop condition is treated as a defect,
-per `docs/37-edge-cases/workflow-loop.md`.
+A new iterative process introduced anywhere in NOVA must declare, for
+each of the five stop conditions above, whether it applies to that
+process and how — this declaration is not optional even when the answer
+is "does not apply." **Budget exhausted** applies unconditionally to
+every iterative process, with no exception (it is what prevents infinite
+iteration structurally, per the paragraph above) — a process's
+documented budget may be process-specific, but the condition itself must
+always be present. The other four conditions may legitimately not apply
+to a given process (e.g., a process with no human-approval gate simply
+never has a "Human approval required" condition to declare) — but that
+non-applicability must be stated explicitly in the process's own
+documentation, not left implicit. A loop with no documented stop
+condition, or with an undeclared applicability for any of the five, is
+treated as a defect, per `docs/37-edge-cases/workflow-loop.md`.
+
+## Related documents
+
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem

@@ -74,6 +74,7 @@ to one command.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-13-voice-tts-localization.md` — failure modes for this subsystem
 - `local-speech-models.md` — STT/TTS model options and on-device
   requirements
 - `docs/18-providers/provider-routing.md` — latency-optimized policy

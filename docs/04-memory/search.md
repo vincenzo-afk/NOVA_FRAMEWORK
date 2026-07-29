@@ -27,7 +27,7 @@ flowchart TD
     B -->|Requires understanding query intent| D[LLM parses query into<br/>structured retrieval request]
     D --> C
     C --> E[Ranked results]
-    E --> F{Query requires synthesis<br/>e.g. "explain this project"?}
+    E --> F{"Query requires synthesis<br/>e.g. 'explain this project'?"}
     F -->|Yes| G[LLM composes answer from<br/>retrieved results only]
     F -->|No, direct fact requested| H[Return fact directly, no LLM]
     G --> I[Answer with source attribution]
@@ -63,6 +63,7 @@ path specifically.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `retrieval-engine.md` — the underlying fusion search this interface
   calls
 - `docs/05-ai/ambiguity-resolution.md` — how ambiguous queries are

@@ -60,6 +60,7 @@ offered on a device that can't sustain it.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `android-companion.md` — the shipped capability set this extends
 - `multi-device-architecture.md` — Full peer vs. Companion mode definition
 - `docs/22-voice/voice-assistant.md` — the primary interface at full

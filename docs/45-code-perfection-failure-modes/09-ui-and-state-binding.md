@@ -18,11 +18,13 @@
 4. **Command palette / chat input not debounced or rate-limited against
    the Planner**, allowing rapid duplicate submissions to queue multiple
    redundant plans for the same request.
-5. **Every loading/empty/error/offline state from `40-screens/` not
-   actually implemented** — a screen spec defining five states but the
-   component only handling "loaded" and "loading" ships silent blank
-   screens for the other three.
+5. **Not every required state from a `40-screens/` spec's "Required
+   states" list actually implemented** — a screen spec defines several
+   required states (loading, empty, populated, error, offline/degraded,
+   permission denied if applicable, partial data if applicable) but the
+   component only handles "loaded" and "loading," shipping silent blank
+   screens for the rest.
 6. **Accessibility state (screen reader, reduced motion, high contrast)
    read once at mount instead of subscribed to live** — a user who
-   changes OS accessibility settings while NOVA is open should not have
+   changes OS accessibility settings while NOVA is open must not have
    to restart the app for it to take effect.

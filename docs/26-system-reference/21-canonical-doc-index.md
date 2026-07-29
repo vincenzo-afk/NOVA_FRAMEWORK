@@ -54,7 +54,7 @@ fix the index in the same change, per
 | Build contracts (per-component Can/Cannot) | `docs/26-system-reference/15-build-contracts.md` | Covers Planner, Executor, Memory Manager, Verifier, Plugin Host |
 | Data models (every cross-component entity) | `docs/26-system-reference/14-data-models.md` | |
 | State machines — index | `docs/26-system-reference/16-lifecycle-and-state-machine-index.md` | Points into the canonical table below |
-| State machines — formal transition tables | `docs/26-system-reference/04-state-transition-tables.md` | **Known exception:** Task/Agent lifecycle conflicts with `docs/03-runtime/task-manager.md` — see `docs/25-failure-modes/FM-24-documentation-and-reference-integrity.md`-style flag in both files; unresolved, needs a human decision |
+| State machines — formal transition tables | `docs/26-system-reference/04-state-transition-tables.md` | Task lifecycle table is a derived copy of `docs/03-runtime/task-manager.md` (the canonical source, per `docs/00-overview/normative-precedence.md`); the two are reconciled — see task-manager.md's Task state machine section for the resolution note |
 | Plugin lifecycle states specifically | `docs/16-extensibility/plugin-lifecycle.md` | `04-state-transition-tables.md`'s Plugin table is a derived summary of this |
 | Event catalog | `docs/26-system-reference/07-event-catalog.md` | `17-event-and-internal-api-contracts.md` is the dimension-completeness checklist, not a second catalog |
 | Internal API contracts | `docs/08-api/internal-api.md` | |
@@ -82,11 +82,21 @@ fix the index in the same change, per
 
 ## Known unresolved conflicts (do not treat either side as settled)
 
+None open as of this revision.
+
+## Resolved conflicts (historical)
+
 - **Task/Agent state machine** — `docs/03-runtime/task-manager.md` vs.
-  `docs/26-system-reference/04-state-transition-tables.md`. Both are
-  flagged in place; needs a human decision on which framing
-  (execution-mechanics-centered vs. cognitive-stage-centered) is
-  authoritative before an implementer builds against either.
+  `docs/26-system-reference/04-state-transition-tables.md` (and, found
+  during reconciliation, a third divergent copy in
+  `docs/26-system-reference/16-lifecycle-and-state-machine-index.md`).
+  Resolved by applying `docs/00-overview/normative-precedence.md`
+  (extended in this revision to explicitly cover
+  `docs/26-system-reference/` as derived/non-authoritative): `docs/03-runtime/task-manager.md` is canonical; the two system-reference
+  copies were corrected to match it, including folding in one genuine
+  behavior gap the divergent copies had captured and task-manager.md
+  had not (the ambiguity-resolution clarifying-question transition, now
+  `Planning → WaitingUser → Planning` in the canonical version).
 
 ## Maintenance rule
 

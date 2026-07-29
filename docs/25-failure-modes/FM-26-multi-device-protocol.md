@@ -51,7 +51,7 @@ capability, lifecycle state, sync-eligibility), or **(b) a safety
 property that holds for a single device silently not being re-verified
 once a second device is involved** (dry-run/staged-rollout discipline,
 consent gating, resource arbitration). Any new multi-device feature
-should be checked against both patterns explicitly during design review,
+must be checked against both patterns explicitly during design review,
 since together they account for the majority of this file's index.
 
 ## Related documents

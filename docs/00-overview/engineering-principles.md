@@ -64,7 +64,7 @@ easier.
 Modules interact only through their declared public API and the event
 bus (`docs/02-architecture/event-bus-specification.md`) — never through
 shared mutable state, reflection into another module's internals, or
-undocumented side channels. The contract may be strict (validated
+undocumented side channels. The contract must be strict (validated
 schemas, explicit error types); the coupling must be loose (either side
 can be replaced without the other knowing).
 

@@ -65,6 +65,7 @@ settings, which defeats its purpose as a guarantee at all.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/03-runtime/permission-manager.md` — runtime enforcement of this
   policy
 - `docs/05-ai/hallucination-prevention.md` — the AI-specific extension of

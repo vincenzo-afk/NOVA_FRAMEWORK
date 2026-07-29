@@ -68,6 +68,7 @@ background executable (see `docs/13-devops/deployment.md`, Tier 3).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this component
 - `docs/02-architecture/lifecycle.md` — the startup/shutdown sequence this
   service executes
 - `docs/02-architecture/dependency-map.md` — the dependency order it

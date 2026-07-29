@@ -67,6 +67,7 @@ depends on that provenance remaining traceable.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `knowledge-graph.md` — the graph this resolution writes into
 - `ontology.md` — the node types being resolved against
 - `docs/05-ai/ambiguity-resolution.md` — the decision flow for uncertain

@@ -62,6 +62,7 @@ crash.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `hardware-detection.md` — feeds the filtering in step 1
 - `provider-interface.md` — the adapter contract each model loads behind
 - `docs/03-runtime/resource-manager.md` — runtime resource accounting

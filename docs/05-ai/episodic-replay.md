@@ -73,6 +73,7 @@ situation.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `docs/03-runtime/planner.md` — where this retrieval step fits into the
   planning loop
 - `docs/04-memory/retrieval-engine.md`, `memory-ranking.md` — how

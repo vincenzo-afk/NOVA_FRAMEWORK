@@ -96,6 +96,7 @@ message envelope (`docs/02-architecture/communication-model.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `rest-api.md`, `websocket.md`, `events.md` — the endpoints using these
   schemas
 - `docs/03-runtime/task-manager.md` — the internal state machine the task

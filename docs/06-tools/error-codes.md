@@ -69,6 +69,7 @@ retains the code as reserved/unused rather than reassigning its number.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `docs/03-runtime/failure-recovery.md` — the taxonomy these codes map to
 - `docs/08-api/schemas.md` — where error codes appear in API responses
 - `docs/00-overview/system-invariants.md` — the invariant several

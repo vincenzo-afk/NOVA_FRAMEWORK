@@ -58,6 +58,7 @@ the weakest independent safety net if something goes wrong.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `execution-priority.md` — this tier's position as the absolute last
   resort
 - `vision.md`, `accessibility.md` — the target-identification mechanisms

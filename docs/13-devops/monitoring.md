@@ -62,6 +62,7 @@ use.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-17-observability.md` — failure modes for this subsystem
 - `docs/03-runtime/runtime-manager.md` — the heartbeat mechanism this
   monitoring relies on and is itself subject to
 - `docs/11-performance/resource-usage.md` — the budgets monitored against

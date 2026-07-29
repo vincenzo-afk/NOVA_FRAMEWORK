@@ -41,7 +41,7 @@ failure is an expected, handleable outcome:
   verdict.
 - **Throw (exception, restricted use):** reserved for genuinely
   unexpected, non-recoverable conditions (programming errors, invariant
-  violations) that should propagate and halt the current operation
+  violations) that must propagate and halt the current operation
   loudly — a violation of `system-invariants.md` is thrown, not
   returned as a Result, precisely so it cannot be silently swallowed by
   a caller that only checks `ok`.

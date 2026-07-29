@@ -3,7 +3,7 @@
 ## Purpose
 
 Defines the standard contract format every service and module in this
-repository should expose and document: input, output, errors, timeout,
+repository must expose and document: input, output, errors, timeout,
 and permissions — making explicit a convention most existing documents
 already follow implicitly, so it is checked consistently for new modules
 going forward rather than relying on each author noticing the pattern.
@@ -17,7 +17,7 @@ the explicit checklist new and revised documents are held to.
 
 ## The standard contract block
 
-Every module's architecture document should be able to answer, either in
+Every module's architecture document must be able to answer, either in
 a dedicated "Contract" section or clearly within existing sections:
 
 - **Input** — what the module accepts, and from which caller(s), per
@@ -42,13 +42,13 @@ from the Planner), output (the structured result per
 within that same structured result), and it references the Permission
 Manager gate for the permissions dimension. Its per-tool timeout handling
 is detailed in `docs/06-tools/cli.md` for the CLI tier specifically. A
-new module document should make these five dimensions this explicit,
-ideally consolidated rather than scattered.
+new module document must make these five dimensions explicit,
+consolidated under one "Contract" section rather than scattered, unless the module is small enough that all five are already obvious within a single existing section.
 
 ## Application to new modules
 
 Any new service, tool tier, or major component document added to this
-repository going forward should include an explicit "Contract" section
+repository going forward must include an explicit "Contract" section
 using this five-part structure, checked as part of the module checklist
 (`docs/14-development/module-checklist.md`).
 

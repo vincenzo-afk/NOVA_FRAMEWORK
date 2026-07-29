@@ -85,6 +85,7 @@ priority-inversion handling under sustained, not just bursty, load).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `performance-goals.md` — the targets these benchmarks validate
 - `scalability.md` — the growth scenarios benchmarked against
 - `docs/12-testing/benchmarks.md`, `chaos-tests.md` — CI integration and

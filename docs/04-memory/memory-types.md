@@ -50,7 +50,7 @@ and relationships extracted from Recent and Long-term Memory. See
 Contents: Long-term Memory records that have aged past the point of being
 included in default context assembly, but are retained and retrievable
 on explicit request (e.g., "what did I decide about this two years ago").
-Distinguishing Archive from deletion matters because a user should be
+Distinguishing Archive from deletion matters because a user must be
 able to intentionally reach back that far without NOVA having discarded
 the information outright.
 
@@ -74,6 +74,7 @@ memory.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `memory-architecture.md` — how these types relate structurally
 - `memory-lifecycle.md` — the promotion/demotion triggers between types
 - `memory-ranking.md` — the confidence model referenced for User

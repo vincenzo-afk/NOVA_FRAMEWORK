@@ -44,6 +44,7 @@ observer needs to support.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `mouse.md` — the analogous, similarly-scoped mouse observer

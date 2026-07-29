@@ -24,21 +24,25 @@ terminal state.
 
 ## Task state machine
 
-> **Known documentation conflict — flagged per
-> `docs/00-implementation-governance/ai-constitution.md`, Rule 7, not
-> silently resolved.** This diagram and
-> `docs/26-system-reference/04-state-transition-tables.md`'s Task /
-> Agent Lifecycle table describe the same entity with different state
-> names and different shapes (this version centers on
-> `Created`/`Paused`/`WaitingUser`/`Retrying` execution mechanics; the
-> system-reference version centers on
-> `Idle`/`Thinking`/`Planning`/`Waiting`/`Verifying`/`Unverified`
-> cognitive stages). Neither has been confirmed as authoritative over
-> the other. An implementer needing the real Task state machine should
-> treat this as an open question requiring a human decision
-> (`docs/00-implementation-governance/ambiguity-policy.md`), not assume
-> either version and proceed — the two are not obviously reconcilable
-> without deciding which framing the actual code should follow.
+> **Resolved documentation conflict.** This diagram was previously
+> flagged as conflicting with `docs/26-system-reference/04-state-transition-tables.md`'s Task / Agent Lifecycle table, which
+> used different state names and a different shape (cognitive stages
+> `Idle`/`Thinking`/`Planning`/`Waiting`/`Verifying`/`Unverified` rather
+> than this document's execution mechanics). Per
+> `docs/00-overview/normative-precedence.md`, this document
+> (`docs/03-runtime/task-manager.md`, a Tier 5 component specification)
+> is authoritative for the Task state machine; `docs/26-system-reference/04-state-transition-tables.md` is a derived index and has
+> been corrected to match this document's state machine exactly. No
+> other document defines a competing Task state machine; any that
+> appears to must be corrected to match this one. Reconciliation
+> surfaced one genuine gap rather than a purely cosmetic naming
+> difference: the system-reference version's `Thinking` stage modeled an
+> ambiguity-clarification loop (`docs/05-ai/ambiguity-resolution.md`'s
+> "ask user for clarification" branch) that this document's diagram did
+> not previously represent. That behavior has been folded into this
+> document as the `Planning --> WaitingUser: clarification needed` /
+> `WaitingUser --> Planning: clarified` transitions below, rather than
+> discarded along with the rest of the superseded table.
 
 ```mermaid
 stateDiagram-v2
@@ -63,6 +67,8 @@ stateDiagram-v2
     Paused --> WaitingUser
     Paused --> Planning: resumed
     Paused --> Executing: resumed
+    Planning --> WaitingUser: clarification needed
+    WaitingUser --> Planning: clarified
     WaitingUser --> Executing: confirmed
     WaitingUser --> Cancelled: denied
     Created --> Cancelled
@@ -99,11 +105,24 @@ stateDiagram-v2
 - **Paused** — execution suspended, either user-initiated or system-
   initiated (e.g., the focused window changed mid-automation,
   `docs/06-tools/automation.md`), with state preserved for resumption.
-- **WaitingUser** — a specific, narrower case of `Paused`: blocked on a
-  pending Permission Manager confirmation
-  (`docs/03-runtime/permission-manager.md`), surfaced distinctly in the
-  UI (`docs/09-ui/task-monitor.md`) since it requires a specific user
-  action to unblock, not merely a resume click.
+- **WaitingUser** — blocked on required user input that only the user
+  can supply, covering exactly two triggers, both surfaced distinctly in
+  the UI (`docs/09-ui/task-monitor.md`) since each requires a specific
+  user action to unblock, not merely a resume click:
+  1. A pending Permission Manager confirmation
+     (`docs/03-runtime/permission-manager.md`), entered from `Paused`;
+     resolves to `Executing` (confirmed) or `Cancelled` (denied).
+  2. A pending ambiguity-resolution clarifying question
+     (`docs/05-ai/ambiguity-resolution.md`'s "ask user for clarification"
+     branch), entered directly from `Planning` when the Planner cannot
+     proceed without more information; resolves back to `Planning`
+     (clarified) with the new information incorporated, never directly
+     to `Executing`, since a clarified request must still be
+     (re-)planned before execution.
+  These two triggers are never conflated in the task record: the
+  `WaitingUser` state's stored reason field distinguishes
+  `permission_confirmation` from `clarification_requested` so the UI and
+  any audit trail can tell which is blocking the task.
 - **Cancelled** — terminated before reaching a terminal outcome, by user
   or system action.
 
@@ -172,6 +191,7 @@ it was not actually executing anything at the time of the crash.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-02-planner-task-queue-scheduler.md` — failure modes for this component
 - `scheduler.md` — what decides when a `Created` task is dispatched toward `Planning` - `docs/03-runtime/verifier.md` — how the `Verifying` → {`Completed`,
   `Unverified`, `Failed`} transition is decided
 - `docs/04-memory/memory-lifecycle.md` — the Archive progression terminal

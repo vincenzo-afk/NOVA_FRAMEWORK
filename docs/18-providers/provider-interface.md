@@ -56,11 +56,26 @@ interface Provider {
 - `describe()` is what the Capability Registry uses to populate the setup
   wizard's provider picker and the routing policy's filter/rank step —
   it is the single source of truth for "what can this provider do,"
-  never a hardcoded list maintained elsewhere.
+  never a hardcoded list maintained elsewhere. `ProviderDescriptor`
+  includes a `schema_version` field (the domain request/response schema
+  version this provider adapter implements, per that domain's own doc)
+  so the router can detect a mismatch before invoking, rather than
+  discovering it as a runtime schema-validation failure.
 - `invoke()` accepts and returns the domain's typed schema. NOVA Core code
   that calls a capability is written against the domain schema, never
   against a specific provider's native API shape — provider-specific
   translation lives entirely inside that provider's adapter.
+
+## Version negotiation
+
+Before invoking a provider, the router compares the request's required
+domain-schema version against that provider's advertised
+`schema_version` from `describe()`. A provider advertising a lower
+version than the router requires is either downgraded to (if the
+provider's adapter supports serving an older schema shape) or excluded
+from the candidate list for that call, per `docs/25-failure-modes/FM-04-model-router-provider-fallback.md`'s FM-04-015 — this check happens
+before invocation, never as a reactive response to a schema-validation
+failure at runtime.
 - Streaming domains (LLM, STT, TTS, voice) return a `Stream<DomainChunk>`
   so low-latency, interrupt-capable interaction (per
   `docs/22-voice/voice-assistant.md`) is a first-class return type, not a
@@ -84,6 +99,26 @@ No code path in NOVA Core is permitted to `import` a provider SDK
 directly. All access goes through the interface, resolved at runtime by
 the Capability Registry.
 
+## Lifecycle
+
+```mermaid
+stateDiagram-v2
+    [*] --> Registered
+    Registered --> Removed
+    Removed --> [*]
+```
+
+A provider entry has exactly two lifecycle states: **Registered**
+(manifest validated, sandboxing/permission review passed) and
+**Removed** (`shutdown()` called or manifest withdrawn; terminal — a
+later re-add is a new registration). This is distinct from the live
+`healthCheck()` status (`reachable` / `degraded` / `down`, per the
+interface contract above), which fluctuates continuously while a
+provider is `Registered` and does not itself change the lifecycle
+state — a `degraded` or `down` provider is still `Registered` and still
+subject to the fallback chain in `provider-routing.md`; it is only
+`Removed` when explicitly shut down or withdrawn.
+
 ## Failure and fallback
 
 Every domain request carries an optional fallback chain
@@ -94,6 +129,7 @@ provider remains, in which case the typed error propagates.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `docs/05-ai/model-providers.md`, `docs/05-ai/model-router.md` — the
   original LLM-specific instance of this pattern
 - `capability-management.md` — the registry that tracks provider

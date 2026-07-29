@@ -74,6 +74,7 @@ available provider.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-04-model-router-provider-fallback.md` — failure modes for this subsystem
 - `model-router.md` — the selection logic operating over this
   configuration
 - `docs/10-security/secrets.md` (Tier 3) — credential vault integration

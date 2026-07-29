@@ -50,6 +50,7 @@ latency invisibly.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-13-voice-tts-localization.md` — failure modes for this subsystem
 - `voice-assistant.md` — the pipeline these providers plug into
 - `docs/18-providers/local-model-management.md` — download/load
   lifecycle for the local entries

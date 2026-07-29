@@ -6,7 +6,7 @@ Failures in NOVA's ability to see itself. This category is uniquely dangerous be
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
 - `docs/13-devops/logging.md` - `docs/13-devops/monitoring.md`
 
@@ -28,7 +28,7 @@ Each failure is assigned a stable ID (`FM-17-0XX`) for cross-referencing from co
 
 Notes on how failures in this file interact with failures elsewhere in this catalog — read these before assuming a bug is isolated to one subsystem.
 
-- Silent failures (FM-17-005) are the meta-risk of this entire failure-mode document: any category above whose 'Detection' column relies on a log or metric that itself isn't being captured degrades into a silent failure. Observability coverage should be audited against this document's own detection-method column periodically.
+- Silent failures (FM-17-005) are the meta-risk of this entire failure-mode document: any category above whose 'Detection' column relies on a log or metric that itself isn't being captured degrades into a silent failure. Observability coverage must be audited against this document's own detection-method column periodically.
 
 ## Severity Legend
 

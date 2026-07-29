@@ -55,6 +55,7 @@ reporting the step as failed to the Planner.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `execution-priority.md` — this tier's place in the overall chain
 - `tool-interface.md` — the structured result contract API tools populate
 - `docs/10-security/secrets.md` (Tier 3) — credential handling

@@ -74,6 +74,7 @@ available.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-03-agent-orchestration-and-collaboration.md` — failure modes for this component
 - `executor.md` — the source of the result being verified
 - `docs/06-tools/tool-interface.md` — the verification-signal declaration
   every tool must provide

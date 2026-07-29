@@ -64,6 +64,7 @@ halts.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-03-agent-orchestration-and-collaboration.md` — failure modes for this component
 - `docs/06-tools/tool-interface.md` — the structured result schema
   referenced above
 - `permission-manager.md`, `resource-manager.md` — the gates every

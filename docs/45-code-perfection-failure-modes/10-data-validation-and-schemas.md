@@ -24,5 +24,5 @@
    unrecognized state that no state-transition logic handles.
 6. **Numeric fields not range/sanity-checked** (negative durations,
    timestamps in the far future/past, confidence scores outside [0,1]) —
-   these should fail validation, not propagate and corrupt ranking or
+   these must fail validation, not propagate and corrupt ranking or
    scheduling logic downstream.

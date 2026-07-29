@@ -6,9 +6,9 @@ Failures in actually calling out to the world — local tools, binaries, and MCP
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/06-tools/tool-interface.md` - `docs/06-tools/tool-registry.md` - `docs/06-tools/mcp.md` - `docs/06-tools/error-codes.md` - `docs/06-tools/tool-schema-versioning.md`
+- `docs/06-tools/tool-interface.md` - `docs/06-tools/tool-registry.md` - `docs/06-tools/mcp.md` - `docs/06-tools/error-codes.md` - `docs/06-tools/tool-schema-versioning.md` - `docs/05-ai/tool-selection.md` - `docs/06-tools/tool-system.md` - `docs/06-tools/execution-priority.md` - `docs/06-tools/native-runtime.md` - `docs/06-tools/api.md` - `docs/06-tools/cli.md` - `docs/06-tools/accessibility.md` - `docs/06-tools/automation.md` - `docs/18-providers/mcp-server-management.md`
 
 ## Failure Catalog
 
@@ -29,7 +29,7 @@ Each failure is assigned a stable ID (`FM-07-0XX`) for cross-referencing from co
 | **FM-07-011** | MCP wrong protocol | Server speaks a different MCP protocol version than the client expects. | Handshake/negotiation failure at connection time. | Medium | Protocol version negotiation at connect time; reject cleanly rather than proceeding with a mismatched assumption. | Use the highest mutually-supported protocol version, or disable the server if no compatible version exists. |
 | **FM-07-012** | MCP invalid schema | Server advertises a tool schema that is malformed or internally inconsistent. | Schema validation of the server's own advertisement fails. | Low | Validate advertised schemas at discovery time before ever offering the tool to the Planner. | Exclude the malformed tool from the registry until the server fixes its advertisement. |
 | **FM-07-013** | MCP tool unavailable | Tool was available at discovery time but removed/disabled server-side before invocation. | Invocation fails with a 'not found' error despite being present in the cached registry. | Medium | Short TTL on cached MCP tool listings, or a pre-invocation existence check for high-stakes calls. | Refresh the tool listing and replan without the now-missing tool. |
-| **FM-07-014** | MCP permission denied | Server requires a scope/credential the client wasn't granted. | Authorization error from the server. | Medium | Surface required scopes at discovery time so the Planner doesn't even attempt calls it can't be authorized for. | Route through `docs/10-security/authorization.md`'s consent flow if the missing scope can be granted; otherwise treat as capability-unavailable. |
+| **FM-07-014** | MCP permission denied | Server requires a scope/credential the client wasn't granted. | Authorization error from the server. | Medium | Surface required scopes at discovery time so the Planner doesn't even attempt calls it can't be authorized for. | Route through `docs/06-tools/mcp.md`'s Server-side scope denial section's re-authorization flow if the missing scope can be granted; otherwise treat as capability-unavailable. |
 | **FM-07-015** | MCP timeout | Server accepts the call but never responds. | No response within the negotiated timeout window. | Medium | Same centralized timeout enforcement as FM-07-005, applied uniformly to MCP calls. | Mark as timeout, not failure; let Planner decide on retry/alternative. |
 | **FM-07-016** | MCP wrong capability advertised | Server claims a capability (e.g. 'supports streaming') it doesn't actually implement correctly. | Runtime behavior contradicts the advertised capability metadata. | Medium | Periodic conformance testing against advertised capabilities, not just trusting the advertisement forever. | Downgrade trust in that server's advertised capabilities; flag for manual review, avoid relying on the specific unverified claim. |
 

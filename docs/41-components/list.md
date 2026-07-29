@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Virtualized list for any collection that can exceed ~50 items (memory results, logs) to keep the UI responsive per `35-performance` budgets.
+Virtualized list for any collection that can exceed ~50 items (memory results, logs) to keep the UI responsive per `docs/39-performance-budgets/` budgets.
 
 ## States
 

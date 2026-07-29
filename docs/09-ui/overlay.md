@@ -49,6 +49,7 @@ confused by the overlay's own appearance and dismissal.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `ui-overview.md` — shared cross-surface conventions
 - `docs/07-observers/keyboard.md` — the hotkey invocation mechanism
 - `task-monitor.md` — the full-detail view this surface condenses

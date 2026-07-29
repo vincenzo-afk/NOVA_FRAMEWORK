@@ -105,6 +105,7 @@ schema validation exactly as any other tool registration would.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `plugin-architecture.md` — the overall extension system this lifecycle
   is part of
 - `docs/06-tools/tool-registry.md` — tool registration/deregistration

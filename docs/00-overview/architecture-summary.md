@@ -4,7 +4,7 @@
 
 A single-page map of the whole system for readers who need the shape of
 NOVA before descending into `docs/02-architecture/` (Tier 2) for full
-detail. This document is intentionally shallow; it should never contain a
+detail. This document is intentionally shallow; it must never contain a
 fact that isn't also stated, with more depth, in a Tier 2/3 document.
 
 ## Scope

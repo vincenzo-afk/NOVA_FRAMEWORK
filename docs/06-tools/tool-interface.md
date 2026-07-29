@@ -29,6 +29,7 @@ structured result format every invocation must return.
       "estimated_latency_ms": "integer, typical case",
       "estimated_cost_class": "free | low | medium | high, per docs/05-ai/model-routing-matrix.md cost dimension where the action involves an AI-assisted step",
       "timeout_ms": "integer, per docs/03-runtime/failure-recovery.md",
+      "idempotent": "boolean — true if invoking this action twice with the same input produces the same end state as invoking it once (safe to auto-retry); false if a repeat invocation compounds an effect (e.g. 'charge payment', 'send email')",
       "input_schema": "JSON Schema describing accepted parameters",
       "output_schema": "JSON Schema describing the evidence/value shape returned"
     }
@@ -43,7 +44,16 @@ the action, not the tool as a whole. `deterministic: false` marks a tool
 whose action requires an AI-assisted step (e.g., a summarization tool);
 `estimated_latency_ms` and `estimated_cost_class` feed directly into Tool
 Selection's ranking (`docs/05-ai/tool-selection.md`) and the Planner's
-candidate-scoring stage (`docs/03-runtime/planner.md`).
+candidate-scoring stage (`docs/03-runtime/planner.md`). `idempotent` is
+mandatory, not optional-with-a-default: an action registered without an
+explicit value is rejected at registration, the same way a missing
+`verification_signal` is handled above — assuming idempotency by default
+would be exactly the kind of silent, unverified assumption
+`docs/03-runtime/failure-recovery.md`'s retry logic must never make, per
+`docs/25-failure-modes/FM-23-recovery-system-meta-failures.md`'s
+FM-23-001. `docs/03-runtime/failure-recovery.md`'s automatic-retry path
+checks this field before retrying; `idempotent: false` actions are never
+auto-retried, only surfaced for explicit user confirmation to retry.
 
 ## Structured result contract (returned per invocation)
 
@@ -75,7 +85,7 @@ confirmation) execution, regardless of its risk tier — see
 `docs/03-runtime/permission-manager.md` for how this rule is enforced at
 the gate. This closes the gap the project's foundational review
 identified: a tool that can only report "done" with no independently
-checkable evidence should not be trusted to run unattended.
+checkable evidence must not be trusted to run unattended.
 
 ## Partial status
 
@@ -87,6 +97,7 @@ Planner to reason precisely about what state changed.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `tool-system.md` — the conceptual tool abstraction this schema
   implements
 - `tool-registry.md` — where this metadata is stored and validated

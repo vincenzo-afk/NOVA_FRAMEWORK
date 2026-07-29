@@ -51,13 +51,14 @@ configured — this is a secondary optimization layer beneath the primary
 ## Measuring optimization effectiveness
 
 Per `docs/01-product/success-metrics.md`, the proportion of tasks
-resolved without any LLM call is tracked directly and should not decrease
+resolved without any LLM call is tracked directly and must not decrease
 over time — this metric is the practical measure of whether this
 optimization strategy is being upheld as new capability is added, rather
 than degrading as convenience-driven shortcuts accumulate.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `docs/05-ai/deterministic-first.md` — the principle underlying this
   entire strategy
 - `docs/06-tools/execution-priority.md` — the tier ordering this

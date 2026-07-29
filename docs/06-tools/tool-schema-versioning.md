@@ -68,6 +68,7 @@ compatibility shim or are explicitly flagged as requiring update.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `docs/06-tools/tool-interface.md` — the base contract this versioning
   extends
 - `docs/05-ai/capability-registry.md` — the capability layer that can

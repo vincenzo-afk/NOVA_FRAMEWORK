@@ -64,6 +64,7 @@ current template version.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-06-context-prompt-session.md` — failure modes for this subsystem
 - `reasoning-engine.md` — where templates are actually assembled into a
   call
 - `planner-agent.md` — how agent configuration selects a template

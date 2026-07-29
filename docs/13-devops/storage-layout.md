@@ -87,6 +87,7 @@ sensitive content beyond what is already protected in `memory/`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-14-files-storage-documents-cache.md` — failure modes for this subsystem
 - `docs/04-memory/memory-storage.md` — the storage engines within
   `memory/` - `docs/10-security/secrets.md`, `encryption.md` — the security model
   applied to specific folders above

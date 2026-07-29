@@ -84,6 +84,7 @@ the same routing/matching pass that produced `why_this_capability` and `why_this
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-05-llm-core-and-ai-specific-failures.md` — failure modes for this subsystem
 - `docs/10-security/audit.md` — the underlying structured data this
   explanation schema is generated from
 - `docs/05-ai/confidence-propagation.md` — the confidence value included

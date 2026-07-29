@@ -77,6 +77,7 @@ and does not force removal, consistent with the non-forced approach in
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `docs/08-api/versioning.md` — the analogous versioning discipline for
   the external API
 - `docs/06-tools/tool-schema-versioning.md` — tool-contract-level

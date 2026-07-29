@@ -110,6 +110,7 @@ window has passed).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `ontology.md` — the fixed schema this graph implements
 - `entity-resolution.md` — how mentions resolve to existing nodes
 - `indexing.md` — the write path into this graph

@@ -11,29 +11,38 @@ source for any individual key's exact contract.
 
 ## Full illustrative `config.yaml`
 
+Per FM-24-023 below: keys marked `[schema]` have a formal entry in
+`docs/14-development/configuration-schema.md`'s Established keys list —
+their values here are the real, authoritative default. Keys marked
+`[illustrative]` have no formal schema entry yet; their values here are
+a plausible placeholder for shape/format only, not a committed
+contractual default — do not hardcode them as if authoritative. This
+distinction is the direct fix for the drift this file's own FM-24-023
+entry describes.
+
 ```yaml
 runtime:
-  idle_cpu_ceiling_percent: 3
-  idle_ram_ceiling_mb: 600
-  startup_step_timeout_s: 30
-  restart_backoff_base_s: 2
-  restart_max_attempts: 5
+  idle_cpu_ceiling_percent: 3            # [schema]
+  idle_ram_ceiling_mb: 600                # [schema]
+  startup_step_timeout_s: 30             # [illustrative]
+  restart_backoff_base_s: 2              # [illustrative]
+  restart_max_attempts: 5                # [illustrative]
 
 scheduler:
-  max_concurrent_tasks: 8
-  starvation_age_boost_s: 300
-  queue_high_watermark: 500
+  max_concurrent_tasks: 8                 # [illustrative] — schema key exists but default is "(implementation-tuned, conservative)", not a fixed number
+  starvation_age_boost_s: 300            # [illustrative]
+  queue_high_watermark: 500               # [illustrative]
 
 memory:
-  recent_memory_retention_weeks: 4       # 2-6, hot-reloadable
-  garbage_collection_interval_h: 24
-  embedding_model: "local-embed-v2"
-  vector_index_type: "hnsw"
+  recent_memory_retention_weeks: 4       # [schema] 2-6, hot-reloadable
+  garbage_collection_interval_h: 24       # [illustrative]
+  embedding_model: "local-embed-v2"        # [illustrative]
+  vector_index_type: "hnsw"                # [illustrative]
 
 knowledge_graph:
-  query_latency_target_ms: 100
-  entity_merge_min_confidence: 0.85
-  cycle_check_on_write: true
+  query_latency_target_ms: 100           # [schema]
+  entity_merge_min_confidence: 0.85       # [illustrative]
+  cycle_check_on_write: true              # [illustrative] — the underlying invariant (system-invariants.md's acyclic-graph rule) is fixed and non-configurable; this flag illustrates the check exists, not that it can be turned off
 
 providers:
   default_fallback_order:
@@ -41,56 +50,56 @@ providers:
     - "cloud-a"
     - "cloud-b"
   circuit_breaker:
-    error_rate_threshold: 0.5
-    cooldown_s: 60
+    error_rate_threshold: 0.5             # [illustrative]
+    cooldown_s: 60                        # [illustrative]
   ai:
-    cost_budget_daily: null              # null = no budget enforced
+    cost_budget_daily: null              # [schema] null = no budget enforced
 
 security:
-  destructive_action_confirmation_override: false   # fixed, cannot be set true
-  encryption_at_rest: true
-  session_ttl_idle_minutes: 30
-  session_ttl_expired_hours: 24
+  destructive_action_confirmation_override: false   # [schema] fixed, cannot be set true
+  encryption_at_rest: true                # [illustrative] — non-configurable per docs/10-security/encryption.md; shown for completeness, not because it can be toggled
+  session_ttl_idle_minutes: 30           # [illustrative]
+  session_ttl_expired_hours: 24           # [illustrative]
 
 sandboxing:
-  plugin_recycle_interval_h: 12
-  plugin_memory_budget_mb: 256
+  plugin_recycle_interval_h: 12           # [illustrative]
+  plugin_memory_budget_mb: 256            # [illustrative]
 
 voice:
-  wake_word_sensitivity: 0.7
-  echo_cancellation: true
-  tts_model: "local-tts-lite"
+  wake_word_sensitivity: 0.7              # [illustrative]
+  echo_cancellation: true                 # [illustrative]
+  tts_model: "local-tts-lite"              # [illustrative]
 
 ui:
-  theme: "system"
-  reduced_motion: false
+  theme: "system"                          # [illustrative]
+  reduced_motion: false                   # [illustrative]
 
 plugins:
-  auto_update: "patch_only"              # disabled | patch_only | minor_and_patch
-  marketplace_review_required: true
+  auto_update: "patch_only"              # [schema] disabled | patch_only | minor_and_patch
+  marketplace_review_required: true       # [illustrative]
 
 observers:
   clipboard:
-    content_capture_enabled: false
+    content_capture_enabled: false        # [schema]
   filesystem:
-    watch_paths: []
+    watch_paths: []                        # [illustrative]
 
 limits:
-  max_context_tokens: 128000
-  max_plan_steps: 50
-  max_task_recursion_depth: 6
+  max_context_tokens: 128000             # [illustrative] — distinct from a provider's own max_context_tokens capability field (docs/05-ai/model-providers.md); this is a NOVA-wide ceiling, not yet formally schema'd
+  max_plan_steps: 50                      # [illustrative]
+  max_task_recursion_depth: 6             # [illustrative]
 
 timeouts:
-  tool_invocation_default_s: 30
-  provider_request_default_s: 60
-  workflow_node_default_s: 120
+  tool_invocation_default_s: 30          # [illustrative]
+  provider_request_default_s: 60          # [illustrative]
+  workflow_node_default_s: 120            # [illustrative]
 
 resource_manager:
-  lock_acquire_target_ms: 20
+  lock_acquire_target_ms: 20              # [schema]
 
 planner:
-  simple_command_latency_target_s: 2
-  reasoning_response_target_s: 5
+  simple_command_latency_target_s: 2      # [schema]
+  reasoning_response_target_s: 5         # [schema]
 ```
 
 ## Section index
@@ -137,5 +146,5 @@ This document is itself a build artifact an AI agent relies on. If it drifts fro
 | ID | Failure | Trigger | Detection | Severity | Mitigation | Recovery |
 |---|---|---|---|---|---|---|
 | **FM-24-022** | Illustrative config drifts from the real schema | A key is renamed/removed in `configuration-schema.md` but this file's example `config.yaml` isn't updated. | Doc-lint validates every key in this file's example against the current schema file, failing on any key present in one but not the other. | Medium | Generate the illustrative `config.yaml` from the schema file mechanically rather than hand-maintaining both. | Regenerate this file's example from the current schema; treat manual drift as the signal to add the generation step. |
-| **FM-24-023** | Reader treats the illustrative example as the actual shipped default | Every value in this file's example config.yaml is illustrative, not necessarily the literal shipped default — some defaults are 'implementation-tuned, conservative' per the schema file, not a fixed number. | An agent hardcodes an assumed default that doesn't match the actual shipped value. | Low | Explicitly flag which values are fixed contractual defaults vs. illustrative/tunable, mirroring the schema file's own `default:` field conventions. | Always cross-check against `configuration-schema.md`'s `default:` field before relying on a specific numeric value from this file's example. |
+| **FM-24-023** | Reader treats the illustrative example as the actual shipped default | Every value in this file's example config.yaml is illustrative, not necessarily the literal shipped default — some defaults are 'implementation-tuned, conservative' per the schema file, not a fixed number. | An agent hardcodes an assumed default that doesn't match the actual shipped value. | Low | Every key in the example `config.yaml` above is tagged `[schema]` (has a formal, authoritative entry in `configuration-schema.md`) or `[illustrative]` (no formal entry yet; shown for shape/format only) — implemented directly in this document rather than left as a future intention. | Always cross-check against `configuration-schema.md`'s `default:` field before relying on a specific numeric value tagged `[illustrative]` in this file's example; a `[schema]`-tagged value can be relied on directly. |
 | **FM-24-024** | See also `FM-15-004`, `FM-20-002` | Configuration drift at runtime and missing environment variables at deploy time are runtime consequences, cataloged separately from this document's own drift risk. | See `docs/25-failure-modes/FM-15-*.md` and `FM-20-*.md`. | — | See FM-15/FM-20. | See FM-15/FM-20. |

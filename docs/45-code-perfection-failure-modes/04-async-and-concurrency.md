@@ -8,8 +8,8 @@
    observer loop, silently swallows failures and the calling code
    proceeds as if it succeeded.
 2. **Awaiting inside a loop when calls are independent**, serializing
-   what should be parallel (and vice versa: `Promise.all`-ing writes that
-   must be ordered, causing a race). Every loop with async calls should
+   what must be parallel (and vice versa: `Promise.all`-ing writes that
+   must be ordered, causing a race). Every loop with async calls must
    have an explicit comment on why it's sequential or parallel.
 3. **Shared mutable cache/map accessed from multiple async contexts
    without a lock**, e.g. two observer callbacks both doing

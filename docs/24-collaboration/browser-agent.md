@@ -62,6 +62,7 @@ this document adds what NOVA can now *do* with that observation and
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-09-browser-and-vision.md` — failure modes for this subsystem
 - `docs/07-observers/browser.md` — capture mechanism this extends
 - `docs/04-memory/memory-architecture.md` — indexing destination
 - `docs/06-tools/execution-priority.md`, `docs/06-tools/vision.md` —

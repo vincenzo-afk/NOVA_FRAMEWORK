@@ -49,6 +49,10 @@ over time, without requiring manual configuration of favorites.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
+- `docs/30-design/command-palette.md` — the visual/grouping treatment
+  (result grouping into Actions/Screens/Recent/Memory, inline shortcut
+  display) this document's interaction model renders through
 - `ui-overview.md` — shared cross-surface conventions
 - `docs/05-ai/deterministic-first.md` — the resolution path this surface
   disproportionately exercises

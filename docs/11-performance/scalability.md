@@ -56,6 +56,7 @@ out of scope for this document.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `docs/04-memory/memory-architecture.md`, `ontology.md` — the tiering
   and schema decisions this scaling model depends on
 - `caching.md`, `concurrency.md` — complementary scaling mechanisms

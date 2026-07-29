@@ -53,6 +53,7 @@ available but requires confirmation naming every affected dependent.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `plugin-architecture.md` — the manifest schema dependencies are
   declared in
 - `plugin-versioning.md` — the version-range semantics used in resolution

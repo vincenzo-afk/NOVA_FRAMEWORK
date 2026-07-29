@@ -65,6 +65,7 @@ other device to be online to take effect locally.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `multi-device-architecture.md` — pairing and identity this builds on
 - `docs/10-security/permissions.md` — the confirmation gates remote
   commands still pass through

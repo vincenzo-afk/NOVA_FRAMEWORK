@@ -71,6 +71,7 @@ to the disclosure requirement in `docs/13-devops/recovery.md`.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/04-memory/ontology.md` — the analogous versioning model for
   Knowledge Graph schema specifically
 - `docs/04-memory/memory-storage.md` — the storage engines these

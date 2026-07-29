@@ -100,6 +100,7 @@ across a restart.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `knowledge-graph.md` — how this schema is queried
 - `entity-resolution.md` — how instances are matched against these types
 - `docs/02-architecture/architecture-decisions.md` — ADR 0002, which

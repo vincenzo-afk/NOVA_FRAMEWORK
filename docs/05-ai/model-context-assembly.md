@@ -79,6 +79,7 @@ first.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-06-context-prompt-session.md` — failure modes for this subsystem
 - `docs/05-ai/prompt-system.md` — the three-section structure this
   ordering elaborates
 - `docs/05-ai/context-builder.md` — selection and token-budget logic

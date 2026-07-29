@@ -54,6 +54,7 @@ specified in its own architecture document.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-08-code-generation-and-testing.md` — failure modes for this subsystem
 - `testing-strategy.md` — this layer's place in the overall model
 - `integration-tests.md` — the next layer up
 - `docs/14-development/module-checklist.md` — the PR-level enforcement of

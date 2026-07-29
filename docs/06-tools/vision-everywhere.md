@@ -54,6 +54,7 @@ through the identical request shape.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-09-browser-and-vision.md` — failure modes for this subsystem
 - `docs/06-tools/vision.md` — the original desktop tier and allow-list
   rule, unchanged
 - `docs/20-devices/screen-streaming.md`, `docs/20-devices/android-companion.md`

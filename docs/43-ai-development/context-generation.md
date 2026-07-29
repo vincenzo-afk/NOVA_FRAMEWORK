@@ -23,6 +23,13 @@ understanding of the architecture.
   in full, plus `docs/26-system-reference/09-version-compatibility-matrix.md`.
 - **Any task the agent is uncertain about**: `docs/25-failure-modes/INDEX.md` and `docs/45-code-perfection-failure-modes/INDEX.md` filtered to the
   relevant subsystem, read in full, not skimmed.
+- **Any task generating code that imports a package or targets a
+  runtime/framework**: the actual installed dependency versions from the
+  project's own lockfile/manifest (never a remembered or assumed version
+  from training data), per `docs/14-development/technology-stack.md`,
+  and the project's actual directory structure and existing patterns for
+  the area being touched — never assume a framework or library is in use
+  without confirming it's actually a project dependency.
 
 ## Rule: context sufficiency check
 
@@ -33,6 +40,10 @@ loaded context alone and without assumption:
    code handle each one explicitly?
 3. Who else consumes the interface I'm about to change?
 4. What is the acceptance criteria this code must satisfy?
+5. For any package/framework/library I'm about to use: is it actually a
+   dependency of this project (per its lockfile/manifest), and which
+   version, exactly — not "probably the latest" or "whatever version I
+   was trained on"?
 
 If any answer requires guessing, load more context before writing code —
 do not generate code against an assumed interface and mark it TODO.

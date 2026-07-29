@@ -57,6 +57,7 @@ Tier 3) from being exhausted by an external integration's call volume.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-27-external-api-surface.md` — failure modes for this subsystem
 - `sdk.md` — the client library wrapping this API
 - `websocket.md` — the streaming counterpart
 - `schemas.md` — full request/response schemas

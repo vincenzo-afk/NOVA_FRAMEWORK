@@ -57,6 +57,11 @@ available as an explicit user preference rather than the reverse.
 ## Related documents
 
 - `ui-overview.md` — the surfaces this system applies to
+- `docs/30-design/design-system.md` — the mechanical token system (how
+  color/spacing/typography tokens are structured and referenced) this
+  document's semantic layer is built on top of; that document covers
+  the token mechanics, this one covers what they mean for NOVA
+  specifically
 - `docs/10-security/permissions.md` — the confirmation model this design
   system renders
 - `docs/01-product/user-personas.md` — the audience this system is

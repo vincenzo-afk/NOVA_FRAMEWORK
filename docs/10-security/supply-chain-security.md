@@ -66,6 +66,7 @@ uniformly regardless of publisher trust level.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `docs/16-extensibility/plugin-marketplace.md` — the distribution and
   discovery mechanism this document secures
 - `docs/16-extensibility/plugin-dependencies.md` — the dependency

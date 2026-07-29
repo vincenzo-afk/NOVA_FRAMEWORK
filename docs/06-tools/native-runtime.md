@@ -38,7 +38,7 @@ Every characteristic above is strictly better than any lower tier for
 tasks it can cover — there is no scenario where a lower tier is preferable
 for a task Native Runtime can already perform correctly. This is why it
 sits first in `execution-priority.md`'s chain, and why new capability
-should always be implemented at this tier if feasible before falling back
+must always be implemented at this tier if feasible before falling back
 to a lower one.
 
 ## Interface
@@ -53,6 +53,7 @@ cross a process or network boundary).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `execution-priority.md` — this tier's place in the overall chain
 - `tool-interface.md` — the interface this tier implements directly
 - `docs/04-memory/memory-storage.md` — the storage layer this tier

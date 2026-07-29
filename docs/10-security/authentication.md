@@ -57,6 +57,7 @@ complexity without a corresponding benefit at this scope.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-12-security-sandbox-identity.md` — failure modes for this subsystem
 - `authorization.md` — what an authenticated party may do
 - `secrets.md` — credential storage referenced above
 - `docs/08-api/rest-api.md` — the external API this document authenticates

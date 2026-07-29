@@ -41,9 +41,10 @@ since it protects against a specific, high-consequence failure mode
 
 Clipboard-derived memory follows the same lifecycle as any other Working/
 Recent Memory content (`docs/04-memory/memory-lifecycle.md`), but with a
-shorter default retention window before summarization or expiry, given
-that clipboard content is often transient and task-specific rather than
-durably significant.
+shorter default retention window of 7 days (configurable) before
+summarization or expiry — shorter than `memory-lifecycle.md`'s general
+30-day default, given that clipboard content is often transient and
+task-specific rather than durably significant.
 
 ## Correlation with NOVA-driven copy actions
 
@@ -55,6 +56,7 @@ independent user action.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `docs/10-security/permissions.md` — the two-level permission model in

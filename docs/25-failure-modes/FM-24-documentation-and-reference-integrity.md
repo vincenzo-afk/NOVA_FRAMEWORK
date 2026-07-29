@@ -54,7 +54,7 @@ Every entry above resolves to the same underlying fix: an automated,
 CI-enforced cross-check between the document and the thing it describes
 (code, schema, another document), specified in full in
 `docs/26-system-reference/11-documentation-lint-ci.md`. Any new
-reference document added to this repository in the future should be
+reference document added to this repository in the future must be
 added to that file's Checks table with its own drift-detection mechanism
 *before* it's considered complete — a reference document with no
 corresponding drift check is, by the definition established in this

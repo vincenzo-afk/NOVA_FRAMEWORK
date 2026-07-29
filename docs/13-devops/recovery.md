@@ -56,6 +56,7 @@ restoration, and disclosure sequence above behaves exactly as documented
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-23-recovery-system-meta-failures.md` — failure modes for this subsystem
 - `backup.md` — the snapshots this recovery process restores from
 - `docs/02-architecture/lifecycle.md` — the crash-recovery sequence this
   document extends

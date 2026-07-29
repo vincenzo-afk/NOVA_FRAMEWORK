@@ -39,6 +39,7 @@ catalog itself drifting).
 | `NOVA-TL002` | Tool returned result violating declared output schema | Tools | Reject, treat as tool failure, retry/alternative | `FM-07-009` |
 | `NOVA-TL003` | Tool call arguments failed schema validation | Tools | Reject before invocation, ask model to regenerate | `FM-07-004` |
 | `NOVA-TL004` | Required binary/dependency missing | Tools | Surface install-required message | `FM-07-001` |
+| `NOVA-TL005` | PermissionDenied (OS/filesystem-level, distinct from a NOVA authorization denial) | Tools | Abort that path only; surface a specific, actionable message; do not halt the surrounding task | `docs/37-edge-cases/permission-denied-filesystem.md` |
 | `NOVA-MCP001` | MCP server unreachable | Tools/MCP | Mark capabilities unavailable, route around | `FM-07-010` |
 | `NOVA-MCP002` | MCP protocol version mismatch | Tools/MCP | Use highest mutually-supported version or disable | `FM-07-011` |
 | `NOVA-AI001` | All configured providers exhausted for a call | AI/Router | Surface explicit "all providers unavailable" | `FM-04-010` |

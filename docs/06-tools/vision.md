@@ -77,6 +77,7 @@ tier could still apply.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-09-browser-and-vision.md` — failure modes for this subsystem
 - `execution-priority.md` — this tier's place as second-to-last resort
 - `automation.md` — the input-injection mechanism following target
   identification

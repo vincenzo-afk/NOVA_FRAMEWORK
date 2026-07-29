@@ -34,6 +34,7 @@ not a trust escalation mechanism.
 {
   "plugin_id": "string, unique, reverse-domain style",
   "version": "semver string",
+  "nova_api_version_range": "semver range this plugin was built against and is compatible with (e.g. '>=5.2.0 <6.0.0') — checked at load time; a plugin whose range doesn't include the running NOVA version fails to load with a clear compatibility-mismatch message, per docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md's FM-15-006",
   "display_name": "string",
   "description": "string",
   "provided_tools": ["array of tool_id values this plugin registers"],
@@ -84,6 +85,7 @@ runtime correctness.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-19-plugin-ecosystem.md` — failure modes for this subsystem
 - `docs/08-api/sdk.md` — the tool-registration mechanism plugins use
 - `docs/06-tools/tool-interface.md` — the contract every plugin-provided
   tool must satisfy

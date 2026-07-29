@@ -22,8 +22,8 @@ envelope and delivery semantics carried over these mechanisms are
 | UI Layer ↔ core services | Internal API over the same named-pipe bus, via API Gateway | `docs/08-api/internal-api.md` |
 | External SDK/third-party consumer ↔ NOVA | REST (request/response) and WebSocket (streaming) | `docs/08-api/rest-api.md`, `websocket.md` |
 | NOVA ↔ user-configured external webhook endpoint | Outbound HTTP POST | `docs/08-api/events.md` |
-| NOVA ↔ MCP servers | MCP's own protocol (typically JSON-RPC over stdio or HTTP, per the external MCP specification) | `docs/06-tools/mcp.md` |
-| NOVA ↔ plugin processes | Same tool-invocation interface as any other tool, transport determined by the plugin's declared entry point (typically local process stdio or a local socket) | `docs/16-extensibility/plugin-sandboxing.md` |
+| NOVA ↔ MCP servers | MCP's own protocol: JSON-RPC over stdio (local server) or Streamable HTTP (remote server), selected deterministically per `docs/06-tools/mcp.md`'s Transport section | `docs/06-tools/mcp.md` |
+| NOVA ↔ plugin processes | Same tool-invocation interface as any other tool, over a dedicated named pipe established at spawn time (never stdio, never a raw socket) per `docs/16-extensibility/plugin-sandboxing.md`'s Process communication transport section | `docs/16-extensibility/plugin-sandboxing.md` |
 | Persistent storage access (Memory, Knowledge Graph) | Direct storage-engine client libraries (SQLite/Postgres driver, embedded graph database client, vector database client) — not IPC in the network sense, since these are embedded or local-process storage engines | `docs/04-memory/memory-storage.md` |
 
 ## Why not gRPC for inter-service communication

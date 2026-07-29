@@ -45,7 +45,7 @@ auto-resolves to "accept."
 Roll back the partial graph mutation (transactional write, per
 `persistence.md`) → retry once → if it still fails, the triggering task
 is marked degraded (memory not updated) but is not itself failed,
-since a Memory Manager outage should not block unrelated task progress.
+since a Memory Manager outage must not block unrelated task progress.
 
 ### Plugin Host: plugin fails to load or crashes
 
@@ -62,7 +62,7 @@ guarantee** carried through the recovery.
 |---|---|---|---|
 | Power loss | Last durable checkpoint | Resume from checkpoint on restart; no partial writes replayed twice | Durable store: strong (transactional); in-flight state: lost, by design |
 | Process crash | Last durable checkpoint | Runtime Manager restarts the service (`service-lifecycle.md`); Task resumes at last confirmed step | Strong for committed state |
-| Network failure | Last successfully synced state | Queue operations locally, degrade to `deterministic-first.md` local mode, sync on reconnect | Eventually consistent across devices during the outage |
+| Network failure | Last successfully synced state | Queue operations locally per the event bus's at-least-once delivery (`docs/02-architecture/communication-model.md`); AI-capability calls fail over to a local provider per `docs/18-providers/provider-routing.md`'s Offline Fallback section; sync on reconnect | Eventually consistent across devices during the outage |
 | Disk full | Last write that succeeded before the failure | Reject new writes with a specific error, do not corrupt existing data, alert the user | Strong (writes either fully succeed or are rejected, never partial) |
 | Model/provider unavailable | N/A — no state was mutated | Fail over to next provider in `docs/05-ai/model-routing-matrix.md`, or degrade to deterministic path | Not applicable — no persisted state involved |
 | Plugin crash | Plugin's own last checkpoint, if any (host has none) | Isolate and disable; host state unaffected | Host store: unaffected; plugin's private state: undefined, plugin's responsibility |

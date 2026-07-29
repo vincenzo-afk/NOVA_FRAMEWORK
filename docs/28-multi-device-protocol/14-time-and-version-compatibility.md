@@ -24,7 +24,7 @@ NOVA version and a Phone on a different version actually sync?
 | Desktop Version | Phone Version | Can sync? | Notes |
 |---|---|---|---|
 | v5.x | v5.x (same minor) | Yes, full functionality | Standard case |
-| v5.x | v5.x (older minor, same major) | Yes, degraded | Phone may lack newer optional fields in synced records; additive-only schema changes (per `09-version-compatibility-matrix.md`'s config-schema rule, applied here to the sync-record schema) mean this degrades gracefully rather than breaking |
+| v5.x | v5.x (older minor, same major) | Yes, degraded | Phone may lack newer optional fields in synced records; additive-only schema changes (per `docs/26-system-reference/09-version-compatibility-matrix.md`'s config-schema rule, applied here to the sync-record schema) mean this degrades gracefully rather than breaking |
 | v5.x | v1.x | No | v1 predates multi-device support entirely (`docs/20-devices/multi-device-architecture.md`); no sync protocol exists on the v1 side to speak to |
 | v5.x (major N) | v5.x (major N+1, hypothetical future) | Not guaranteed | Same as the general matrix's rule: a major-version bump is not guaranteed backward-compatible absent an explicit deprecation-window commitment for the sync protocol specifically |
 

@@ -40,7 +40,7 @@ sequenceDiagram
 
 Note the mandatory `Verifying` hop before any outcome reaches the user —
 this diagram is the sequence-level view of the invariant stated in
-`04-state-transition-tables.md`'s Task/Agent table and enforced against
+`04-state-transition-tables.md`'s Task Lifecycle table and enforced against
 `FM-05-016` (false success reporting).
 
 ## Flow 2: Provider fallback chain

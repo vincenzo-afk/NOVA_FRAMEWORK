@@ -59,6 +59,7 @@ preference is stored as a visible, editable record in
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `personal-analytics.md` — the data feed this reads
 - `docs/04-memory/memory-architecture.md` — the storage substrate
 - `docs/00-overview/non-goals.md` — the "not fine-tuned" boundary this

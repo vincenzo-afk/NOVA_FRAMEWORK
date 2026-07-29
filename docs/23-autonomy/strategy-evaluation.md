@@ -113,6 +113,7 @@ re-activatable from Settings like any other saved automation
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `docs/05-ai/episodic-replay.md` — the retrieval mechanism strategies
   are promoted into or retired out of
 - `docs/23-autonomy/self-growing-capability.md` — where Composite Tool

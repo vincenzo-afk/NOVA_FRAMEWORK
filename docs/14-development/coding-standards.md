@@ -17,7 +17,7 @@ negotiables (deterministic-first, risk-tiering, execution priority) are
 
 Each service documented in `docs/03-runtime/` corresponds to one
 top-level module in the codebase, named identically (e.g., the `planner` module implements `docs/03-runtime/planner.md`) — a reader jumping from
-documentation to code should never need to guess which module
+documentation to code must never need to guess which module
 corresponds to which document.
 
 ## Structured result types, not loosely-typed returns
@@ -33,7 +33,7 @@ merely as a documented convention contributors are trusted to follow.
 Per `docs/06-tools/tool-interface.md`'s hard rule, a tool registration
 that omits its verification signal must compile/register successfully
 only into the restricted "confirmation-required-only" category — the
-type system or registration validation should make it structurally
+type system or registration validation must make it structurally
 difficult to accidentally register a tool as unattended-eligible without
 explicitly declaring a real verification signal.
 

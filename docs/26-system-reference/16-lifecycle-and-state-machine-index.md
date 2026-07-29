@@ -27,27 +27,28 @@ object's owning document.
 
 | Object | Lifecycle / states | Canonical document |
 |---|---|---|
-| Task | Idle → Thinking → Planning → Executing → Waiting → Verifying → Unverified → Completed/Failed/Cancelled (see `04-state-transition-tables.md` for the full guarded transition table — this is the canonical version; `docs/03-runtime/task-manager.md` must match it) | `04-state-transition-tables.md` |
-| Workspace | Created → Initialized → Ready → Running → Completed → Archived | `docs/28-multi-device-protocol/10-identity-and-workspace.md` |
-| Agent (Planner/Executor/Verifier instance) | Idle → Assigned → Active → Blocked → Complete/Aborted | `docs/03-runtime/runtime-manager.md` |
-| Plugin | Discovered → Installed → Loaded → Running → Suspended → Unloaded → Removed | `docs/16-extensibility/plugin-lifecycle.md` |
-| Session | Started → Active → Idle → Resumed/Expired → Ended | `docs/28-multi-device-protocol/03-session-continuity-and-handoff.md` |
+| Task | `Created` → `Planning` → (`WaitingResources`/`WaitingUser`/`Paused`) → `Executing` → `Verifying` → `Completed`/`Unverified`/`Failed` → `Retrying` → `Planning`; `Cancelled` reachable from most non-terminal states (see `docs/03-runtime/task-manager.md` for the full guarded transition table and state definitions — that document is canonical per `docs/00-overview/normative-precedence.md`; `04-state-transition-tables.md`'s Task Lifecycle table is a derived copy that must match it) | `docs/03-runtime/task-manager.md` |
+| Workspace | `Created` → `Active` ⇄ `Locked`; `Active`/`Locked` → `Recovering` → `Active` (no terminal/archived state — see owning document) | `docs/28-multi-device-protocol/10-identity-and-workspace.md` |
+| Agent instance (Planner-delegated sub-goal execution, `docs/00-overview/terminology.md`'s "Agent") | `Spawned` → `Active` ⇄ `Blocked` → `Completed`/`Aborted` | `docs/05-ai/planner-agent.md` |
+| Plugin | `Installed` → `Enabled` ⇄ `Disabled`, with `Updating`/`Deprecated` reachable from `Enabled`, terminating in `Uninstalled` | `docs/16-extensibility/plugin-lifecycle.md` |
+| Session (conversation/chat) | `Active` ⇄ `Idle` (idle timeout / new message), `Idle` → `Expired` (extended idle timeout), `Expired` → `Active` (new message starts a new session, prior one linked) — conversation-session timeout only, never affects an in-progress Task's own state | `docs/26-system-reference/04-state-transition-tables.md`'s Session table (canonical for these states; grounded in `FM-06-019`/`FM-06-020`). This row previously cited `docs/28-multi-device-protocol/03-session-continuity-and-handoff.md`, a different concept (cross-device handoff mechanics) — that citation was wrong and has been corrected. |
 | Checkpoint | Created → Valid → Superseded → (never mutated in place) | `docs/03-runtime/failure-recovery.md`, `system-invariants.md` |
 | Memory Entry | Created → Indexed → Reinforced/Superseded → Archived/Deleted | `docs/04-memory/memory-lifecycle.md` |
-| Permission Request | Requested → Pending → Approved/Denied → Expired | `docs/10-security/permissions.md` |
+| Permission Request | `Requested` → `Approved`/`Denied` (timeout resolves into `Denied`; no separate `Pending`/`Expired` state) | `docs/03-runtime/permission-manager.md`'s Permission Request states section (the runtime mechanism; `docs/10-security/permissions.md` is the policy this mechanism enforces, not the state machine's owner) |
 | Event | Published → Delivered → Acknowledged/Retried → Dead-lettered | `docs/26-system-reference/07-event-catalog.md` |
-| Device (multi-device) | Discovered → Pairing → Paired → Active/Offline → Unpaired | `docs/28-multi-device-protocol/02-device-pairing-protocol.md` |
+| Device (multi-device) — two independent dimensions, not one chain | **Trust:** `Unpaired` → (pairing sequence: Pair Code generated → QR scanned → Challenge/Response → Keys exchanged) → `Trusted`/`Paired` → `Unpaired` (on removal). **Presence** (only meaningful once Paired): `Online` ⇄ `Idle` ⇄ `Busy` ⇄ `Syncing` ⇄ `Updating` ⇄ `Sleeping` ⇄ `Offline` | Trust: `docs/28-multi-device-protocol/02-device-pairing-protocol.md`. Presence: `docs/28-multi-device-protocol/04-presence-and-capabilities.md`'s Presence states table (canonical for these exact 7 names — this row previously invented a different, simplified chain that matched neither source) |
 
 ## Objects without a previously dedicated state machine
 
-The following were implicitly covered by their owning document's prose
-but lacked an explicit state list; captured here for completeness and
-should be promoted into their owning document on next revision:
+**Permission Request** has been promoted into its owning document
+(`docs/03-runtime/permission-manager.md`'s Permission Request states
+section) as of this revision — no longer just reconstructed here.
 
-- **Permission Request** — states above were reconstructed from
-  `docs/10-security/permissions.md`'s request/response flow.
-- **Session** — states above were reconstructed from
-  `docs/28-multi-device-protocol/03-session-continuity-and-handoff.md`.
+**Session** (conversation/chat) is resolved via
+`docs/26-system-reference/04-state-transition-tables.md`'s Session
+table, grounded in `FM-06-019`/`FM-06-020` — this row's earlier citation
+to the multi-device handoff document was simply wrong (different
+concept) and has been corrected to point to the real source instead.
 
 ## Rule for new objects
 

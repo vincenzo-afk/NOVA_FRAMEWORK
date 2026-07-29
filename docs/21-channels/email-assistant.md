@@ -61,6 +61,7 @@ specific feature explicitly requires more and discloses why.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-11-internet-and-external-apis.md` — failure modes for this subsystem
 - `docs/18-providers/credential-management.md` — OAuth handling
 - `docs/10-security/permissions.md` — the confirmation gate on sends
 - `calendar-assistant.md` — the frequently-paired scheduling capability

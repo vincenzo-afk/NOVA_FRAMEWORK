@@ -55,6 +55,7 @@ the minor-version-compatible handling required there.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this subsystem
 - `docs/02-architecture/event-driven-architecture.md` — general event
   model this taxonomy specializes
 - `observer-framework.md` — the source index this taxonomy details

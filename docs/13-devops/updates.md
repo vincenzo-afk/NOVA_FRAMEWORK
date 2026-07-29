@@ -45,12 +45,16 @@ If an update is found to cause a regression (detected via the monitoring
 described in `monitoring.md` or reported by the user), the previous
 version can be reinstalled; because schema migrations are forward-only
 (`docs/04-memory/ontology.md`), a rollback to a prior software version
-while retaining post-migration data is not generally supported — the
-recommended rollback path is restoring from the pre-update backup
-(`backup.md`) taken automatically before the migration step above runs.
+while retaining post-migration data is not supported, with no exception — schema migrations are forward-only, per
+`docs/04-memory/ontology.md`, so there is no mechanism to selectively
+un-apply a migration while keeping data written under it. The only
+supported rollback path is restoring from the pre-update backup
+(`backup.md`) taken automatically before the migration step above runs,
+which necessarily reverts data to its pre-migration state as well.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-20-deployment-and-evolution.md` — failure modes for this subsystem
 - `docs/02-architecture/lifecycle.md` — the shutdown/restart sequence
   this update process follows
 - `docs/04-memory/ontology.md`, `memory-storage.md` — schema migration

@@ -69,6 +69,7 @@ compliance (`docs/11-performance/benchmarks.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-15-architecture-runtime-lifecycle-events.md` — failure modes for this subsystem
 - `docs/05-ai/capability-registry.md` — where maturity tags are surfaced
   for capability discovery
 - `docs/08-api/versioning.md` — the analogous deprecation approach for

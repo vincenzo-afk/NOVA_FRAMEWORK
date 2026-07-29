@@ -52,6 +52,7 @@ accumulated confidence.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-22-user-interaction-and-analytics.md` — failure modes for this subsystem
 - `docs/04-memory/retrieval-engine.md`, `timeline.md` — the underlying
   data sources
 - `docs/04-memory/memory-ranking.md` — confidence scores shown per record

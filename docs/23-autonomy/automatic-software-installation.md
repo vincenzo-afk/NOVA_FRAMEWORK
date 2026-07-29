@@ -61,6 +61,7 @@ NOVA can provide an internal capability for).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-18-autonomy-policy-approval.md` — failure modes for this subsystem
 - `autonomous-plugin-discovery.md` — the NOVA-internal-plugin counterpart
 - `docs/10-security/supply-chain-security.md` — source-verification rules
 - `docs/06-tools/execution-priority.md` — automation-over-GUI ordering

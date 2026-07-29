@@ -52,6 +52,7 @@ that produces these proposals.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-07-tool-execution-and-mcp.md` — failure modes for this subsystem
 - `docs/06-tools/mcp.md` — protocol, discovery, and trust boundary
 - `docs/06-tools/tool-registry.md` — where connected servers' tools land
 - `docs/23-autonomy/autonomous-plugin-discovery.md` — self-initiated

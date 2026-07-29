@@ -49,6 +49,7 @@ away" to be answered from actual observed data.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-10-desktop-android-distributed-sync.md` — failure modes for this subsystem
 - `docs/03-runtime/observer.md` — the shared framework this source
   implements
 - `clipboard.md` — the analogous two-level permission pattern

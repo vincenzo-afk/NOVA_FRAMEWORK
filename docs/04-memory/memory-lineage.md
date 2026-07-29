@@ -76,6 +76,7 @@ provenance even after the underlying detail has been reclaimed.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `docs/04-memory/memory-confidence.md` — confidence scoring, informed by
   lineage
 - `docs/04-memory/entity-resolution.md` — the merge/split operations this

@@ -30,7 +30,7 @@ Given `nova explain NOVA-AI001`, the command:
 4. Suggests the concrete next command (e.g., `nova repair`, `nova provider test <name>`) most likely to resolve it.
 
 This is the CLI's most direct expression of the principle behind the
-entire `docs/25-failure-modes/` catalog: every failure should be
+entire `docs/25-failure-modes/` catalog: every failure must be
 explainable, not just loggable.
 
 ## `nova replay` in detail

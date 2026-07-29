@@ -59,6 +59,7 @@ concept.
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-16-resource-management-and-performance.md` — failure modes for this subsystem
 - `docs/03-runtime/scheduler.md`, `resource-manager.md` — the primary
   mechanisms this document indexes
 - `docs/05-ai/planner-agent.md` — agent instance concurrency

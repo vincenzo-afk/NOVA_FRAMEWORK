@@ -6,9 +6,9 @@ Governs the boundary between what NOVA does on its own and what it must ask perm
 
 ## Scope & Related Documents
 
-This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It should be read alongside:
+This file is part of `docs/25-failure-modes/`, the project-wide failure-mode catalog. It must be read alongside:
 
-- `docs/23-autonomy/self-growing-capability.md` - `docs/23-autonomy/background-life-assistant.md` - `docs/23-autonomy/strategy-evaluation.md`
+- `docs/23-autonomy/self-growing-capability.md` - `docs/23-autonomy/background-life-assistant.md` - `docs/23-autonomy/strategy-evaluation.md` - `docs/05-ai/escalation-rules.md` - `docs/23-autonomy/adaptive-personalization.md` - `docs/23-autonomy/automatic-software-installation.md` - `docs/23-autonomy/autonomous-plugin-discovery.md` - `docs/23-autonomy/goal-tracking.md`
 
 ## Failure Catalog
 
@@ -37,7 +37,7 @@ Each failure is assigned a stable ID (`FM-18-0XX`) for cross-referencing from co
 
 Notes on how failures in this file interact with failures elsewhere in this catalog — read these before assuming a bug is isolated to one subsystem.
 
-- Every 'acts without approval' incident should be treated as a Policy Engine gap, not just an isolated agent misbehavior — if the action shouldn't have happened autonomously, the policy that should have caught it needs to be fixed, not just the specific agent instance patched.
+- Every 'acts without approval' incident must be treated as a Policy Engine gap, not just an isolated agent misbehavior — if the action should not have happened autonomously, the policy that failed to catch it must be fixed, not just the specific agent instance patched.
 
 ## Severity Legend
 

@@ -49,14 +49,14 @@ simplified language throughout the UI, and guardrails against
 misinterpreting NOVA's capabilities, are out of scope for v1 by design —
 see `docs/00-overview/non-goals.md`. Any UX decision that would improve
 the experience for this deferred persona at the cost of friction or
-complexity for the primary personas above should be rejected for the
+complexity for the primary personas above must be rejected for the
 current phase.
 
 ## How these personas are used
 
 Every entry in `use-cases.md` and `user-journeys.md` is written against
 one or more of the primary personas above. A proposed feature that does
-not clearly serve one of these four should be treated as a Phase 5
+not clearly serve one of these four must be treated as a Phase 5
 candidate, not folded into the current scope.
 
 ## Related documents

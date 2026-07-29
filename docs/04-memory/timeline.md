@@ -59,6 +59,7 @@ in this repo last Tuesday" (`docs/01-product/use-cases.md`).
 
 ## Related documents
 
+- `docs/25-failure-modes/FM-01-memory-and-knowledge-graph.md` — failure modes for this subsystem
 - `memory-lifecycle.md` — how records enter and age through the tiers
   Timeline Memory indexes across
 - `memory-ranking.md` — how recency is weighted during general retrieval
