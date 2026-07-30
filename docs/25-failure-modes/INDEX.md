@@ -40,7 +40,6 @@ This folder is NOVA's project-wide failure-mode catalog: every place the system 
 | [`FM-25-cli-infrastructure.md`](FM-25-cli-infrastructure.md) | CLI Infrastructure — failures across `docs/27-cli/`'s bootstrap, health, dev, AI-developer-tool, observability, SDK, and CI commands |
 | [`FM-26-multi-device-protocol.md`](FM-26-multi-device-protocol.md) | Multi-Device Protocol — failures across `docs/28-multi-device-protocol/`'s sync, pairing, handoff, networking, state, permissions, and recovery documents |
 | [`FM-27-external-api-surface.md`](FM-27-external-api-surface.md) | NOVA's Own External API Surface — REST, WebSocket, SDK, webhooks, and the versioning contract across `docs/08-api/` (the inbound direction; see FM-11 for the outbound direction) |
-| [`FM-27-external-api-surface.md`](FM-27-external-api-surface.md) | NOVA's Own External API Surface — REST, WebSocket, SDK, webhooks, and versioning for `docs/08-api/` (the inbound counterpart to FM-11's outbound-only scope) |
 
 ## Numbering Convention
 

@@ -1384,3 +1384,61 @@ integrity re-confirmed clean after this round.
 Plus one new standing deliverable
 (`docs/30-design/UI-UX-PRECISION-PLAN.md`) documenting the methodology
 and forward-looking rules for this specific documentation area.
+
+---
+
+## Self-audit: checking this session's own additions for mistakes
+
+Per explicit request to find my own errors, not just the repository's.
+Went back through this session's additions with the same scrutiny
+applied to everything else. Found **3 real mistakes**:
+
+1. **A factually wrong claim in my own `FM-27-external-api-surface.md`.**
+   FM-27-007 asserted `internal-api.md` is "bound to loopback/local-IPC
+   only by construction" — but `internal-api.md` never describes a
+   network-loopback binding at all; it actually routes over the internal
+   Communication Bus via the API Gateway, gated by
+   `system-architecture.md`'s process-isolation model (confirmed
+   accurate on re-check — the architecture diagram there shows
+   `UI <--> GW` with no direct `UI <--> BUS` edge). I'd assumed a
+   generic "bind to loopback" pattern instead of checking what the
+   document actually said. Corrected the failure mode to describe the
+   real mechanism (process/bus-boundary enforcement, not a network
+   binding) and the real detection/mitigation that follows from it.
+2. **A duplicate row in `docs/25-failure-modes/INDEX.md`** — FM-27 had
+   been added twice, with two slightly different one-line descriptions,
+   almost certainly from an earlier tool call being applied more than
+   once without me noticing at the time. Removed the duplicate.
+3. **A citation I added (in the Workspace state-machine fix) led to a
+   real, previously-unnoticed gap**: `docs/29-product/privacy.md` cites
+   `docs/38-disaster-recovery/backup.md` for a "purges it, including
+   from backups" commitment — but `backup.md` never actually describes
+   how deletion propagates to already-existing backup snapshots. Added
+   an explicit, honest mechanism: immediate purge from the live system
+   and all future backups, with historical snapshots aging out
+   naturally within one rotation of the retention window — rather than
+   an unqualified "purges everywhere" claim with no real mechanism
+   behind it.
+
+**Checked and confirmed correct** (no changes needed): the Plugin/
+Device/Checkpoint/Permission-Request fixes from the prior round (no
+lingering references to the old wrong state names anywhere); the
+`idempotent` field addition (no other document itemizes the action
+schema in a way that would need updating); the `Startup validation`
+addition to `configuration-schema.md` (consistent with
+`02-startup-sequence.md`'s own "1. Load Config" step, not competing
+with it); bulk-inserted FM back-references across the repository
+(scripted a systematic duplicate-line check across every file that
+received one — clean).
+
+**Full re-verification after these fixes:** all references resolve, all
+78 mermaid diagrams parse cleanly.
+
+## Session grand total: 59 + 3 = 62 real issues found and fixed
+
+This count now explicitly includes 3 mistakes introduced by this same
+audit process earlier in the session, found and corrected via the same
+scrutiny applied to the original repository — worth keeping visible
+rather than quietly folding into the repository-defect count, since the
+point of this pass was specifically to hold my own work to the same
+standard.
