@@ -1442,3 +1442,57 @@ scrutiny applied to the original repository — worth keeping visible
 rather than quietly folding into the repository-defect count, since the
 point of this pass was specifically to hold my own work to the same
 standard.
+
+---
+
+## Deeper iteration: a systemic false-correspondence claim across 22 files
+
+Went looking for entities/areas not yet individually verified. Checked
+ADR staleness first (`docs/15-decisions/adr-0001` through `adr-0008`)
+against current specs — **all checked out accurate**, including a
+useful confirmation: ADR-0001's "single-user v1" scope, later amended by
+ADR-0008 to allow multi-*device* while explicitly keeping "not
+multi-*user*," directly validates the workspace-scoping fix made earlier
+this session (good independent confirmation of that reasoning, not a
+new fix).
+
+**Then found a genuinely systemic issue**: every one of the 21 subsystem
+files in `docs/36-failure-catalog/` (22 counting a near-duplicate glob
+match) ends with an identical boilerplate line: "See the corresponding
+subsystem file in `45-code-perfection-failure-modes/`..." — asserting a
+1:1 file correspondence that **structurally does not exist** for the
+large majority of them. `36-failure-catalog/` is organized by 21
+narrow subsystems (android, authentication, cache, database, desktop,
+filesystem, installation, network, recovery, runtime, security,
+telemetry, update, voice, etc.); `45-code-perfection-failure-modes/` is
+organized by only 12 much broader cross-cutting categories. Only 6 of
+the 21 have a genuine same-topic file (memory, plugin, provider, sync,
+workflow, and a loose fit for a few others); the rest — android,
+configuration, filesystem, installation, network, update, voice — have
+**no counterpart at all**, meaning every one of those files was sending
+a reader to look for a document that isn't there.
+
+Fixed all 22 by replacing the boilerplate with an accurate version:
+files with a genuine match now cite the specific real file (and note
+the directories aren't 1:1 in general); files with no match now say so
+plainly and redirect to `docs/25-failure-modes/INDEX.md` instead of
+implying a nonexistent file exists. Mapping used: `cache`/`database`/
+`migration`→`01-memory-and-state.md`; `authentication`/
+`authorization`→`05-tool-execution-and-permissions.md`;
+`desktop`→`09-ui-and-state-binding.md`; `recovery`/
+`runtime`→`04-async-and-concurrency.md`; `security`→`07-plugin-and-sandboxing.md`; `telemetry`→`11-error-handling-and-logging.md`;
+`memory`/`plugin`/`provider`/`sync`/`workflow`→their exact-name
+counterparts; `android`/`configuration`/`filesystem`/`installation`/
+`network`/`update`/`voice`→explicit no-match note.
+
+Reference-integrity reconfirmed clean across the full repository after
+this fix.
+
+## Session grand total: 62 + 22 = 84 real issues found and fixed
+
+The single largest batch this session, and arguably one of the more
+consequential — a repeated false claim across a fifth of an entire
+directory's files, of exactly the kind that wastes an implementing
+agent's time (or worse, gets silently skipped, meaning the underlying
+"is there a code-perfection checklist for this" question never actually
+gets answered) rather than causing an immediately visible error.
