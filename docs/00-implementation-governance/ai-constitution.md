@@ -76,7 +76,10 @@ A contradiction between two documents is not resolved by picking the one
 that seems more authoritative, more recent, or more convenient for the
 current task. It is reported as a documentation defect
 (`docs/26-system-reference/11-documentation-lint-ci.md`) and, if it
-blocks the current task, escalated per `ambiguity-policy.md`.
+blocks the current task, escalated per `ambiguity-policy.md`. See
+`docs/00-implementation-governance/documentation-anti-patterns.md` for
+the recurring shapes this kind of conflict actually takes — recognizing
+the pattern early is faster than discovering it mid-implementation.
 
 ### 8. If information is missing, ask instead of assuming
 

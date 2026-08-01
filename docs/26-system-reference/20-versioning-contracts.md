@@ -68,3 +68,32 @@ actual current compatibility state.
 A breaking change made without an ADR is treated as a process violation
 regardless of whether the change itself was justified, per Engineering
 Principle 1 (Contracts before code).
+
+## Atomic update checklist (applies to any field/schema/API change, breaking or not)
+
+A change to a field, schema, or API surface is not complete when the
+field itself changes — it is complete only when every one of the
+following changes in the **same commit/PR**, never as a promised
+follow-up:
+
+1. **Every documented consumer** of the changed field/schema/API (found
+   via this repository's own cross-reference citations — the same
+   citation-accuracy method used throughout this specification's own
+   audits) is updated to match, not left silently reading the old shape.
+2. **Every test** asserting against the old shape is updated; a test
+   still passing against the old field name/type after the change is a
+   sign the change didn't actually take effect somewhere, not a sign of
+   safety.
+3. **Every document describing the field/schema/API** (its own spec,
+   `docs/26-system-reference/14-data-models.md`'s entity summary if
+   applicable, `docs/08-api/schemas.md` if externally exposed) is
+   updated — a code change that ships before its documentation is
+   updated is exactly the class of drift this entire specification's
+   hardening process was built to eliminate.
+4. **`CHANGELOG.md`** records the change, including which consumers were
+   updated, per this repository's existing changelog conventions.
+
+A PR that changes a field without all four is incomplete, not
+"documentation debt to follow up on later" — per
+`docs/00-implementation-governance/definition-of-done.md`, partial
+completion is not completion.

@@ -1496,3 +1496,101 @@ directory's files, of exactly the kind that wastes an implementing
 agent's time (or worse, gets silently skipped, meaning the underlying
 "is there a code-perfection checklist for this" question never actually
 gets answered) rather than causing an immediately visible error.
+
+---
+
+## Addressing the 10-point hardening request
+
+Worked through all 10 requested gaps/angles. Checked existing coverage
+first for each (this repository already had substantial infrastructure
+for most of them) to avoid creating duplicate-authority documents —
+exactly the defect class this whole audit has been fixing — enhancing
+existing canonical files instead of adding competing new ones wherever
+a real canonical home already existed.
+
+1. **Code output contracts** — `docs/00-implementation-governance/code-generation-rules.md` and `docs/43-ai-development/coding-guidelines.md`
+   already existed and covered most of this; added the missing concrete
+   specifics (function-length guidance, magic-number/dead-code
+   prohibition, docstring-fidelity requirement) to the existing Style
+   baseline rather than a new file, and cross-referenced
+   `build-contracts.md`'s existing per-subsystem Can/Cannot/Must-never
+   lists as the actual MUST/MUST NOT reference the request asked for.
+2. **Test contract completeness** — added concrete coverage minimums
+   (100% branch coverage on every documented state-machine transition,
+   grounded directly in this audit's own finding that state-machine
+   drift was the largest defect category), a mandatory negative-test-
+   case requirement tied to the real failure-mode catalog, and a
+   test-first mandate, all to `docs/12-testing/testing-strategy.md`.
+3. **AI-specific code review checklist** — `docs/43-ai-development/review-checklist.md` already existed; added the 5 specific missing items
+   (hallucinated imports, stubbed functions, mixed concerns, docstring
+   fidelity, hardcoded credentials/paths) rather than creating a
+   competing file.
+4. **Schema completeness pass** — checked `docs/06-tools/`, `docs/08-api/`, `docs/16-extensibility/` schemas against their real usage.
+   Found and fixed a real ripple effect from this session's earlier
+   Plugin state-machine fix: `extension-contracts.md` still described a
+   `suspend` lifecycle hook that no longer exists in the corrected
+   `plugin-lifecycle.md`. `docs/08-api/schemas.md`'s Task status enum
+   and `tool-registry.md`'s delegation to `tool-interface.md` both
+   checked out already consistent.
+5. **Security hardening** — found and fixed two real gaps: no explicit
+   path-canonicalization/containment-check requirement existed anywhere
+   (a real path-traversal exposure for any folder-scoped permission),
+   added to `docs/10-security/permissions.md`; and the least-privilege
+   principle for agent-instance tool allowlists existed as a mechanism
+   but was never named as a principle, now made explicit in
+   `docs/05-ai/planner-agent.md`. Confirmed CLI shell-injection
+   prevention and prompt-injection handling were already solid
+   (`docs/06-tools/cli.md`'s parameter-binding section,
+   `docs/10-security/threat-model.md`'s Threat 1).
+6. **Performance budgets per module** — found real, grounded numbers
+   already existed (`<2s`/`<5s` command latency targets, `<3%`/`<600MB`
+   idle budget) but the per-service memory breakdown was qualitative
+   only. Rather than fabricate specific per-service MB numbers with no
+   basis, made the requirement itself hard (every service must have
+   *some* explicit, individually-enforced ceiling summing to the real
+   aggregate) while being honest that the specific per-service split is
+   implementation-tuned, consistent with this audit's established
+   non-fabrication discipline.
+7. **Versioning/migration contracts** — `docs/26-system-reference/20-versioning-contracts.md` had one atomicity rule (the compatibility
+   matrix); added a general Atomic update checklist covering consumers,
+   tests, docs, and changelog together for any field/schema/API change.
+8. **AGENTS.md / CLAUDE.md / CURSOR.md** — created. `AGENTS.md` is
+   canonical, containing the highest-value distilled rules (including
+   several drawn directly from this session's own real findings, e.g.
+   the mandatory `idempotent` field and the six-entity state-machine-
+   drift pattern); `CLAUDE.md` and `CURSOR.md` are thin pointers to it,
+   matching the same pointer pattern already established by the
+   repository's own root `CONSTITUTION.md`, to avoid triplicating
+   content that would then need to be kept in sync manually.
+9. **Machine-readable dependency graph** — created
+   `docs/02-architecture/dependency-graph.json`, transcribed from
+   `dependency-map.md`'s mermaid diagram and verified programmatically
+   (topological sort confirms zero cycles, valid JSON). Cross-referenced
+   from the prose source with an explicit staleness-precedence note.
+10. **Anti-pattern catalog** — `docs/14-development/anti-patterns.md`
+    already existed but was scoped to code-implementation mistakes only.
+    Created a distinct, cross-referenced
+    `docs/00-implementation-governance/documentation-anti-patterns.md`
+    covering the actual recurring *documentation*-defect patterns this
+    audit found (state-machine invention, wrong-content citations, stale
+    "must read alongside" lists, copy-pasted false cross-references,
+    unmapped display-state simplifications, fabricated numeric
+    precision, undeclared duplicate-topic documents, missing schema
+    fields a citation depends on) — each with a real example from this
+    session, as requested, and cross-referenced from
+    `ai-constitution.md`'s Rule 7.
+
+**Project flow docs check**: spot-checked `docs/31-user-flows/workflow-builder-flow.md` and the workflow-adjacent edge-case docs
+(`workflow-loop.md`, `workflow-timeout.md`) against `workflow-engine.md`
+— all citations verified accurate, no fixes needed there.
+
+Final verification: `dependency-graph.json` is valid JSON and a
+confirmed-acyclic graph; all references across the repository resolve;
+all 78 mermaid diagrams still parse cleanly.
+
+## Session grand total: 84 + 6 = 90 real issues found and fixed
+
+Plus 4 new standing deliverables this round (`AGENTS.md`, `CLAUDE.md`,
+`CURSOR.md`, `dependency-graph.json`,
+`documentation-anti-patterns.md` — five files) and substantial additions
+to 7 existing canonical documents rather than competing new ones.

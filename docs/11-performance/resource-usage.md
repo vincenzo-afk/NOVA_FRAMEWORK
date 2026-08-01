@@ -15,12 +15,26 @@ Resource budget allocation and enforcement. Summary targets are
 ## Idle budget allocation
 
 At idle (no active task), the combined budget across all supervised
-services is under 3% CPU and under 600MB RAM. Approximate allocation:
-Observer services (event capture, minimal processing) — the largest
-idle-time share, since they run continuously; Memory and Knowledge Graph
-services — moderate, mostly serving occasional background indexing;
-Runtime Manager, Scheduler, Task Manager, State Manager — minimal at
-idle, since there is no active task to manage.
+services is under 3% CPU and under 600MB RAM — this aggregate ceiling is
+the hard, enforced contract. Per-service allocation within that ceiling
+is **IMPLEMENTATION-DEFINED**: each supervised service (Observer
+services, Memory/Knowledge Graph, Runtime Manager, Scheduler, Task
+Manager, State Manager) must have its own configured RAM ceiling that
+the Runtime Manager enforces individually (per the Self-monitoring
+section below), and those individual ceilings must sum to no more than
+the 600MB aggregate — but the specific number assigned to each service
+is an implementation-tuning parameter set empirically against real
+profiling data, the same class of deliberate non-fabrication as
+`docs/04-memory/memory-confidence.md`'s coefficients, not invented here
+before that data exists. What is NOT implementation-defined: every
+service must have *some* explicit, enforced individual ceiling — "the
+services share a pool with no per-service limit" is not a valid reading
+of this budget, since that would let one runaway service silently
+consume the entire aggregate before the aggregate check ever fires.
+Qualitatively, Observer services take the largest idle-time share
+(continuous event capture); Memory/Knowledge Graph services are
+moderate (occasional background indexing); Runtime Manager, Scheduler,
+Task Manager, and State Manager are minimal at idle.
 
 ## Active-task budget
 

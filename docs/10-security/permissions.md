@@ -37,6 +37,20 @@ granularity levels (metadata-only vs. content capture, per
 Filesystem observation is additionally scoped per folder, not
 filesystem-wide (`docs/07-observers/filesystem.md`).
 
+## Path containment enforcement
+
+Any component checking a path against a granted folder scope (the
+Filesystem Observer above, and any tool/action that reads or writes a
+file at a model- or plugin-supplied path) resolves the path to its
+canonical, absolute form (resolving `.`, `..`, and symlinks) before
+checking containment — never comparing the raw, unresolved string
+against the granted folder path. A path containing `../` segments, or a
+symlink pointing outside the granted folder, is rejected as
+out-of-scope, not silently followed. This is a hard requirement, not an
+implementation detail left implicit: a path-scope check performed on an
+unresolved string is not a real containment check and must not be
+treated as satisfying this permission model.
+
 ## The permission center
 
 All permission grants — observation sources, execution confirmation

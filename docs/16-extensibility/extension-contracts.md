@@ -42,7 +42,10 @@ its own contract says.
   `19-ordering-concurrency-and-retry-rules.md`'s limits.
 - **Lifecycle** — which lifecycle hooks
   (`docs/16-extensibility/plugin-lifecycle.md`) the plugin implements
-  (install, update, suspend, uninstall) and what each does.
+  (install, enable, disable, update, uninstall — matching that
+  document's actual state names exactly; a plugin manifest using
+  different terminology such as "suspend" is a validation failure, not
+  a synonym) and what each does.
 - **Isolation** — explicit confirmation of what this plugin cannot
   reach: other plugins' state, core internals, and storage outside its
   own namespace (inherited from `extension-points.md`, restated here per

@@ -10,6 +10,14 @@ it holds long-lived private user data and takes real-world actions.
 
 ## Non-negotiable rules
 
+Per-subsystem MUST/MUST NOT boundaries (e.g., "the Executor never reads
+Memory directly," "the Plugin Host never grants a capability not
+explicitly approved") are catalogued exhaustively in
+`docs/26-system-reference/15-build-contracts.md`'s Can/Cannot/Must-never
+lines for every major component — read the target subsystem's entry
+there before writing code against it. The rules below are cross-cutting
+ones that apply regardless of which subsystem is being touched.
+
 1. **Every function that can fail must return a typed result, never throw
    past its own module boundary uncaught.** NOVA is a long-running
    background process — an uncaught exception in one observer must not
@@ -56,8 +64,28 @@ it holds long-lived private user data and takes real-world actions.
 ## Style baseline
 
 - Small, single-purpose functions; a function that both fetches and
-  mutates state is a refactor target, not a pattern.
+  mutates state is a refactor target, not a pattern. Concretely: a
+  function longer than ~40 lines (excluding its own docstring/comments)
+  is a signal to split it, not a hard limit on its own — but if it
+  can't be described in one sentence without "and," it's doing more
+  than one thing and should be split regardless of line count.
+- No magic numbers or strings — a literal value with meaning beyond its
+  immediate local use (a risk tier, a timeout, a status string, a state
+  name) is a named constant referencing the doc it comes from, never a
+  bare literal repeated across call sites. A raw `"pending"` string
+  compared for equality in three different files is exactly the class
+  of drift this entire specification's audits keep finding — one
+  canonical constant, imported everywhere.
+- No dead code — no unreachable branch, no unused import, no
+  commented-out block left "in case we need it later." If it's worth
+  keeping, it's worth a tracked `docs/14-development/technical-debt.md`
+  entry with a real plan, not a silent comment nobody will revisit.
 - Comments explain *why*, not *what* — the code must read the *what*.
 - Every public interface (tool, service method, event shape) is
   documented in the corresponding `docs/` file *before* the code is
   written, and the code cites the doc in a header comment.
+- Every public function's docstring describes what it *actually does*
+  at the moment the docstring is read, not what it did on an earlier
+  revision — a stale docstring is treated as a defect with the same
+  severity as a stale code comment, per
+  `docs/43-ai-development/review-checklist.md`.

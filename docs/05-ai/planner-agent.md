@@ -29,13 +29,20 @@ as a pitch narrative, which is not an engineering concern.
 ## Agent instance configuration
 
 Each agent instance, when spawned for a task or sub-task, is configured
-with:
+with the minimum scope that task actually requires — the principle of
+least privilege applied per-instance, not just per-user: a "summarize
+this document" agent instance never receives filesystem-write tools in
+its allowlist, even if the user's own standing permissions would allow
+it, because the task at hand doesn't need them. Configuration:
 
 - **Task scope** — the specific goal or sub-goal it is responsible for.
 - **Tool allowlist** — the subset of the Tool Registry
   (`docs/06-tools/tool-registry.md`) it is permitted to invoke, enforced
   independently by the Permission Manager
-  (`docs/03-runtime/permission-manager.md`).
+  (`docs/03-runtime/permission-manager.md`), populated with only the
+  tools the current task's plan actually calls for — never the full set
+  the user has standing permission for, and never widened "just in
+  case" a later step might need more.
 - **System prompt template** — selected from the Prompt System
   (`prompt-system.md`) based on task type (e.g., a summarization-scoped
   prompt vs. a file-operation-scoped prompt).

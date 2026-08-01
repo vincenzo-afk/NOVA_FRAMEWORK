@@ -72,6 +72,52 @@ checklist without coverage at that layer; "Optional" means coverage is
 valuable but not a merge-blocking requirement, left to reviewer judgment
 per the specific change's risk.
 
+## Coverage minimums for state-transition logic
+
+Beyond the required/optional layers above, any code implementing a
+state machine (Task, Agent, Workspace, Plugin, Provider, Session, or any
+future entity in
+`docs/26-system-reference/16-lifecycle-and-state-machine-index.md`)
+requires **100% branch coverage on every documented transition** — every
+edge in the entity's canonical state diagram has at least one test that
+exercises it, and every documented illegal transition has at least one
+test confirming it is rejected. This is a stricter bar than the general
+unit-test requirement above and is non-negotiable: state-machine drift
+between documentation and implementation was, empirically, the single
+largest category of defect found during this specification's own
+hardening audit — the same failure mode, in code
+instead of docs, is exactly what this coverage minimum exists to catch
+before it ships.
+
+## Negative test cases are mandatory, not optional extras
+
+A component's test suite is not "done" once its happy-path and one
+error case pass. For every documented failure mode that applies to a
+component (its entries in `docs/25-failure-modes/` and
+`docs/45-code-perfection-failure-modes/`), there is at least one test
+that exercises that *exact* failure input or condition — not a
+generic "throws an error" assertion, but the specific trigger condition
+from the failure-mode table. An AI agent generating tests defaults to
+happy-path-plus-one-error-case unless explicitly required to do
+otherwise; this section is that explicit requirement. A component
+missing a test for a documented, applicable failure mode fails
+`docs/43-ai-development/review-checklist.md`'s Failure mode coverage
+check, and is not merge-eligible regardless of how much happy-path
+coverage exists.
+
+## Tests before code
+
+For any new component, endpoint, or state-machine transition, the test
+for that unit is written and confirmed to fail (for the right reason —
+"not yet implemented," not a typo in the test itself) before the
+implementation is written. This is not a style preference: writing the
+test first is what forces the acceptance criteria
+(`docs/43-ai-development/acceptance-criteria.md`) to be made concrete
+and checkable before implementation choices are made that quietly
+narrow what "correct" means. Implementation-first, tests-added-after
+is permitted only for exploratory spikes explicitly marked as such and
+discarded or rewritten test-first before merge — never shipped directly.
+
 ## Every layer maps to a component's acceptance criteria
 
 Per `validation.md`, no component is considered complete until it has

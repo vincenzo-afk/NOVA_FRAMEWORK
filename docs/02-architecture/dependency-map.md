@@ -94,3 +94,8 @@ callback.
 - `service-architecture.md` — the responsibilities of each node above
 - `docs/14-development/implementation-order.md` (Tier 3) — build-time
   sequencing informed by this same graph
+- `docs/02-architecture/dependency-graph.json` — a machine-readable
+  derivative of this exact graph, for an AI agent to programmatically
+  verify a new dependency doesn't introduce a cycle before writing code
+  against it. This document remains canonical; the JSON file must be
+  updated to match in the same change if this graph changes.

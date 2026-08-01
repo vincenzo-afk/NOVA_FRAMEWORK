@@ -34,3 +34,32 @@ code generated against these docs, beyond generic code review.
    added already exists elsewhere (a second date-parsing routine, a
    second retry loop) — NOVA's failure-mode docs exist precisely because
    duplicated ad-hoc logic is where inconsistent error handling creeps in.
+9. **No hallucinated imports or APIs** — every import resolves to a real,
+   installed package at the version declared in
+   `docs/14-development/technology-stack.md`; every method/field called
+   on it exists in that package's real API, not a plausible-sounding one
+   the model inferred from similar libraries. Verify against the actual
+   installed package, not from training-data memory of a similar-looking
+   API.
+10. **No stubbed functions left as the deliverable** — a function body
+    that is `pass`, `// TODO`, `throw new Error("not implemented")`, or
+    equivalent is not "complete," regardless of what the PR description
+    claims. `docs/00-implementation-governance/definition-of-done.md`
+    does not permit partial implementations presented as done.
+11. **Single responsibility per function** — a function that both
+    fetches and mutates state, or that branches into materially
+    different behaviors based on a flag, is a refactor target flagged
+    here, not approved as-is, per `coding-guidelines.md`'s Style
+    baseline.
+12. **Docstring/comment fidelity** — every public function's docstring
+    describes what the function *actually does*, not what it was
+    originally intended to do before the implementation changed during
+    development. A stale docstring is a defect, not a nitpick — it's a
+    False documentation claim the next reader (human or AI) will trust.
+13. **No hardcoded credentials, paths, or environment assumptions** — no
+    literal API key, file path outside the documented storage layout
+    (`docs/13-devops/storage-layout.md`), or OS-specific assumption
+    (e.g., a bare `/` or `\` path separator) that would break on a
+    different platform or a different user's machine. Credentials are
+    always referenced via `docs/10-security/secrets.md`'s vault
+    pattern, never inlined.
